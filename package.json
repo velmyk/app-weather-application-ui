@@ -1,0 +1,10 @@
+{
+  "name": "weather-app",
+  "version": "0.1.0",
+  "description": "best-super-mega-weather-app",
+  "author": "codeBrazzers",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
