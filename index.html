@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html ng-app="app">
+	<head>
+		<!-- build:css css/vendor.css -->
+		<link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+		<!-- endbuild -->
+
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+	</head>
+	<body>
+	<div class="row" ng-controller="worldController as world">
+		<div class="col-xs-2">
+			{{ world.phrase }}
+			<button class="btn btn-danger">HELLO</button>
+		</div>
+	</div>
+		<!--build:js js/vendor.js -->
+		<script src="node_modules/angular/angular.min.js"></script>
+		<!-- endbuild -->
+
+		<!--build:js js/main.js -->
+		<script src="app/app.module.js"></script>
+		<script src="app/components/world/worldController.js"></script>
+		<!-- endbuild -->
+	</body>
+</html>
