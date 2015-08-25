@@ -5,6 +5,16 @@
   "author": "codeBrazzers",
   "license": "MIT",
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "angular": "^1.4.4",
+    "bootstrap": "^3.3.5",
+    "gulp": "^3.9.0",
+    "gulp-angular-dependency": "^0.2.1",
+    "gulp-angular-templatecache": "^1.7.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-concat-css": "^2.2.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4"
   }
 }
