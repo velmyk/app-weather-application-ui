@@ -1,0 +1,17 @@
+{
+  "name": "weather-app",
+  "version": "0.1.0",
+  "authors": [
+    "codeBrazzers"
+  ],
+  "description": "best-super-mega-weather-app",
+  "keywords": [
+    "angualr",
+    "gulp"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.4",
+    "bootstrap": "~3.3.5"
+  }
+}
