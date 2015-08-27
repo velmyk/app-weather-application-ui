@@ -1,34 +1,71 @@
+/* Gulp commands:
+ * - 'gulp jshint': runs jshint for .js files
+ * - 'gulp styles-dev': builds .scss to .css, makes sourcemap for .css file 
+ * - 'gulp styles-releace': builds .scss to .css, minifyes css, makes sourcemap for .css file
+ * - 'gulp build-app-dev': runs 'gulp styles' + 'gulp jshint'
+ *                         + puts into index.html dependencies of external libraries
+ *                           and frameforks
+ *                         + collects all .js files into main.js 
+ *                           and puts it into index.html.
+ * - 'gulp server': runs server with lieveReload on 'http://localhost:8080'.
+ * - 'gulp watch': watches for changes in source files.
+ * - 'gulp build-app-release': do the same as 'gulp build-app-dev'
+ *                             and uglifyes .js file.
+ * - 'gulp' : 'gulp build-app-dev'
+ *             + 'gulp server'
+ *             + 'gulp watch'.
+ * - 'gulp-release' : 'gulp build-app-release'
+ *                     + 'gulp server'
+ *                     + 'gulp watch'.
+*/
+
+
+
 var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     uglify = require('gulp-uglify'),
     connect = require('gulp-connect'),
     sass = require('gulp-sass'),
-    cssmin = require('gulp-minify-css'),
-    concat = require('gulp-concat-css'),
     useref = require('gulp-useref'),
     jshint = require('gulp-jshint'),
+    cssmin = require('gulp-minify-css'),
     sourcemaps = require('gulp-sourcemaps');
 
 var path = {
-      build: { //Тут мы укажем куда складывать готовые после сборки файлы
+      build: { //Build files
           html: 'build/',
           js: 'build/js/',
           css: 'build/css/'
       },
-      src: { //Пути откуда брать исходники
+      src: { //Source files
           html: 'src/index.html', 
           js: 'src/app/**/*.js',
           style: 'src/assets/scss/main.scss'
       },
-      watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
+      watch: { // Which files we want to watch
           html: 'src/index.html',
           js: 'src/app/**/*.js',
           style: ['src/assets/scss/main.scss', 'src/app/**/*.scss']
-      },
-      clean: './build'
+      }
 };
 
-gulp.task("build:styles", function () {
+
+gulp.task('jshint', function() {
+  return gulp.src(path.src.js)
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+});
+
+gulp.task('styles-dev', function () {
+    gulp.src(path.src.style)
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(path.build.css)) 
+        .pipe(connect.reload());
+});
+
+gulp.task('styles-release', function () {
     gulp.src(path.src.style)
         .pipe(sourcemaps.init())
         .pipe(sass())
@@ -38,7 +75,18 @@ gulp.task("build:styles", function () {
         .pipe(connect.reload());
 });
 
-gulp.task("build:app", function () {
+gulp.task('build-app-dev', ['styles-dev', 'jshint'],  function () {
+    var assets = useref.assets();
+
+    return gulp.src(path.src.html)
+               .pipe(assets)
+               .pipe(assets.restore())
+               .pipe(useref())
+               .pipe(gulp.dest(path.build.html))
+               .pipe(connect.reload());
+});
+
+gulp.task('build-app-release', ['styles-release', 'jshint'],  function () {
     var assets = useref.assets();
 
     return gulp.src(path.src.html)
@@ -50,25 +98,21 @@ gulp.task("build:app", function () {
                .pipe(connect.reload());
 });
 
-gulp.task('jshint', function() {
-  return gulp.src(path.src.js)
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'));
-});
-
-gulp.task("server:run", ["build:styles","build:app","watch", "jshint"], function () {
+gulp.task('server', function () {
 
     connect.server({
-        root: "build",
+        root: 'build',
         livereload : true
     });
-})
-
-gulp.task("watch", function () {
-    gulp.watch(path.src.html, ["build:app"]);
-    gulp.watch([path.watch.style],["build:styles","build:app"]);
-    gulp.watch(path.watch.js,["jshint", "build:app"]);
 });
 
-gulp.task("default", ["server:run"]);
+gulp.task('watch', function () {
+    gulp.watch(path.watch.html, ['build-app-dev']);
+    gulp.watch(path.watch.style,['build-app-dev']);
+    gulp.watch(path.watch.js,['build-app-dev']);
+});
+
+gulp.task('default', ['build-app-dev', 'server', 'watch']);
+
+gulp.task('release', ['build-app-release', 'server', 'watch']);
 
