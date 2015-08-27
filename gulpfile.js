@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     cssmin = require('gulp-minify-css'),
     concat = require('gulp-concat-css'),
     useref = require('gulp-useref'),
-    jshint = require('gulp-jshint');
+    jshint = require('gulp-jshint'),
+    sourcemaps = require('gulp-sourcemaps');
 
 var path = {
       build: { //Тут мы укажем куда складывать готовые после сборки файлы
@@ -17,21 +18,22 @@ var path = {
       src: { //Пути откуда брать исходники
           html: 'src/index.html', 
           js: 'src/app/**/*.js',
-          style: 'src/assets/scss/**/*.scss'
+          style: 'src/assets/scss/main.scss'
       },
       watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
           html: 'src/index.html',
           js: 'src/app/**/*.js',
-          style: 'src/assets/scss/**/*.scss'
+          style: ['src/assets/scss/main.scss', 'src/app/**/*.scss']
       },
       clean: './build'
 };
 
 gulp.task("build:styles", function () {
     gulp.src(path.src.style)
+        .pipe(sourcemaps.init())
         .pipe(sass())
-        .pipe(concat("all.min.css"))
         .pipe(cssmin())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css)) 
         .pipe(connect.reload());
 });
