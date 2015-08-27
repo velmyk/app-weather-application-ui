@@ -115,4 +115,3 @@ gulp.task('watch', function () {
 gulp.task('default', ['build-app-dev', 'server', 'watch']);
 
 gulp.task('release', ['build-app-release', 'server', 'watch']);
-
