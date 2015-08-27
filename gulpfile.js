@@ -1,11 +1,11 @@
 /* Gulp commands:
  * - 'gulp jshint': runs jshint for .js files
- * - 'gulp styles-dev': builds .scss to .css, makes sourcemap for .css file 
+ * - 'gulp styles-dev': builds .scss to .css, makes sourcemap for .css file
  * - 'gulp styles-releace': builds .scss to .css, minifyes css, makes sourcemap for .css file
  * - 'gulp build-app-dev': runs 'gulp styles' + 'gulp jshint'
  *                         + puts into index.html dependencies of external libraries
  *                           and frameforks
- *                         + collects all .js files into main.js 
+ *                         + collects all .js files into main.js
  *                           and puts it into index.html.
  * - 'gulp server': runs server with lieveReload on 'http://localhost:8080'.
  * - 'gulp watch': watches for changes in source files.
@@ -29,7 +29,9 @@ var gulp = require('gulp'),
     useref = require('gulp-useref'),
     jshint = require('gulp-jshint'),
     cssmin = require('gulp-minify-css'),
-    sourcemaps = require('gulp-sourcemaps');
+    sourcemaps = require('gulp-sourcemaps'),
+    rename = require("gulp-rename"),
+    svgSprite = require('gulp-svg-sprite');
 
 var path = {
       build: { //Build files
@@ -38,7 +40,7 @@ var path = {
           css: 'build/css/'
       },
       src: { //Source files
-          html: 'src/index.html', 
+          html: 'src/index.html',
           js: 'src/app/**/*.js',
           style: 'src/assets/scss/main.scss'
       },
@@ -61,7 +63,7 @@ gulp.task('styles-dev', function () {
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(path.build.css)) 
+        .pipe(gulp.dest(path.build.css))
         .pipe(connect.reload());
 });
 
@@ -71,7 +73,7 @@ gulp.task('styles-release', function () {
         .pipe(sass())
         .pipe(cssmin())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(path.build.css)) 
+        .pipe(gulp.dest(path.build.css))
         .pipe(connect.reload());
 });
 
@@ -115,3 +117,19 @@ gulp.task('watch', function () {
 gulp.task('default', ['build-app-dev', 'server', 'watch']);
 
 gulp.task('release', ['build-app-release', 'server', 'watch']);
+
+gulp.task('svg', function() {
+    var config = {
+        dest : '.',
+        mode : {
+             css : {
+                 dest : '.',
+                 sprite : 'svg/sprite.svg'
+                             }
+         }
+     };
+ gulp.src('assets/svg/*.svg')
+     .pipe(svgSprite(config))
+     .pipe(rename('sprite.svg'))
+     .pipe(gulp.dest('build/svg'));
+})
