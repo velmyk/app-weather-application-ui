@@ -29,7 +29,8 @@ var gulp = require('gulp'),
     useref = require('gulp-useref'),
     jshint = require('gulp-jshint'),
     cssmin = require('gulp-minify-css'),
-    sourcemaps = require('gulp-sourcemaps');
+    sourcemaps = require('gulp-sourcemaps'),
+    prefix  = require('gulp-autoprefixer');
 
 var path = {
       build: { //Build files
@@ -60,6 +61,7 @@ gulp.task('styles-dev', function () {
     gulp.src(path.src.style)
         .pipe(sourcemaps.init())
         .pipe(sass())
+        .pipe(prefix("last 2 version", "> 1%", "ie 8"))//added autoprefixer
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css)) 
         .pipe(connect.reload());
@@ -69,6 +71,7 @@ gulp.task('styles-release', function () {
     gulp.src(path.src.style)
         .pipe(sourcemaps.init())
         .pipe(sass())
+        .pipe(prefix("> 1%"))
         .pipe(cssmin())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css)) 
