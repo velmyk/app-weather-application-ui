@@ -37,17 +37,20 @@ var path = {
       build: { //Build files
           html: 'build/',
           js: 'build/js/',
-          css: 'build/css/'
+          css: 'build/css/',
+          svg: 'build/svg/'
       },
       src: { //Source files
           html: 'src/index.html',
           js: 'src/app/**/*.js',
-          style: 'src/assets/scss/main.scss'
+          style: 'src/assets/scss/main.scss',
+          svg: 'src/assets/svg/*.svg'
       },
       watch: { // Which files we want to watch
           html: 'src/index.html',
           js: 'src/app/**/*.js',
-          style: ['src/assets/scss/main.scss', 'src/app/**/*.scss']
+          style: ['src/assets/scss/main.scss', 'src/app/**/*.scss'],
+          svg: 'src/assets/svg/*.svg'
       }
 };
 
@@ -77,7 +80,7 @@ gulp.task('styles-release', function () {
         .pipe(connect.reload());
 });
 
-gulp.task('build-app-dev', ['styles-dev', 'jshint'],  function () {
+gulp.task('build-app-dev', ['styles-dev', 'svg', 'jshint'],  function () {
     var assets = useref.assets();
 
     return gulp.src(path.src.html)
@@ -88,7 +91,7 @@ gulp.task('build-app-dev', ['styles-dev', 'jshint'],  function () {
                .pipe(connect.reload());
 });
 
-gulp.task('build-app-release', ['styles-release', 'jshint'],  function () {
+gulp.task('build-app-release', ['styles-release', 'svg', 'jshint'],  function () {
     var assets = useref.assets();
 
     return gulp.src(path.src.html)
@@ -112,6 +115,7 @@ gulp.task('watch', function () {
     gulp.watch(path.watch.html, ['build-app-dev']);
     gulp.watch(path.watch.style,['build-app-dev']);
     gulp.watch(path.watch.js,['build-app-dev']);
+    gulp.watch(path.watch.svg,['build-app-dev']);
 });
 
 gulp.task('default', ['build-app-dev', 'server', 'watch']);
@@ -128,8 +132,8 @@ gulp.task('svg', function() {
                              }
          }
      };
- gulp.src('assets/svg/*.svg')
+ gulp.src(path.src.svg)
      .pipe(svgSprite(config))
      .pipe(rename('sprite.svg'))
-     .pipe(gulp.dest('build/svg'));
+     .pipe(gulp.dest(path.build.svg));
 })
