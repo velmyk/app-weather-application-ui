@@ -7,18 +7,24 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 	</head>
 	<body>
-	<div class="row" ng-controller="homeController as home">
-		<div class="col-xs-2">
-			{{ home.phrase }}
-			<button class="btn btn-danger">Bootstrap_Test</button>
-		</div>
+	<div class="container" ng-controller="homeController as home">
+		<div class="row current-location" current-location><!--location label-->
+      		
+   		</div>
+
+   		<div class="row" wind-humidity><!--location label-->
+      		
+   		</div>
 	</div>
 		<!--build:js js/vendor.js -->
 		<script src="../bower_components/angular/angular.min.js"></script>
 		<!-- endbuild -->
 		<!--build:js js/main.js -->
 		<script src="app/app.module.js"></script>
+		<script src="app/components/home/homeService.js"></script>
 		<script src="app/components/home/homeController.js"></script>
+		<script src="app/shared/locationDirective.js"></script>
+		<script src="app/shared/additionalInfoDirective.js"></script>
 		<!-- endbuild -->
 	</body>
 </html>
