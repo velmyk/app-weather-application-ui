@@ -6,6 +6,6 @@ function windHumidity() {
     return {
         restrict:"E",
         replace: true,
-        templateUrl: "../views/windHumidityView.html"
+        templateUrl: "shared/windHumidity/windHumidityView.html"
     };
 }
