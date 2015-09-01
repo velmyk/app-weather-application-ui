@@ -3,22 +3,24 @@
 	<head>
 		<!-- build:css css/vendor.css -->
 		<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Titillium+Web:200,300' rel='stylesheet' type='text/css'>
 		<!-- endbuild -->
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 	</head>
 	<body>
-	<div class="row" ng-controller="homeController as home">
-		<div class="col-xs-2">
-			{{ home.phrase }}
-			<button class="btn btn-danger">Bootstrap_Test</button>
-		</div>
+	<div class="container" ng-controller="homeController as home">
+		<current-location></current-location>
+      	<wind-humidity></wind-humidity>
 	</div>
 		<!--build:js js/vendor.js -->
 		<script src="../bower_components/angular/angular.min.js"></script>
 		<!-- endbuild -->
 		<!--build:js js/main.js -->
 		<script src="app/app.module.js"></script>
+		<script src="app/components/home/homeService.js"></script>
 		<script src="app/components/home/homeController.js"></script>
+		<script src="app/shared/locationLabel/locationDirective.js"></script>
+		<script src="app/shared/windHumidity/additionalInfoDirective.js"></script>
 		<!-- endbuild -->
 	</body>
 </html>
