@@ -10,7 +10,8 @@
 	<body>
 	<div class="container" ng-controller="homeController as home">
 		<current-location></current-location>
-      	<wind-humidity></wind-humidity>
+		<temp-forecast current="{{home.temp}}" forecast="{{home.tempForecast}}" period="{{home.dayPart}}"></temp-forecast>
+    <wind-humidity></wind-humidity>
 	</div>
 		<!--build:js js/vendor.js -->
 		<script src="../bower_components/angular/angular.min.js"></script>
@@ -22,6 +23,7 @@
 		<script src="app/components/home/homeController.js"></script>
 		<script src="app/shared/locationLabel/locationDirective.js"></script>
 		<script src="app/shared/windHumidity/additionalInfoDirective.js"></script>
+		<script src="app/shared/temperatureForecast/temperatureDirective.js"></script>
 		<!-- endbuild -->
 	</body>
 </html>

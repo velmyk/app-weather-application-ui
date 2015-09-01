@@ -13,7 +13,8 @@ function Weather() {
 				'dt': 4242342,
 				'main': {
 					"temp": 23,
-					"humidity": 52
+					"humidity": 52,
+					"tempForecast": 12
 				},
 				"waether" : {
 					"main": "Clear",
@@ -38,18 +39,33 @@ function Weather() {
 
 	function getTempAndHumidity(date) {
 		var temperature, // seems that this vars should have default value for correct behavior
-			humidity;	 // but for now we're sure that will find values in data
+				humidity,	 // but for now we're sure that will find values in data
+				tempForecast,
+				dayPart;
 
 		weatherList.forEach( function (item, i) {
 			if (item.dt === date) {
 				temperature = item.main.temp;
 				humidity = item.main.humidity;
+				tempForecast = item.main.tempForecast;
 			}
 		});
 
+		dayPart = (new Date()).getHours();
+
+		if ((dayPart > 22) && (dayPart < 6)) {
+			dayPart = "Day";
+		} else {
+			dayPart = "Night";
+		}
+
+		// console.log(dayPart);
+
 		return {
 			"temperature" : temperature,
-			"humidity": humidity
+			"humidity": humidity,
+			"tempForecast": tempForecast,
+			"dayPart": dayPart
 		};
 	}
 
