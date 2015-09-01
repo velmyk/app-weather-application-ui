@@ -3,14 +3,15 @@ angular
 	.controller('homeController', homeController);
 
 function homeController(Weather) {
-	var vm = this;
+	var vm = this,
+		mockTimestamp = 4242342; 
 	
 	vm.phrase = "Hello_World!!!";
 	
 	vm.city = Weather.getCity();
-	vm.wSpeed = Weather.getWind().speed;
-	vm.wDegree = Weather.getWind().degree;
-	vm.temp = Weather.getTemperature();
-	vm.humidity = Weather.getHumidity();
+	vm.wSpeed = Weather.getWind(mockTimestamp).speed;
+	vm.wDegree = Weather.getWind(mockTimestamp).degree;
+	vm.temp = Weather.getTempAndHumidity(mockTimestamp).temperature;
+	vm.humidity = Weather.getTempAndHumidity(mockTimestamp).humidity;
 }
 

@@ -3,18 +3,14 @@
 	<head>
 		<!-- build:css css/vendor.css -->
 		<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Titillium+Web:200,300' rel='stylesheet' type='text/css'>
 		<!-- endbuild -->
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 	</head>
 	<body>
 	<div class="container" ng-controller="homeController as home">
-		<div class="row current-location" current-location><!--location label-->
-      		
-   		</div>
-
-   		<div class="row" wind-humidity><!--location label-->
-      		
-   		</div>
+		<current-location></current-location>
+      	<wind-humidity></wind-humidity>
 	</div>
 		<!--build:js js/vendor.js -->
 		<script src="../bower_components/angular/angular.min.js"></script>
