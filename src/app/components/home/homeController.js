@@ -11,9 +11,7 @@ function homeController(Weather) {
 	vm.city = Weather.getCity();
 	vm.wSpeed = Weather.getWind(mockTimestamp).speed;
 	vm.wDegree = Weather.getWind(mockTimestamp).degree;
-	vm.temp = Weather.getTempAndHumidity(mockTimestamp).temperature;
-	vm.tempForecast = Weather.getTempAndHumidity(mockTimestamp).tempForecast;
-	vm.dayPart = Weather.getTempAndHumidity(mockTimestamp).dayPart;
-	vm.humidity = Weather.getTempAndHumidity(mockTimestamp).humidity;
+	vm.temperature = Weather.getTempAndHumidity(mockTimestamp);
+	vm.humidity = Weather.getHumidity(mockTimestamp);
 }
 
