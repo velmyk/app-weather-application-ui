@@ -27,7 +27,25 @@ function Weather() {
 			}
 		]
 	};
+
 	var weatherList = data.list;
+
+	function findByDate(arr, date) {
+
+		var resultItem;
+
+		arr.forEach( function (item, i) {
+			if (item.dt === date) {
+				resultItem = item;
+			}
+		});
+
+		if(resultItem) {
+			return resultItem;
+		} else {
+			return false;
+		}
+	};
 
 	function getDate() {
 		return data.list[0].dt;
@@ -38,18 +56,19 @@ function Weather() {
 	}
 
 	function getTempAndHumidity(date) {
-		var temperature, // seems that this vars should have default value for correct behavior
+		var item,
+				temperature, // seems that this vars should have default value for correct behavior
 				humidity,	 // but for now we're sure that will find values in data
 				tempForecast,
 				dayPart;
 
-		weatherList.forEach( function (item, i) {
-			if (item.dt === date) {
+		item = findByDate(weatherList, date);
+
+		if(item) {
 				temperature = item.main.temp;
 				humidity = item.main.humidity;
 				tempForecast = item.main.tempForecast;
-			}
-		});
+		}
 
 		dayPart = (new Date()).getHours();
 
@@ -59,8 +78,6 @@ function Weather() {
 			dayPart = "Night";
 		}
 
-		// console.log(dayPart);
-
 		return {
 			"temperature" : temperature,
 			"humidity": humidity,
@@ -69,16 +86,18 @@ function Weather() {
 		};
 	}
 
+
 	function getWind(date) {
 		var speed,   // seems that this vars should have default value for correct behavior
-			degree;  // but for now we're sure that will find values in data
+			degree,  // but for now we're sure that will find values in data
+			item;
 
-		weatherList.forEach( function (item, i) {
-			if (item.dt === date) {
+		item = findByDate(weatherList, date);
+
+		if(item) {
 				speed = item.wind.speed;
 				degree = item.wind.deg;
-			}
-		});
+		}
 
 		return {
 			"speed": speed,
