@@ -33,7 +33,8 @@ var gulp = require('gulp'),
     rename = require("gulp-rename"),
     svgSprite = require('gulp-svg-sprite'),
     prefix  = require('gulp-autoprefixer'),
-    templateCache = require('gulp-angular-templatecache');
+    templateCache = require('gulp-angular-templatecache'),
+    ngAnnotate = require('gulp-ng-annotate');
 
 var path = {
       build: { //Build files
@@ -90,6 +91,7 @@ gulp.task('build-app-dev', ['views','styles-dev', 'svg', 'jshint'],  function ()
 
     return gulp.src(path.src.html)
                .pipe(assets)
+               .pipe(gulpif('*.js', ngAnnotate()))
                .pipe(assets.restore())
                .pipe(useref())
                .pipe(gulp.dest(path.build.html))
@@ -101,6 +103,7 @@ gulp.task('build-app-release', ['views','styles-release', 'svg', 'jshint'],  fun
 
     return gulp.src(path.src.html)
                .pipe(assets)
+               .pipe(gulpif('*.js', ngAnnotate()))
                .pipe(gulpif('*.js', uglify()))
                .pipe(assets.restore())
                .pipe(useref())
@@ -139,7 +142,7 @@ gulp.task('svg', function() {
      .pipe(gulp.dest(path.build.svg));
 });
 
-gulp.task("views", function () {
+gulp.task("views", function() {
   return gulp.src(path.src.views)
     .pipe(templateCache('templates.js', { module:'templates', standalone:true }))
     .pipe(gulp.dest(path.build.js));
