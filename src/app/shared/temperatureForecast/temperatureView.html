@@ -4,8 +4,11 @@
 	<div class="col-xs-1">o</div>
 	<div class="col-xs-3">
 		<div class="row">
-			<div class="col-xs-12">
-				{{temperature.dayPart}}
+			<div ng-if="isNight()" class="col-xs-12">
+				Day
+			</div>
+			<div ng-if="isDay()" class="col-xs-12">
+				Night
 			</div>
 		</div>
 		<div class="row">

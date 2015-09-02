@@ -45,7 +45,7 @@ function Weather() {
 		} else {
 			return false;
 		}
-	};
+	}
 
 	function getDate() {
 		return data.list[0].dt;
@@ -68,18 +68,10 @@ function Weather() {
 				tempForecast = item.main.tempForecast;
 		}
 
-		dayPart = (new Date()).getHours();
-
-		if ((dayPart > 22) && (dayPart < 6)) {
-			dayPart = "Day";
-		} else {
-			dayPart = "Night";
-		}
 
 		return {
 			"temperature" : temperature,
 			"tempForecast": tempForecast,
-			"dayPart": dayPart
 		};
 	}
 
