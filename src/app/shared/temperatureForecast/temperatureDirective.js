@@ -10,11 +10,8 @@
 				replace: true, 
 				scope: true,
 				templateUrl: "shared/temperatureForecast/temperatureView.html",
-				controller: function($scope, Weather, Daynight){
-						$scope.temperature = Weather.getTemperature($scope.home.mockTimestamp);
-						$scope.isDay = Daynight.isDay;
-						$scope.isNight = Daynight.isNight;
-				}
+				controller: "temperatureCtrl",
+				controllerAs: "tempCtrl"
 			};
 		}
 

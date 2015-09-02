@@ -1,19 +1,19 @@
 <div class="row">
 	<div class="col-xs-4"></div>
-	<div class='col-xs-4 temperature-value'>{{temperature.temperature}}</div>
+	<div class='col-xs-4 temperature-value'>{{tempCtrl.temperature.tempCurrent}}</div>
 	<div class="col-xs-1">o</div>
 	<div class="col-xs-3">
 		<div class="row">
-			<div ng-if="isNight()" class="col-xs-12">
+			<div ng-if="tempCtrl.isNight()" class="col-xs-12">
 				Day
 			</div>
-			<div ng-if="isDay()" class="col-xs-12">
+			<div ng-if="tempCtrl.isDay()" class="col-xs-12">
 				Night
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-12">
-				{{temperature.tempForecast}}
+				{{tempCtrl.temperature.tempForecast}}
 			</div>
 		</div>
 	</div>

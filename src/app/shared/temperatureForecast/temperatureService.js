@@ -18,11 +18,7 @@
 		}
 
 		function isDay(){
-			if ((dayPart > 22) && (dayPart < 6)) {
-				return false;
-			} else {
-				return true;
-			}
+			return !isNight();
 		}
 
 

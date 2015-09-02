@@ -32,7 +32,7 @@ function Weather() {
 
 	function findByDate(arr, date) {
 
-		var resultItem;
+		var resultItem = false;
 
 		arr.forEach( function (item, i) {
 			if (item.dt === date) {
@@ -40,11 +40,7 @@ function Weather() {
 			}
 		});
 
-		if(resultItem) {
-			return resultItem;
-		} else {
-			return false;
-		}
+		return resultItem;
 	}
 
 	function getDate() {
@@ -57,20 +53,20 @@ function Weather() {
 
 	function getTemperature(date) {
 		var item,
-				temperature, // seems that this vars should have default value for correct behavior
+				tempCurrent, // seems that this vars should have default value for correct behavior
 				tempForecast, // but for now we're sure that will find values in data
 				dayPart;
 
 		item = findByDate(weatherList, date);
 
 		if(item) {
-				temperature = item.main.temp;
+				tempCurrent = item.main.temp;
 				tempForecast = item.main.tempForecast;
 		}
 
 
 		return {
-			"temperature" : temperature,
+			"tempCurrent" : tempCurrent,
 			"tempForecast": tempForecast,
 		};
 	}
@@ -85,9 +81,7 @@ function getHumidity(date) {
 				humidity = item.main.humidity;
 		}
 
-		return {
-			"humidity": humidity
-		};
+		return humidity;
 	}
 
 	function getWind(date) {
