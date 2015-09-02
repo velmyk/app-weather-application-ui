@@ -119,7 +119,7 @@ function getHumidity(date) {
 
 	return {
 		getWind : getWind,
-		getTempAndHumidity : getTemperature,
+		getTemperature : getTemperature,
 		getHumidity : getHumidity,
 		getCity : getCity
 	};

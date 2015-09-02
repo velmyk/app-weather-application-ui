@@ -8,12 +8,11 @@
 			return {
 				restrict: "E",
 				replace: true, 
-				scope: {
-					current: "@",
-					forecast: "@",
-					period: "@"
-				},
-				templateUrl: "shared/temperatureForecast/temperatureView.html"
+				scope: true,
+				templateUrl: "shared/temperatureForecast/temperatureView.html",
+				controller: function($scope, Weather){
+						$scope.temperature = Weather.getTemperature($scope.home.mockTimestamp);
+				}
 			};
 		}
 
