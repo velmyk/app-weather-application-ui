@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="col-xs-4"></div>
+	<div class='col-xs-4 temperature-value'>{{tempCtrl.temperature.tempCurrent}}</div>
+	<div class="col-xs-1">o</div>
+	<div class="col-xs-3">
+		<div class="row">
+			<div ng-if="tempCtrl.isNight()" class="col-xs-12">
+				Day
+			</div>
+			<div ng-if="tempCtrl.isDay()" class="col-xs-12">
+				Night
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				{{tempCtrl.temperature.tempForecast}}
+			</div>
+		</div>
+	</div>
+</div>
+
