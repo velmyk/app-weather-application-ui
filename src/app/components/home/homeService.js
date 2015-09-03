@@ -35,7 +35,7 @@ function Weather() {
 		var resultItem = false;
 
 		arr.forEach( function (item, i) {
-			if (item.dt === date) {
+			if (item.dt == date) {
 				resultItem = item;
 			}
 		});
@@ -63,7 +63,6 @@ function Weather() {
 				tempCurrent = item.main.temp;
 				tempForecast = item.main.tempForecast;
 		}
-
 
 		return {
 			"tempCurrent" : tempCurrent,
