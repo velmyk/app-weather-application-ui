@@ -91,7 +91,7 @@ gulp.task('js-dev', function () {
 gulp.src(path.src.js)
     .pipe(sourcemaps.init())
     .pipe(ngAnnotate())
-    .pipe(concat('main.js'))
+    .pipe(concat('all.js'))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(path.build.js));
 });
@@ -100,7 +100,7 @@ gulp.task('js-release', function () {
 gulp.src(path.src.js)
     .pipe(sourcemaps.init())
     .pipe(ngAnnotate())
-    .pipe(concat('main.js'))
+    .pipe(concat('all.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write('./'))
     
