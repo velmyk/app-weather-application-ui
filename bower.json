@@ -14,5 +14,5 @@
     "angular": "~1.4.4",
     "angular-ui-router": "~0.2.15",
     "bootstrap": "~3.3.5"
-  },
+  }
 }
