@@ -34,7 +34,8 @@ var gulp = require('gulp'),
     svgSprite = require('gulp-svg-sprite'),
     prefix  = require('gulp-autoprefixer'),
     templateCache = require('gulp-angular-templatecache'),
-    ngAnnotate = require('gulp-ng-annotate');
+    ngAnnotate = require('gulp-ng-annotate'),
+    concat = require('gulp-concat');
 
 var path = {
       build: { //Build files
@@ -69,7 +70,7 @@ gulp.task('styles-dev', function () {
     gulp.src(path.src.style)
         .pipe(sourcemaps.init())
         .pipe(sass())
-        .pipe(prefix("last 2 version", "> 1%", "ie 8"))//added autoprefixer
+        .pipe(prefix("last 2 version", "> 1%", "ie 9"))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css))
         .pipe(connect.reload());
@@ -79,36 +80,54 @@ gulp.task('styles-release', function () {
     gulp.src(path.src.style)
         .pipe(sourcemaps.init())
         .pipe(sass())
-        .pipe(prefix("> 1%"))
+        .pipe(prefix("last 2 version", "> 1%", "ie 9"))
         .pipe(cssmin())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css))
         .pipe(connect.reload());
 });
 
-gulp.task('build-app-dev', ['views','styles-dev', 'svg', 'jshint'],  function () {
-    var assets = useref.assets();
-
-    return gulp.src(path.src.html)
-               .pipe(assets)
-               .pipe(gulpif('*.js', ngAnnotate()))
-               .pipe(assets.restore())
-               .pipe(useref())
-               .pipe(gulp.dest(path.build.html))
-               .pipe(connect.reload());
+gulp.task('js-dev', function () {
+gulp.src(path.src.js)
+    .pipe(sourcemaps.init())
+    .pipe(ngAnnotate())
+    .pipe(concat('main.js'))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(path.build.js));
 });
 
-gulp.task('build-app-release', ['views','styles-release', 'svg', 'jshint'],  function () {
+gulp.task('js-release', function () {
+gulp.src(path.src.js)
+    .pipe(sourcemaps.init())
+    .pipe(ngAnnotate())
+    .pipe(concat('main.js'))
+    .pipe(uglify())
+    .pipe(sourcemaps.write('./'))
+    
+    .pipe(gulp.dest(path.build.js));
+});
+
+
+gulp.task('build-app-dev', ['views','styles-dev', 'svg', 'jshint','js-dev'],  function () {
     var assets = useref.assets();
 
     return gulp.src(path.src.html)
                .pipe(assets)
-               .pipe(gulpif('*.js', ngAnnotate()))
-               .pipe(gulpif('*.js', uglify()))
                .pipe(assets.restore())
                .pipe(useref())
                .pipe(gulp.dest(path.build.html))
-               .pipe(connect.reload());
+               .pipe(connect.reload())
+});
+
+gulp.task('build-app-release', ['views','styles-release', 'svg', 'jshint','js-release'],  function () {
+    var assets = useref.assets();
+
+    return gulp.src(path.src.html)
+               .pipe(assets)
+               .pipe(assets.restore())
+               .pipe(useref())
+               .pipe(gulp.dest(path.build.html))
+               .pipe(connect.reload())
 });
 
 gulp.task('server', function () {
@@ -151,3 +170,4 @@ gulp.task("views", function() {
 gulp.task('default', ['build-app-dev', 'server', 'watch']);
 
 gulp.task('release', ['build-app-release', 'server', 'watch']);
+
