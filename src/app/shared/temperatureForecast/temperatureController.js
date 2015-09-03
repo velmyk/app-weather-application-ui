@@ -6,10 +6,9 @@
 			.controller("temperatureCtrl", temperatureCtrl);
 
 	function temperatureCtrl($scope, Weather, Daynight) {
-		this.temperature = Weather.getTemperature($scope.home.mockTimestamp);
+		this.temperature = Weather.getTemperature( +$scope.time );
 		this.isDay = Daynight.isDay;
 		this.isNight = Daynight.isNight;
-		
 	}
 
 })();

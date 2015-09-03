@@ -64,7 +64,6 @@ function Weather() {
 				tempForecast = item.main.tempForecast;
 		}
 
-
 		return {
 			"tempCurrent" : tempCurrent,
 			"tempForecast": tempForecast,

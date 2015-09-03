@@ -8,7 +8,9 @@
 			return {
 				restrict: "E",
 				replace: true, 
-				scope: true,
+				scope: {
+					time: "@"
+				},
 				templateUrl: "shared/temperatureForecast/temperatureView.html",
 				controller: "temperatureCtrl",
 				controllerAs: "tempCtrl"
