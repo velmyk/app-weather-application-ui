@@ -17,10 +17,9 @@
 
 					.state("settings",{
 						url: "/settings",
-						templateUrl: "components/settings/settingsView.html"
-						//will add it soon
-						//controller: "settingsController",
-						//controllerAs: "set"
+						templateUrl: "components/settings/settingsView.html",
+						controller: "settingsController",
+						controllerAs: "settings"
 					});
 		});
 })();

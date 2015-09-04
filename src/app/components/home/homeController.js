@@ -7,7 +7,6 @@ function homeController(Weather) {
 		mockTimestamp = 4242342;
 
 	vm.mockTimestamp = mockTimestamp;
-	vm.phrase = "Hello_World!!!";
 
 	vm.city = Weather.getCity();
 	vm.wSpeed = Weather.getWind(mockTimestamp).speed;
