@@ -16,9 +16,9 @@ function Weather() {
 					"humidity": 52,
 					"tempForecast": 12
 				},
-				"waether" : {
+				"weather" : {
 					"main": "Clear",
-					'desc': "Sky is clear"
+					"desc": "Yasnenko Ponyatnenko"
 				},
 				"wind":{
 					"speed":2.32,
@@ -70,7 +70,7 @@ function Weather() {
 		};
 	}
 
-function getHumidity(date) {
+	function getHumidity(date) {
 		var item,
 				humidity; // seems that this vars should have default value for correct behavior
 					  			// but for now we're sure that will find values in data
@@ -102,10 +102,28 @@ function getHumidity(date) {
 
 	}
 
+	function getWeather(date) {
+		var main, desc;
+
+		item = findByDate(weatherList, date);
+
+		if(item && item.weather) {
+			main = item.weather.main;
+			desc = item.weather.desc;
+		}
+
+		return {
+			"main": main,
+			"desc": desc
+		};
+
+	}
+
 	return {
 		getWind : getWind,
 		getTemperature : getTemperature,
 		getHumidity : getHumidity,
-		getCity : getCity
+		getCity : getCity,
+		getWeather : getWeather
 	};
 }
