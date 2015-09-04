@@ -2,19 +2,15 @@
 	"use strict";
 
 	angular.module("app")
-			.controller("currentWeatherCtrl", currentWeatherCtrl);
+			.controller("CurrentWeatherCtrl", CurrentWeatherCtrl);
 
-	function currentWeatherCtrl($scope, Weather) {
+	function CurrentWeatherCtrl($scope, Weather) {
 		/*jshint validthis:true */
-		var ctrl = this;
-		var weather = Weather.getWeather( +$scope.desc);
+		var vm = this;
+		var weather = Weather.getWeather( +$scope.time);
 
-		ctrl.desc = weather.desc;
-		ctrl.main =weather.main;
-
-		// return {
-		// 	"main": main,
-		// 	"desc": desc
-		// };
+		vm.desc = weather.desc;
+		vm.main =weather.main;
 	}
 })();
+

@@ -9,10 +9,10 @@
             restrict: 'E',
             replace: true,
             scope: {
-                desc: "@"
+                time: "@"
             },
-            controller: "currentWeatherCtrl",
-            controllerAs: "ctrl",
+            controller: "CurrentWeatherCtrl",
+            controllerAs: "weatherCtrl",
             templateUrl: "shared/currentWeather/currentWeatherView.html",
         };
     }

@@ -1,5 +1,5 @@
 <div class="weather-blabla">
-	<div  ng-class = "col-xs-12 block-{{::ctrl.main | lowercase }}">
+	<div  ng-class = "col-xs-12 block-{{::weatherCtrl.main | lowercase }}">
 		<div class="row">1
 			<!--left arrow-->
 			<div class="col-xs-3 leftarrow">
@@ -16,7 +16,7 @@
 	<div class="row ">
 		<!--weather description-->
 		<div class="col-xs-12 weather ">
-			{{ctrl.desc}} {{ctrl.main}}
+			{{weatherCtrl.desc}}
 		</div>
 	</div>
 	<div class="row">
