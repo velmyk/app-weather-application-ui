@@ -18,7 +18,7 @@ function Weather() {
 				},
 				"weather" : {
 					"main": "Clear",
-					"desc": "Yasnenko Ponyatnenko"
+					"desc": "Heavy rain"
 				},
 				"wind":{
 					"speed":2.32,
