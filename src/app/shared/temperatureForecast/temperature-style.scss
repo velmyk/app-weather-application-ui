@@ -1,0 +1,24 @@
+.temperature {
+  height: 30vh;
+}
+
+.temperature-value {
+  font-size: 7em;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.day-night {
+	position: absolute;
+	right: 20%;
+	bottom: 21%;
+}
+
+.day-night-shift {
+	display: block;
+}
+
+.temperature-minor {
+	position: relative;
+	font-size: 1.5em;
+}
