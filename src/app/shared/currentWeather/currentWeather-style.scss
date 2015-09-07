@@ -25,10 +25,16 @@
 
 img.rightarrow, img.leftarrow {
 	height: 80px;
-	width: 80px;
+	width: 70px;
 }
 
 img.main {
-	height: 100px;
-	width: 100px;
+	height: 90px;
+	width: 90px;
+	margin-left: -10%;
+}
+
+.weather {
+	font-size: 2em;
+	margin-top: 3%;
 }
