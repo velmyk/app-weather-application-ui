@@ -1,7 +1,7 @@
 .other-info {
   position: relative;
   height: 20vh;
-  top: 3vh;
+  margin: -7px;
 }
 
 .humidity-value, .wind-value, .moon-stage {
@@ -9,6 +9,6 @@
 }
 
 img.additional-img {
-	height: 40px;
-	width: 40px;
+	height: 55px;
+	width: 55px;
 }
