@@ -22,7 +22,7 @@
    sodipodi:docname="moon-3.svg"><metadata
      id="metadata80"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
      id="defs78"><pattern
        y="0"
        x="0"
@@ -73,4 +73,4 @@
      inkscape:connector-curvature="0"
      id="path3753"
      d="M 256.14764,56.295156 C 145.68446,56.295156 56,145.97961 56,256.14751 56,366.31554 145.68446,456 256.14764,456 366.31554,456 456,366.31554 456,256.14751 456,145.97961 366.31554,56.295156 256.14764,56.295156 Z m 138.4019,337.977534 c -38.49422,38.19894 -84.70199,57.57525 -138.4019,57.57525 43.73497,0 81.38034,-19.37631 112.93599,-57.57525 31.26035,-38.19893 47.05661,-84.42514 47.05661,-138.40189 0,-53.97676 -15.79626,-100.2031 -47.05661,-138.40203 -31.55565,-38.475653 -69.20102,-57.57512 -112.93599,-57.57512 53.69991,0 99.90768,19.099467 138.4019,57.57512 38.45734,38.19893 57.57525,84.42527 57.57525,138.40203 0,53.97675 -19.11791,100.20296 -57.57525,138.40189 z"
-     style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" /></svg>
+     style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" /></svg>
