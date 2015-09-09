@@ -35,7 +35,8 @@ var gulp = require('gulp'),
     prefix  = require('gulp-autoprefixer'),
     templateCache = require('gulp-angular-templatecache'),
     ngAnnotate = require('gulp-ng-annotate'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
+    nodemon = require('gulp-nodemon');
 
 var path = {
       build: { //Build files
@@ -167,7 +168,13 @@ gulp.task("views", function() {
     .pipe(gulp.dest(path.build.js));
 });
 
-gulp.task('default', ['build-app-dev', 'server', 'watch']);
+gulp.task('node-server', function () {
+  nodemon({
+    script: 'server.js'
+  })
+})
 
-gulp.task('release', ['build-app-release', 'server', 'watch']);
+gulp.task('default', ['build-app-dev', 'server', 'watch', 'node-server']);
+
+gulp.task('release', ['build-app-release', 'server', 'watch', 'node-server']);
 

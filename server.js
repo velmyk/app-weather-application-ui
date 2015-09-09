@@ -33,4 +33,4 @@
 		});
 	
 	app.listen(port);
-	console.log('Server starts at ' + port);
+	console.log('API server starts at ' + port);
