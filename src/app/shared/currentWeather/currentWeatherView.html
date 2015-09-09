@@ -1,19 +1,19 @@
 <div class="weather-blabla">
-	<div  ng-class = "col-xs-12 block-{{::weatherCtrl.main | lowercase }}">
+	<div  ng-class = "'col-xs-12'+ ' block-'+'weatherCtrl.main | lowercase'">
 		<div class="row">
 			<!--left arrow-->
-			<div class="col-xs-3 leftarrow">
+			<div class="col-xs-4"><img src="svg/sprite.svg#svgView(viewBox(2048, 2048, 512, 512))"  class="leftarrow"/>
 			</div>
 			<!--current weather icon-->
-			<div class="col-xs-6 weatherIcon">
-				<img class="main" src="svg/sprite.svg#svgView(viewBox(1536, 0, 512, 400))" alt='sun'>
+			<div class="col-xs-4 weatherIcon">
+				<img class="main" src="svg/sprite.svg#svgView(viewBox(1536, 512, 512, 512))" alt='sun'>
 			</div>
 			<!--right arrow-->
-			<div class="col-xs-3 rightarrow">
+			<div class="col-xs-4"><img src="svg/sprite.svg#svgView(viewBox(2560, 0, 512, 512))" class="rightarrow"/>
 			</div>
 		</div>
 	</div>
-	<div class="row ">
+	<div class="row  ">
 		<!--weather description-->
 		<div class="col-xs-12 weather ">
 			{{weatherCtrl.desc}}
@@ -23,13 +23,13 @@
 		<!--7days listing-->
 		<div class="col-xs-12">
 			<ul class="circles">
-				<li><span class="circle"></span></li>
-				<li><span class="circle"></span></li>
-				<li><span class="circle"></span></li>
-				<li><span class="circle"></span></li>
-				<li><span class="circle"></span></li>
-				<li><span class="circle"></span></li>
-				<li><span class="circle"></span></li>
+				<li><span class="circle"><img src="svg/sprite.svg#svgView(viewBox(512, 0, 512, 512))"  class="circle"></span></li>
+				<li><span class="circle"><img src="svg/sprite.svg#svgView(viewBox(2560, 512, 512, 512))"  class="circle"></span></li>
+				<li><span class="circle"><img src="svg/sprite.svg#svgView(viewBox(512, 0, 512, 512))"  class="circle"></span></li>
+				<li><span class="circle"><img src="svg/sprite.svg#svgView(viewBox(512, 0, 512, 512))"  class="circle"></span></li>
+				<li><span class="circle"><img src="svg/sprite.svg#svgView(viewBox(512, 0, 512, 512))"  class="circle"></span></li>
+				<li><span class="circle"><img src="svg/sprite.svg#svgView(viewBox(512, 0, 512, 512))"  class="circle"></span></li>
+				<li><span class="circle"><img src="svg/sprite.svg#svgView(viewBox(512, 0, 512, 512))"  class="circle"></span></li>
 			</ul>
 		</div>
 	</div>

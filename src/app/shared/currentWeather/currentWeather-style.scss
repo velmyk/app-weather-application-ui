@@ -1,0 +1,43 @@
+.weather-blabla {
+ height: 30%;
+}
+
+img.rightarrow, img.leftarrow {
+	height: 70px;
+	width: 70px;
+}
+
+img.leftarrow {
+	margin-left: -15px;
+}
+
+
+
+img.main {
+	height: 90px;
+	width: 90px;
+	margin-left: -15px;
+}
+
+.weather {
+	font-size: 2em;
+	top: -15px;
+	left: 9px;
+}
+
+li {
+	display: inline-block;
+}
+
+img.circle {
+	width: 9px;
+	height: 9px;
+}
+
+.circles {
+	width: 50%;
+	margin: auto;
+	top: -10px;
+	left: 5px;
+	position: relative;
+}

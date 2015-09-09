@@ -66,8 +66,8 @@
        width="6"
        patternUnits="userSpaceOnUse"
        id="EMFhbasepattern-4" /></defs><sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
+     pagecolor="#fff"
+     bordercolor="#fff"
      borderopacity="1"
      objecttolerance="10"
      gridtolerance="10"
@@ -91,4 +91,4 @@
      inkscape:connector-curvature="0"
      id="path3792"
      d="M 256,55.741401 C 145.75071,55.741401 56,145.49211 56,256 56,366.24929 145.75071,456 256,456 366.24929,456 456,366.24929 456,256 456,145.49211 366.24929,55.741401 256,55.741401 Z m 2.51153,396.121929 c -54.03509,0 -100.27699,-19.13203 -138.79965,-57.35919 C 81.48473,356.27699 62.0941,310.03508 62.0941,256 c 0,-53.99818 19.39063,-100.27712 57.61778,-138.50427 38.52266,-38.485626 84.76456,-57.617656 138.79965,-57.617656 l 0,391.985256 z"
-     style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" /></svg>
+     style="fill:#fff;fill-opacity:1;fill-rule:nonzero;stroke:none" /></svg>
