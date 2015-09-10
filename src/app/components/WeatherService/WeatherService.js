@@ -5,10 +5,9 @@
 		.module("app")
 		.service("WeatherService", WeatherService);
 
-	function WeatherService($http) {
+	function WeatherService($http, constants) {
 
 		var APIURL = "http://localhost:3637/api/weather",
-			APIKEY = "01fd2cb2e81a0044dad76f3cbaf09e5d",
 			cityID = 703448,
 			forecast = {};
 
@@ -18,7 +17,8 @@
 						method: "GET",
 						params: {
 							id: cityID,
-							units: "metric"
+							units: "metric",
+							APPID: constants.APIKEY
 						}
 					})
 					.then( function(response){
@@ -73,7 +73,7 @@
 		}
 
 		function getTemp(date) {
-			return findInForecast(date,"temp");
+			return Math.round(findInForecast(date,"temp"));
 
 		}
 
