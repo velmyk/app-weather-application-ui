@@ -6,14 +6,12 @@
 		.service("WeatherService", WeatherService);
 
 	function WeatherService($http, constants) {
-
-		var APIURL = "http://localhost:3637/api/weather",
-			cityID = 703448,
+		var	cityID = 703448,
 			forecast = {};
 
 		function loadForecast() {
 			return	$http({
-						url: APIURL,
+						url: constants.APIURL,
 						method: "GET",
 						params: {
 							id: cityID,
