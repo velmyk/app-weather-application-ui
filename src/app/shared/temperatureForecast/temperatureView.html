@@ -1,11 +1,11 @@
 <div class="row main-temp" >
 	<div class="col-xs-12">
-				<div class="temperature-value">{{tempCtrl.temperature.tempCurrent}}<sup><sup><sup><sub><sub><sub><b>o</b></sub></sub></sub></sup></sup></sup>
+				<div class="temperature-value">{{tempCtrl.temperatureNow}}<sup><sup><sup><sub><sub><sub><b>o</b></sub></sub></sub></sup></sup></sup>
 				</div>
 				<div class="day-night">
 					<span ng-if="tempCtrl.isNight()" class="day-night-shift">Day</span>
 					<span ng-if="tempCtrl.isDay()" class="day-night-shift">Night</span>
-					<span class="temperature-minor">{{tempCtrl.temperature.tempForecast}}</span>
+					<span class="temperature-minor">{{tempCtrl.closestForecast}}</span>
 				</div>
 	</div>
 </div>

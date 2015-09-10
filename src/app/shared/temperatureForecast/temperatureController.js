@@ -5,11 +5,12 @@
 		.module("app")
 			.controller("temperatureCtrl", temperatureCtrl);
 
-	function temperatureCtrl($scope, Weather, Daynight) {
+	function temperatureCtrl($scope, WeatherService, Daynight) {
 		/*jshint validthis:true */
-		this.temperature = Weather.getTemperature( +$scope.time );
-		this.isDay = Daynight.isDay;
-		this.isNight = Daynight.isNight;
+		this.temperatureNow = WeatherService.getTemp( +$scope.time );
+		this.closestForecast = Daynight.closestForecast( +$scope.time );
+		this.isDay = Daynight.isDay( +$scope.time);
+		this.isNight = Daynight.isNight( +$scope.time);
 	}
 
 })();

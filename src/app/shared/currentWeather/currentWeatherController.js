@@ -4,13 +4,11 @@
 	angular.module("app")
 			.controller("CurrentWeatherCtrl", CurrentWeatherCtrl);
 
-	function CurrentWeatherCtrl($scope, Weather) {
+	function CurrentWeatherCtrl($scope, WeatherService) {
 		/*jshint validthis:true */
 		var vm = this;
-		var weather = Weather.getWeather( +$scope.time);
-
-		vm.desc = weather.desc;
-		vm.main =weather.main;
+		vm.desc = WeatherService.getWeatherDesc( +$scope.time);
+		vm.main = WeatherService.getWeatherState( +$scope.time);
 	}
 })();
 
