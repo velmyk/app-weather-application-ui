@@ -174,7 +174,7 @@ gulp.task('node-server', function () {
   })
 })
 
-gulp.task('default', ['build-app-dev', 'server', 'watch', 'node-server']);
+gulp.task('default', ['build-app-dev', 'watch', 'node-server']);
 
-gulp.task('release', ['build-app-release', 'server', 'watch', 'node-server']);
+gulp.task('release', ['build-app-release', 'watch', 'node-server']);
 

@@ -1,45 +1,19 @@
-var express = require('express'),
-		app = express(),
-		bodyParser = require('body-parser'),
-		weather = require("./data/weather.json"),
-		cities = require("./data/cities.json");
+var express  = require('express');
+var	app = express();
+var port = 8080;
+var morgan = require('morgan');
+var bodyParser = require('body-parser');
+// var methodOverride = require('method-override');
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.static(__dirname + '/build'));
+app.use(morgan('dev')); 
+app.use(bodyParser.urlencoded({'extended':'true'})); 
+app.use(bodyParser.json()); 
+app.use(bodyParser.json({ type: 'application/vnd.api+json' })); 
+// app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 
-var port = 3637;
-var router = express.Router();
 
-router.use(function(req, res, next) {
-	res.header("Access-Control-Allow-Origin", "*");
-	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-	res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
-  	next(); 
-});
-
-app.use('/api', router);
-
-router.route('/weather')
-	.get(function (req, res){
-		var statusCode = 404,
-			  resData = {"error": "city not found"};
-			  
-		weather.forEach( function (item, i ) {
-			if (item.city.id == req.query.id) {
-				statusCode = 200;
-				resData = item;
-				return;
-			}
-		});
-	
-		res.status(statusCode).json(resData);
-	
-	});
-
-router.route('/city/all')
-	.get(function (req, res){
-		res.json(cities);	
-	});
+require('./server-routes.js')(app);
 
 app.listen(port);
-console.log('API server starts at ' + port);
+console.log("App listening on port " + port);
