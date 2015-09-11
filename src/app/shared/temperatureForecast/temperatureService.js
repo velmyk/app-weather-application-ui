@@ -20,13 +20,7 @@
 			return !isNight(date);
 		}
 
-		function closestForecast(date) {
-			var closestDate = +date + 43200;
-			return WeatherService.getTemp(closestDate);
-		}
-
 		return {
-			closestForecast: closestForecast,
 			isDay : isDay,
 			isNight : isNight,
 		};

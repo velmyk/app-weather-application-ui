@@ -7,7 +7,11 @@
 
 	function WeatherService($http, constants) {
 		var	cityID = 703448,
-			forecast = {};
+			city,
+			windForecast = {},
+			humidityForecast = {},
+			temperatureForecast = {},
+			weatherStateForecast = {};
 
 		function loadForecast() {
 			return	$http({
@@ -20,83 +24,69 @@
 						}
 					})
 					.then( function(response){
-						forecast = response.data;
+						city = response.data.city.name;
+
+						response.data.list.forEach( function (item, i) {
+							temperatureForecast[item.dt] = item.main.temp;
+							humidityForecast[item.dt] = item.main.humidity;
+							windForecast[item.dt] = {
+								speed: item.wind.speed,
+								degree: item.wind.deg,
+							};
+							weatherStateForecast[item.dt] = {
+								id: item.weather[0].id,
+								desc: item.weather[0].description,
+								state: item.weather[0].main
+							};
+						});
 					});
 		}
 
-		function findInForecast (date, type) {
-			var result;
-			forecast.list.forEach(function (item, i) {
-				if (isClosestTime(date, item.dt)) {
-					switch (type) {
-						case "temp":
-							result = item.main.temp;
-							break;
-						case "humidity":
-							result = item.main.humidity;
-							break;
-						case "windSpeed":
-							result = item.wind.speed;
-							break;
-						case "windDegree":
-							result = item.wind.deg;
-							break;
-						case "weatherId":
-							result = item.weather[0].id;
-							break;
-						case "weatherDesc":
-							result = item.weather[0].description;
-							break;
-						case "weatherState":
-							result = item.weather[0].main;
-							break;
-					}
+		function findClosestVal(current,forecast) {
+			var diff;
+			for (var dt in forecast) {
+				diff = dt - current;
+				if (diff >= 0 && diff <= 5400) {
+					return forecast[dt];
 				}
-			});
-			return result;
-		}
-
-		function isClosestTime(current,possible) {
-			var diff = possible - current;
-			
-			if (diff >= 0 && diff <= 5400) {
-				return true;
-			} else {
-				return false;
 			}
 		}
 
 		function getCity() {
-			return forecast.city.name;
+			return city;
 		}
 
 		function getTemp(date) {
-			return Math.round(findInForecast(date,"temp"));
-
+			return Math.round(findClosestVal(date,temperatureForecast));
 		}
 
 		function getHumidity(date) {
-			return findInForecast(date, "humidity");
+			return findClosestVal(date, humidityForecast);
 		}
 
 		function getWindSpeed(date) {
-			return findInForecast(date, "windSpeed");
+			return findClosestVal(date, windForecast).speed;
 		}
 
 		function getWindDirection(date) {
-			return findInForecast(date, "windDegree");
+			return findClosestVal(date, windForecast).degree;
 		}
 
 		function getWeatherId(date) {
-			return findInForecast(date, "weatherId");
+			return findClosestVal(date, weatherStateForecast).id;
 		}
 
 		function getWeatherState(date) {
-			return findInForecast(date, "weatherState");
+			return findClosestVal(date, weatherStateForecast).state;
 		}
 
 		function getWeatherDesc(date) {
-			return findInForecast(date, "weatherDesc");
+			return findClosestVal(date, weatherStateForecast).desc;
+		}
+
+		function getClosestTemp(date) {
+			var closestDate = +date + 43200;
+			return getTemp(closestDate);
 		}
 
 		return {
@@ -108,6 +98,7 @@
 			getWindDirection: getWindDirection,
 			getWeatherDesc: getWeatherDesc,
 			getWeatherState: getWeatherState,
+			getClosestTemp: getClosestTemp,
 			getWeatherId: getWeatherId
 		};
 	}

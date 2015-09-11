@@ -179,13 +179,19 @@ gulp.task('copy', function() {
     .pipe(gulp.dest(bases.dist));
 });
 
-gulp.task('node-server', function () {
+gulp.task('node-server', ['build-app-dev'], function () {
   nodemon({
     script: 'server.js'
   })
 })
 
-gulp.task('default', ['build-app-dev', 'copy', 'watch', 'node-server']);
+gulp.task('node-server-release', ['build-app-release'], function () {
+  nodemon({
+    script: 'server.js'
+  })
+})
 
-gulp.task('release', ['build-app-release', 'copy', 'watch', 'node-server']);
+gulp.task('default', ['copy', 'watch', 'node-server']);
+
+gulp.task('release', ['copy', 'watch', 'node-server-release']);
 
