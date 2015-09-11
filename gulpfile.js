@@ -38,6 +38,11 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     nodemon = require('gulp-nodemon');
 
+var bases = {
+ app: 'src/',
+ dist: 'build/'
+};
+
 var path = {
       build: { //Build files
           html: 'build/',
@@ -50,7 +55,8 @@ var path = {
           js: 'src/app/**/*.js',
           style: 'src/assets/scss/main.scss',
           svg: 'src/assets/svg/*.svg',
-          views: 'src/app/**/*.html'
+          views: 'src/app/**/*.html',
+          favicon: 'favicon.ico'
       },
       watch: { // Which files we want to watch
           html: ['src/app/**/*.html','src/index.html'],
@@ -131,13 +137,13 @@ gulp.task('build-app-release', ['views','styles-release', 'svg', 'jshint','js-re
                .pipe(connect.reload())
 });
 
-gulp.task('server', function () {
+// gulp.task('server', function () {
 
-    connect.server({
-        root: 'build',
-        livereload : true
-    });
-});
+//     connect.server({
+//         root: 'build',
+//         livereload : true
+//     });
+// });
 
 gulp.task('watch', function () {
     gulp.watch(path.watch.html, ['build-app-dev']);
@@ -156,10 +162,10 @@ gulp.task('svg', function() {
                              }
          }
      };
- gulp.src(path.src.svg)
-     .pipe(svgSprite(config))
-     .pipe(rename('sprite.svg'))
-     .pipe(gulp.dest(path.build.svg));
+    gulp.src(path.src.svg)
+        .pipe(svgSprite(config))
+        .pipe(rename('sprite.svg'))
+        .pipe(gulp.dest(path.build.svg));
 });
 
 gulp.task("views", function() {
@@ -168,13 +174,18 @@ gulp.task("views", function() {
     .pipe(gulp.dest(path.build.js));
 });
 
+gulp.task('copy', function() {
+  gulp.src(path.src.favicon, {cwd: bases.app})
+    .pipe(gulp.dest(bases.dist));
+});
+
 gulp.task('node-server', function () {
   nodemon({
     script: 'server.js'
   })
 })
 
-gulp.task('default', ['build-app-dev', 'watch', 'node-server']);
+gulp.task('default', ['build-app-dev', 'copy', 'watch', 'node-server']);
 
-gulp.task('release', ['build-app-release', 'watch', 'node-server']);
+gulp.task('release', ['build-app-release', 'copy', 'watch', 'node-server']);
 

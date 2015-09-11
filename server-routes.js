@@ -20,7 +20,7 @@ module.exports = function(app) {
 		res.status(statusCode).json(resData);
 	});
 
-	app.get('api/city/all', function (req, res){
+	app.get('/api/city/all', function (req, res){
 		res.json(cities);	
 	});
 
