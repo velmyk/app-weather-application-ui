@@ -5,15 +5,14 @@
 
 	function OpenWeatherAPI($http, constants){
 		var cityID = 703448,
-			forecast,
-			city,
+			city = {},
 			windForecast = {},
 			humidityForecast = {},
 			temperatureForecast = {},
 			weatherStateForecast = {};
 
 		function fetchResponse(response){
-			city = response.data.city.name;
+			city['name'] = response.data.city.name;
 
 			response.data.list.forEach( function (item, i) {
 				temperatureForecast[item.dt] = item.main.temp;
@@ -43,14 +42,13 @@
 					.then(fetchResponse);
 		}
 		
-
 		return {
 			loadForecast: loadForecast,
-			city: city,
 			windForecast: windForecast,
 			humidityForecast: humidityForecast,
 			temperatureForecast: temperatureForecast,
-			weatherStateForecast: weatherStateForecast
+			weatherStateForecast: weatherStateForecast,
+			city: city,
 		};
 	}
 })();

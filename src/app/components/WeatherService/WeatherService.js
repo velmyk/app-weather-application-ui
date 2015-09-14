@@ -8,11 +8,11 @@
 	function WeatherService($http, constants, OpenWeatherAPI) {
 		var	hourAndHalf = 5400,
 			halfADay = 43200,
-			city = OpenWeatherAPI.city,
 			windForecast = OpenWeatherAPI.windForecast,
 			humidityForecast = OpenWeatherAPI.humidityForecast,
 			temperatureForecast = OpenWeatherAPI.temperatureForecast,
-			weatherStateForecast = OpenWeatherAPI.weatherStateForecast;
+			weatherStateForecast = OpenWeatherAPI.weatherStateForecast,
+			city = OpenWeatherAPI.city;
 
 		function findClosestVal(current,forecast) {
 			var diff;
@@ -25,7 +25,7 @@
 		}
 
 		function getCity() {
-			return city;
+			return city["name"];
 		}
 
 		function getTemp(date) {
