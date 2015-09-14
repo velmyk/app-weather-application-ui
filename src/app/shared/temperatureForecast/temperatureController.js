@@ -7,7 +7,7 @@
 
 	function temperatureCtrl($scope, WeatherService, Daynight) {
 		/*jshint validthis:true */
-		this.temperatureNow = WeatherService.getTemp( +$scope.time );
+		this.currentTemperature = WeatherService.getTemp( +$scope.time );
 		this.closestForecast = WeatherService.getClosestTemp( +$scope.time );
 		this.isDay = Daynight.isDay( +$scope.time);
 		this.isNight = Daynight.isNight( +$scope.time);

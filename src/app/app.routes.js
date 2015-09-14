@@ -14,8 +14,8 @@
 						controller: "homeController",
 						controllerAs:'home',
 						resolve: {
-							loadForecast: function (WeatherService) {
-								return WeatherService.loadForecast();
+							loadForecast: function (OpenWeatherAPI) {
+								return OpenWeatherAPI.loadForecast();
 							}
 						},
 					})

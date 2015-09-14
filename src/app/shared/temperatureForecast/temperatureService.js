@@ -5,7 +5,7 @@
 		.module("app")
 			.factory("Daynight", Daynight);
 
-	function Daynight(WeatherService) {
+	function Daynight() {
 
 		function isNight(date){
 			var dayPart = (new Date(date)).getHours();

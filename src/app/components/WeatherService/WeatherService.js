@@ -5,48 +5,20 @@
 		.module("app")
 		.service("WeatherService", WeatherService);
 
-	function WeatherService($http, constants) {
-		var	cityID = 703448,
-			city,
-			windForecast = {},
-			humidityForecast = {},
-			temperatureForecast = {},
-			weatherStateForecast = {};
-
-		function loadForecast() {
-			return	$http({
-						url: constants.APIURL,
-						method: "GET",
-						params: {
-							id: cityID,
-							units: "metric",
-							APPID: constants.APIKEY
-						}
-					})
-					.then( function(response){
-						city = response.data.city.name;
-
-						response.data.list.forEach( function (item, i) {
-							temperatureForecast[item.dt] = item.main.temp;
-							humidityForecast[item.dt] = item.main.humidity;
-							windForecast[item.dt] = {
-								speed: item.wind.speed,
-								degree: item.wind.deg,
-							};
-							weatherStateForecast[item.dt] = {
-								id: item.weather[0].id,
-								desc: item.weather[0].description,
-								state: item.weather[0].main
-							};
-						});
-					});
-		}
+	function WeatherService($http, constants, OpenWeatherAPI) {
+		var	hourAndHalf = 5400,
+			halfADay = 43200,
+			city = OpenWeatherAPI.city,
+			windForecast = OpenWeatherAPI.windForecast,
+			humidityForecast = OpenWeatherAPI.humidityForecast,
+			temperatureForecast = OpenWeatherAPI.temperatureForecast,
+			weatherStateForecast = OpenWeatherAPI.weatherStateForecast;
 
 		function findClosestVal(current,forecast) {
 			var diff;
 			for (var dt in forecast) {
 				diff = dt - current;
-				if (diff >= 0 && diff <= 5400) {
+				if (diff >= 0 && diff <= hourAndHalf) {
 					return forecast[dt];
 				}
 			}
@@ -85,12 +57,11 @@
 		}
 
 		function getClosestTemp(date) {
-			var closestDate = +date + 43200;
+			var closestDate = +date + halfADay;
 			return getTemp(closestDate);
 		}
 
 		return {
-			loadForecast: loadForecast,
 			getCity: getCity,
 			getTemp: getTemp,
 			getHumidity: getHumidity,
