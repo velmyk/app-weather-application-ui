@@ -7,9 +7,8 @@
 
 	function Daynight() {
 
-		var dayPart = (new Date()).getHours();
-
-		function isNight(){
+		function isNight(date){
+			var dayPart = (new Date(date)).getHours();
 			if ((dayPart > 22) && (dayPart < 6)) {
 				return true;
 			} else {
@@ -17,10 +16,9 @@
 			}
 		}
 
-		function isDay(){
-			return !isNight();
+		function isDay(date){
+			return !isNight(date);
 		}
-
 
 		return {
 			isDay : isDay,

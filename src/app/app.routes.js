@@ -12,7 +12,12 @@
 						url: "/home",
 						templateUrl: "components/home/homeView.html",
 						controller: "homeController",
-						controllerAs:'home'
+						controllerAs:'home',
+						resolve: {
+							loadForecast: function (OpenWeatherAPI) {
+								return OpenWeatherAPI.loadForecast();
+							}
+						},
 					})
 
 					.state("settings",{

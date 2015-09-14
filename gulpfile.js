@@ -35,7 +35,15 @@ var gulp = require('gulp'),
     prefix  = require('gulp-autoprefixer'),
     templateCache = require('gulp-angular-templatecache'),
     ngAnnotate = require('gulp-ng-annotate'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
+    nodemon = require('gulp-nodemon'),
+    clean = require('gulp-clean');
+
+
+var bases = {
+ app: 'src/',
+ dist: 'build/'
+};
 
 var path = {
       build: { //Build files
@@ -49,7 +57,8 @@ var path = {
           js: 'src/app/**/*.js',
           style: 'src/assets/scss/main.scss',
           svg: 'src/assets/svg/*.svg',
-          views: 'src/app/**/*.html'
+          views: 'src/app/**/*.html',
+          favicon: 'favicon.ico'
       },
       watch: { // Which files we want to watch
           html: ['src/app/**/*.html','src/index.html'],
@@ -58,6 +67,11 @@ var path = {
           svg: 'src/assets/svg/*.svg'
       }
 };
+
+gulp.task('clean', function() {
+  return gulp.src(bases.dist)
+    .pipe(clean());
+});
 
 
 gulp.task('jshint', function() {
@@ -108,7 +122,7 @@ gulp.src(path.src.js)
 });
 
 
-gulp.task('build-app-dev', ['views','styles-dev', 'svg', 'jshint','js-dev'],  function () {
+gulp.task('build-app-dev', ['pre-build-app-dev'],  function () {
     var assets = useref.assets();
 
     return gulp.src(path.src.html)
@@ -119,7 +133,7 @@ gulp.task('build-app-dev', ['views','styles-dev', 'svg', 'jshint','js-dev'],  fu
                .pipe(connect.reload())
 });
 
-gulp.task('build-app-release', ['views','styles-release', 'svg', 'jshint','js-release'],  function () {
+gulp.task('pre-build-app-dev', ['views','styles-dev', 'svg', 'jshint','js-dev'],  function () {
     var assets = useref.assets();
 
     return gulp.src(path.src.html)
@@ -130,12 +144,26 @@ gulp.task('build-app-release', ['views','styles-release', 'svg', 'jshint','js-re
                .pipe(connect.reload())
 });
 
-gulp.task('server', function () {
+gulp.task('build-app-release', ['pre-build-app-release'],  function () {
+    var assets = useref.assets();
 
-    connect.server({
-        root: 'build',
-        livereload : true
-    });
+    return gulp.src(path.src.html)
+               .pipe(assets)
+               .pipe(assets.restore())
+               .pipe(useref())
+               .pipe(gulp.dest(path.build.html))
+               .pipe(connect.reload())
+});
+
+gulp.task('pre-build-app-release', ['views','styles-release', 'svg', 'jshint','js-release'],  function () {
+    var assets = useref.assets();
+
+    return gulp.src(path.src.html)
+               .pipe(assets)
+               .pipe(assets.restore())
+               .pipe(useref())
+               .pipe(gulp.dest(path.build.html))
+               .pipe(connect.reload())
 });
 
 gulp.task('watch', function () {
@@ -155,10 +183,10 @@ gulp.task('svg', function() {
                              }
          }
      };
- gulp.src(path.src.svg)
-     .pipe(svgSprite(config))
-     .pipe(rename('sprite.svg'))
-     .pipe(gulp.dest(path.build.svg));
+    gulp.src(path.src.svg)
+        .pipe(svgSprite(config))
+        .pipe(rename('sprite.svg'))
+        .pipe(gulp.dest(path.build.svg));
 });
 
 gulp.task("views", function() {
@@ -167,7 +195,24 @@ gulp.task("views", function() {
     .pipe(gulp.dest(path.build.js));
 });
 
-gulp.task('default', ['build-app-dev', 'server', 'watch']);
+gulp.task('copy', function() {
+  gulp.src(path.src.favicon, {cwd: bases.app})
+    .pipe(gulp.dest(bases.dist));
+});
 
-gulp.task('release', ['build-app-release', 'server', 'watch']);
+gulp.task('node-server', ['build-app-dev'], function () {
+  nodemon({
+    script: 'server.js'
+  })
+})
+
+gulp.task('node-server-release', ['build-app-release'], function () {
+  nodemon({
+    script: 'server.js'
+  })
+})
+
+gulp.task('default', ['copy', 'watch', 'node-server']);
+
+gulp.task('release', ['copy', 'watch', 'node-server-release']);
 
