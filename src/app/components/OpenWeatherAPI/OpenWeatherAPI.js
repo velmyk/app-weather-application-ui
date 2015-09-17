@@ -12,7 +12,7 @@
 			weatherStateForecast = {};
 
 		function fetchResponse(response){
-			city['name'] = response.data.city.name;
+			city.name = response.data.city.name;
 
 			response.data.list.forEach( function (item, i) {
 				temperatureForecast[item.dt] = item.main.temp;

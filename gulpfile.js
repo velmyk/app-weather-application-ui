@@ -133,7 +133,7 @@ gulp.task('build-app-dev', ['pre-build-app-dev'],  function () {
                .pipe(connect.reload())
 });
 
-gulp.task('pre-build-app-dev', ['views','styles-dev', 'svg', 'jshint','js-dev'],  function () {
+gulp.task('pre-build-app-dev', ['views','styles-dev', 'jshint','js-dev'],  function () {
     var assets = useref.assets();
 
     return gulp.src(path.src.html)
@@ -155,7 +155,7 @@ gulp.task('build-app-release', ['pre-build-app-release'],  function () {
                .pipe(connect.reload())
 });
 
-gulp.task('pre-build-app-release', ['views','styles-release', 'svg', 'jshint','js-release'],  function () {
+gulp.task('pre-build-app-release', ['views','styles-release', 'jshint','js-release'],  function () {
     var assets = useref.assets();
 
     return gulp.src(path.src.html)
@@ -200,6 +200,11 @@ gulp.task('copy', function() {
     .pipe(gulp.dest(bases.dist));
 });
 
+gulp.task('copy-svg', function() {
+  gulp.src(path.src.svg)
+    .pipe(gulp.dest(path.build.svg));
+});
+
 gulp.task('node-server', ['build-app-dev'], function () {
   nodemon({
     script: 'server.js'
@@ -212,7 +217,7 @@ gulp.task('node-server-release', ['build-app-release'], function () {
   })
 })
 
-gulp.task('default', ['copy', 'watch', 'node-server']);
+gulp.task('default', ['copy','copy-svg', 'watch', 'node-server']);
 
-gulp.task('release', ['copy', 'watch', 'node-server-release']);
+gulp.task('release', ['copy','copy-svg', 'watch', 'node-server-release']);
 

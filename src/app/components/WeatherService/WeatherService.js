@@ -25,7 +25,7 @@
 		}
 
 		function getCity() {
-			return city["name"];
+			return city.name;
 		}
 
 		function getTemp(date) {
