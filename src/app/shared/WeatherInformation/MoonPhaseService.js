@@ -26,48 +26,33 @@ angular
 		function getMoonPhaseClass(weatherDate){
 			var moonPhaseClass;
 
-			var m = getMoonPhase(new Date(weatherDate*1000));
+			var phase = getMoonPhase(new Date(weatherDate*1000));
 
-			
-			if(m >= 1 && m<=3){
-				moonPhaseClass = MoonPhasesClasses["1"];
-			}
-			else if( m >=4 && m<=6){
-				moonPhaseClass = MoonPhasesClasses["2"];
-			}
-			else if( m >= 7 && m<=8){
-				moonPhaseClass = MoonPhasesClasses["3"];
-			}
-			else if( m >= 9 && m<=11){
-				moonPhaseClass = MoonPhasesClasses["4"];
-			}
-			else if( m >= 12 && m<=14){
-				moonPhaseClass = MoonPhasesClasses["5"];
-			}
-			else if( m >= 15 && m<=16){
-				moonPhaseClass = MoonPhasesClasses["6"];
-			}
-			else if( m >= 17 && m<=19){
-				moonPhaseClass = MoonPhasesClasses["7"];
-			}
-			else if( m >= 20 && m<=21){
-				moonPhaseClass = MoonPhasesClasses["8"];
-			}
-			else if( m >= 22 && m<=23){
-				moonPhaseClass = MoonPhasesClasses["9"];
-			}
-			else if( m >= 24 && m<=26){
-				moonPhaseClass = MoonPhasesClasses["10"];
-			}
-			else if( m >= 27 && m<=28){
-				moonPhaseClass = MoonPhasesClasses["11"];
-			}
-			else { 
-				moonPhaseClass = MoonPhasesClasses["12"];
-			}
-			return moonPhaseClass;
-		}
+			var m = new Map();
+		
+			m.set([1,2,3] , MoonPhasesClasses["1"]);
+			m.set([4,5,6] , MoonPhasesClasses["2"]);
+			m.set([7,8], MoonPhasesClasses["3"]); 
+			m.set([9,10,11] , MoonPhasesClasses["4"]);
+			m.set([12,13,14] ,  MoonPhasesClasses["5"]);
+			m.set([15,16] ,  MoonPhasesClasses["6"]); 
+			m.set([17,18] , MoonPhasesClasses["7"]); 
+			m.set([19,20] ,  MoonPhasesClasses["8"]);
+			m.set([21,22] ,  MoonPhasesClasses["9"]); 
+			m.set([23,24,25] ,  MoonPhasesClasses["10"]);
+			m.set([26,27,28]	,  MoonPhasesClasses["11"]);
+			m.set([29,30] ,  MoonPhasesClasses["12"]); 
 
+			label:for (var [key, value] of m) {
+						for(var i=0; i<key.length; i++){
+							if(key[i] == phase){
+								moonPhaseClass = value;
+								break label;
+							}
+						}
+					}
+				return moonPhaseClass;
+			}
 
 		return {
 				getMoonPhaseClass: getMoonPhaseClass

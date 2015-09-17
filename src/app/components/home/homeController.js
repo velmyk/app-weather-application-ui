@@ -7,7 +7,8 @@
 
 	function homeController($scope, WeatherService, MoonPhaseCounter, WeatherClassService, HumidityService) {
 		/*jshint validthis:true */
-		var vm = this;
+		var vm = this; 
+		var day= 86400 ;
 		var mockTimestamp = 1441875600;
 
 		vm.mockTimestamp = mockTimestamp;

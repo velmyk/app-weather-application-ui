@@ -37,7 +37,8 @@ var gulp = require('gulp'),
     ngAnnotate = require('gulp-ng-annotate'),
     concat = require('gulp-concat'),
     nodemon = require('gulp-nodemon'),
-    clean = require('gulp-clean');
+    clean = require('gulp-clean'),
+    babel = require('gulp-babel');
 
 
 var bases = {
@@ -76,7 +77,7 @@ gulp.task('clean', function() {
 
 gulp.task('jshint', function() {
   return gulp.src(path.src.js)
-    .pipe(jshint())
+    .pipe(jshint({"esnext": true}))
     .pipe(jshint.reporter('default'));
 });
 
@@ -105,6 +106,7 @@ gulp.task('js-dev', function () {
 gulp.src(path.src.js)
     .pipe(sourcemaps.init())
     .pipe(ngAnnotate())
+    .pipe(babel())
     .pipe(concat('all.js'))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(path.build.js));
@@ -114,6 +116,7 @@ gulp.task('js-release', function () {
 gulp.src(path.src.js)
     .pipe(sourcemaps.init())
     .pipe(ngAnnotate())
+    .pipe(babel())
     .pipe(concat('all.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write('./'))
