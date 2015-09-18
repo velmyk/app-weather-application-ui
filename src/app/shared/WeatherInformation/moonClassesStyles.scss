@@ -41,17 +41,6 @@
 			@include bgImage(url("../svg/moon12.svg"));
 		}
 		
-		//humidity images
-		&.lowHumidity{
-			@include bgImage(url("../svg/humidity-low.svg"));
-		}
-		&.mediumHumidity{
-			@include bgImage(url("../svg/humidity-mid.svg"));
-		}
-		&.highHumidity{
-			@include bgImage(url("../svg/humidity-high.svg"));
-		}
-
 }
 
 

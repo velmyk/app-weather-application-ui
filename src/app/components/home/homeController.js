@@ -18,11 +18,10 @@
 			vm.wSpeed = WeatherService.getWindSpeed(vm.mockTimestamp);
 			vm.wDegree = parseInt(WeatherService.getWindDirection(vm.mockTimestamp));
 			vm.humidity = WeatherService.getHumidity(vm.mockTimestamp);
-			vm.weatherId=WeatherService.getWeatherId(vm.mockTimestamp);
-			
+						
 			vm.humidityClass = HumidityService.getHumidityClass(vm.humidity);
 			vm.moonPhaseClass = MoonPhaseCounter.getMoonPhaseClass(vm.mockTimestamp);
-			vm.bgClass = WeatherClassService.getWeatherClass(vm.weatherId).backgroundColor;
+			vm.bgClass = WeatherClassService.getWeatherClass(vm.weatherId).backgroundColorClass;
 		});
 
 	}

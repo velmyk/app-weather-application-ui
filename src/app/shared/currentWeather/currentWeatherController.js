@@ -14,7 +14,7 @@
 			vm.desc = WeatherService.getWeatherDesc(+time);
 			vm.main = WeatherService.getWeatherState(+time);
 			vm.weatherId = WeatherService.getWeatherId(+time);
-			vm.mainImageClass = WeatherClassService.getWeatherClass(vm.weatherId).imageClass;
+			vm.mainImageClass = WeatherClassService.getWeatherClass(vm.weatherId).mainWeatherClass;
 		}
 
 		dataInit($scope.time);
