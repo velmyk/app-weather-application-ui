@@ -1,0 +1,18 @@
+.humidity-img {
+		height: 9vh;
+		width: 9vh;
+		margin:auto;
+	//humidity images
+		&.lowHumidity{
+			@include bgImage(url("../svg/humidity-low.svg"));
+		}
+		&.mediumHumidity{
+			@include bgImage(url("../svg/humidity-mid.svg"));
+		}
+		&.highHumidity{
+			@include bgImage(url("../svg/humidity-high.svg"));
+		}
+
+}
+
+

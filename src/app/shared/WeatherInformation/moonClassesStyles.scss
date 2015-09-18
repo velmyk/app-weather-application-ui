@@ -1,0 +1,46 @@
+.moon-img {
+		height: 9vh;
+		width: 9vh;
+		margin:auto;
+
+		&.MoonPhaseOne{
+			@include bgImage(url("../svg/moon1.svg"));
+		}
+
+		&.MoonPhaseTwo{
+			@include bgImage(url("../svg/moon2.svg"));
+		}
+		&.MoonPhaseThree{
+			@include bgImage(url("../svg/moon3.svg"));
+		}
+		&.MoonPhaseFour{
+			@include bgImage(url("../svg/moon4.svg"));
+		}
+		&.MoonPhaseFive{
+			@include bgImage(url("../svg/moon5.svg"));
+		}
+		&.MoonPhaseSix{
+			@include bgImage(url("../svg/moon6.svg"));
+		}
+		&.MoonPhaseSeven{
+			@include bgImage(url("../svg/moon7.svg"));
+		}
+		&.MoonPhaseEight{
+			@include bgImage(url("../svg/moon8.svg"));
+		}
+		&.MoonPhaseNine{
+			@include bgImage(url("../svg/moon9.svg"));
+		}
+		&.MoonPhaseTen{
+			@include bgImage(url("../svg/moon10.svg"));
+		}
+		&.MoonPhaseEleven{
+			@include bgImage(url("../svg/moon11.svg"));
+		}
+		&.MoonPhaseTwelve{
+			@include bgImage(url("../svg/moon12.svg"));
+		}
+		
+}
+
+

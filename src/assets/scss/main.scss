@@ -2,5 +2,7 @@
 @import "../../app/components/settings/settings.scss";
 @import "../../app/shared/locationLabel/location-style.scss";
 @import "../../app/shared/temperatureForecast/temperature-style.scss";
-@import "../../app/shared/windHumidity/windHumidity-style.scss";
+@import "../../app/shared/WeatherInformation/WeatherInformationStyles.scss";
+@import "../../app/shared/WeatherInformation/humidityClassesStyles.scss";
+@import "../../app/shared/WeatherInformation/moonClassesStyles.scss";
 @import "../../app/shared/currentWeather/currentWeather-style.scss";

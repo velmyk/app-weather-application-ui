@@ -1,14 +1,57 @@
+@mixin bgImage($url){
+		background: $url no-repeat;
+		background-size: 100% auto;
+}
+
 body, html {
-  background-color: #75608b;
   color: white;
   text-align: center;
   font-family: 'Titillium Web', sans-serif;
-  height: 100%;
+  height: 100vh;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .row, ul, li {
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+
+
+.thunder{
+	background-color: #999999;
+}
+.drizzle{
+	background-color: #9cb8be;
+}
+.lightRain{
+	background-color: #bda881;
+}
+.heavyRain{
+	background-color: #675680;
+}
+.freezingRain{
+	background-color: #36b1bf;
+}
+.snow{
+	background-color: #375d81;
+}
+.clearSky{
+	background-color: #f2385a;
+}
+.fewClouds{
+	background-color: #f1854b;
+}
+.scatteredClouds{
+	background-color: #c27146;
+}
+.overcastClouds{
+	background-color: #1d9e48;
+}
+.mist{
+	background-color: #75608b;
+}
+.tornado{
+	background-color: #484545;
 }

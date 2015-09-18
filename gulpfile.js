@@ -37,7 +37,8 @@ var gulp = require('gulp'),
     ngAnnotate = require('gulp-ng-annotate'),
     concat = require('gulp-concat'),
     nodemon = require('gulp-nodemon'),
-    clean = require('gulp-clean');
+    clean = require('gulp-clean'),
+    babel = require('gulp-babel');
 
 
 var bases = {
@@ -76,7 +77,7 @@ gulp.task('clean', function() {
 
 gulp.task('jshint', function() {
   return gulp.src(path.src.js)
-    .pipe(jshint())
+    .pipe(jshint({"esnext": true}))
     .pipe(jshint.reporter('default'));
 });
 
@@ -105,6 +106,7 @@ gulp.task('js-dev', function () {
 gulp.src(path.src.js)
     .pipe(sourcemaps.init())
     .pipe(ngAnnotate())
+    .pipe(babel())
     .pipe(concat('all.js'))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(path.build.js));
@@ -114,6 +116,7 @@ gulp.task('js-release', function () {
 gulp.src(path.src.js)
     .pipe(sourcemaps.init())
     .pipe(ngAnnotate())
+    .pipe(babel())
     .pipe(concat('all.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write('./'))
@@ -133,7 +136,7 @@ gulp.task('build-app-dev', ['pre-build-app-dev'],  function () {
                .pipe(connect.reload())
 });
 
-gulp.task('pre-build-app-dev', ['views','styles-dev', 'svg', 'jshint','js-dev'],  function () {
+gulp.task('pre-build-app-dev', ['views','styles-dev', 'jshint','js-dev'],  function () {
     var assets = useref.assets();
 
     return gulp.src(path.src.html)
@@ -155,7 +158,7 @@ gulp.task('build-app-release', ['pre-build-app-release'],  function () {
                .pipe(connect.reload())
 });
 
-gulp.task('pre-build-app-release', ['views','styles-release', 'svg', 'jshint','js-release'],  function () {
+gulp.task('pre-build-app-release', ['views','styles-release', 'jshint','js-release'],  function () {
     var assets = useref.assets();
 
     return gulp.src(path.src.html)
@@ -200,6 +203,11 @@ gulp.task('copy', function() {
     .pipe(gulp.dest(bases.dist));
 });
 
+gulp.task('copy-svg', function() {
+  gulp.src(path.src.svg)
+    .pipe(gulp.dest(path.build.svg));
+});
+
 gulp.task('node-server', ['build-app-dev'], function () {
   nodemon({
     script: 'server.js'
@@ -212,7 +220,7 @@ gulp.task('node-server-release', ['build-app-release'], function () {
   })
 })
 
-gulp.task('default', ['copy', 'watch', 'node-server']);
+gulp.task('default', ['copy','copy-svg', 'watch', 'node-server']);
 
-gulp.task('release', ['copy', 'watch', 'node-server-release']);
+gulp.task('release', ['copy','copy-svg', 'watch', 'node-server-release']);
 
