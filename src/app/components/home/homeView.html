@@ -10,7 +10,7 @@
 
 		<div class="weather-state-container">			
 			<temp-forecast data-time="{{home.time.displayTime}}"></temp-forecast>
-			<div class="row">
+			<div class="row" ng-swipe-left="home.minusDay()" ng-swipe-right="home.plusDay()">
 				<navigation-arrow data-direction="left" class="col-xs-3"></navigation-arrow>
 				<current-weather data-time="{{home.time.displayTime}}" class="col-xs-6"></current-weather>
 				<navigation-arrow data-direction="right" class="col-xs-3"></navigation-arrow>

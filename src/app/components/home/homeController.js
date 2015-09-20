@@ -12,7 +12,11 @@
 		vm.time = NavSrv.time;
 
 		vm.city = WeatherService.getCity();
+		
 		vm.bgClass = WeatherClassService.getWeatherClass(vm.weatherId).backgroundColorClass;
+
+		vm.plusDay = NavSrv.plusDay;
+		vm.minusDay = NavSrv.minusDay;
 
 	}
 
