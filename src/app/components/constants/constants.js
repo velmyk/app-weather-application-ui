@@ -9,5 +9,8 @@
 			TODAYSTR: "Today",
 			TOMORROWSTR: "Tomorrow",
 			MILISEC_IN_SEC: 1000
+		})
+		.constant("TIME_IN_SECONDS", {
+			DAY: 86400
 		});
 })();
