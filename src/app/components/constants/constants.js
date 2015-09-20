@@ -5,6 +5,10 @@
 		.module("app")
 		.constant("constants", {
 			APIURL: "/api/weather",
-			APIKEY: "01fd2cb2e81a0044dad76f3cbaf09e5d"
+			APIKEY: "01fd2cb2e81a0044dad76f3cbaf09e5d",
+			TODAYSTR: "Today",
+			TOMORROWSTR: "Tomorrow",
+			ELLIPSIS: "...",
+			MAXCITYNAME_MOBILE: 19
 		});
 })();

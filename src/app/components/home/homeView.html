@@ -1,6 +1,12 @@
-<div class="container-fluid" ng-class="home.bgClass" style="height:100vh">
-		<current-location data-time="{{home.mockTimestamp}}"></current-location>
-		<temp-forecast data-time="{{home.mockTimestamp}}"></temp-forecast>
- 		<current-weather data-time="{{home.mockTimestamp}}"></current-weather>
- 		<weather-information></weather-information>
+<div class=" container-fluid" ng-class="home.bgClass" style="height:100vh">
+		<div class="location-container">			
+			<current-location data-time="{{home.mockTimestamp}}"></current-location>
+		</div>
+
+		<div class="weather-state-container">			
+			<temp-forecast data-time="{{home.mockTimestamp}}"></temp-forecast>
+ 			<current-weather data-time="{{home.mockTimestamp}}"></current-weather>
+ 			<weather-information></weather-information>
+ 		</div>
+
 </div>
