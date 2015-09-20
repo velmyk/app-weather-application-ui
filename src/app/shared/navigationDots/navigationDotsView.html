@@ -1,0 +1,10 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ul class="nav-dots" >
+			<li ng-repeat="dot in navDotsCtrl.dotsNum track by $index" data-dot-number="{{$index}}">
+				<div ng-class="({{$index}} == navDotsCtrl.currentDot) ? 'nav-dot-active' : 'nav-dot'"></div>
+			</li>
+		</ul>
+	</div>
+</div>
+
