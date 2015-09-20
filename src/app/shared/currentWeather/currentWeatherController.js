@@ -7,17 +7,12 @@
 
 	function CurrentWeatherCtrl($scope, WeatherService, WeatherClassService) {
 		/*jshint validthis:true */
-		var vm = this , 
-			 today=+$scope.time;
-
-		function dataInit (time) {
-			vm.desc = WeatherService.getWeatherDesc(+time);
-			vm.main = WeatherService.getWeatherState(+time);
-			vm.weatherId = WeatherService.getWeatherId(+time);
+		var vm = this;
+		$scope.$watch('time', function(){
+			vm.desc = WeatherService.getWeatherDesc( $scope.time );
+			vm.main = WeatherService.getWeatherState( $scope.time );
+			vm.weatherId = WeatherService.getWeatherId( $scope.time );
 			vm.mainImageClass = WeatherClassService.getWeatherClass(vm.weatherId).mainWeatherClass;
-		}
-
-		dataInit($scope.time);
-
+		})
 	}
 })();
