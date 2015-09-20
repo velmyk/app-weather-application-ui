@@ -5,23 +5,14 @@
 	.controller('homeController', homeController);
 
 
-	function homeController($scope, WeatherService, MoonPhaseCounter, WeatherClassService, HumidityService) {
+	function homeController($scope, WeatherService, WeatherClassService, NavSrv) {
 		/*jshint validthis:true */
 		var vm = this; 
-		var day= 86400 ;
-		var mockTimestamp = 1441875600;
 
-		vm.mockTimestamp = mockTimestamp;
+		vm.time = NavSrv.time;
 
-		$scope.$watch('home.mockTimestamp', function(){
-			vm.wSpeed = WeatherService.getWindSpeed(vm.mockTimestamp);
-			vm.wDegree = parseInt(WeatherService.getWindDirection(vm.mockTimestamp));
-			vm.humidity = WeatherService.getHumidity(vm.mockTimestamp);
-						
-			vm.humidityClass = HumidityService.getHumidityClass(vm.humidity);
-			vm.moonPhaseClass = MoonPhaseCounter.getMoonPhaseClass(vm.mockTimestamp);
-			vm.bgClass = WeatherClassService.getWeatherClass(vm.weatherId).backgroundColorClass;
-		});
+		vm.city = WeatherService.getCity();
+		vm.bgClass = WeatherClassService.getWeatherClass(vm.weatherId).backgroundColorClass;
 
 	}
 

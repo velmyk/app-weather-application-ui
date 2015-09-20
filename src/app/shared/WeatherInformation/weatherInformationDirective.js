@@ -1,3 +1,4 @@
+(function(){
 "use strict";
 
 angular
@@ -5,10 +6,16 @@ angular
 	.directive("weatherInformation", weatherInformation);
 
 function weatherInformation() {
-    return {
-        restrict:"E",
-        replace: true,
-        scope:false,
-        templateUrl: "shared/WeatherInformation/WeatherInformationView.html"
-    };
+		return {
+			restrict:"E",
+			replace: true,
+			scope: {
+				time: "@"
+			},
+			controller: "weatherInformationCtrl",
+			controllerAs: "weatherInfoCtrl",
+			templateUrl: "shared/WeatherInformation/WeatherInformationView.html"
+		};
 }
+
+})();

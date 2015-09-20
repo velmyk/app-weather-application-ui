@@ -5,13 +5,16 @@
 					<img src="svg/cogweel.svg" class="wheel" alt="gearwheel" /> 
 				</a>
 			</div>			
-			<current-location data-time="{{home.mockTimestamp}}"></current-location>
+			<current-location data-time="{{home.time.displayTime}}"></current-location>
 		</div>
 
 		<div class="weather-state-container">			
-			<temp-forecast data-time="{{home.mockTimestamp}}"></temp-forecast>
- 			<current-weather data-time="{{home.mockTimestamp}}"></current-weather>
- 			<weather-information></weather-information>
- 		</div>
-
+			<temp-forecast data-time="{{home.time.displayTime}}"></temp-forecast>
+			<div class="row">
+				<navigation-arrow data-direction="left" class="col-xs-3"></navigation-arrow>
+				<current-weather data-time="{{home.time.displayTime}}" class="col-xs-6"></current-weather>
+				<navigation-arrow data-direction="right" class="col-xs-3"></navigation-arrow>
+			</div>
+			<weather-information data-time="{{home.time.displayTime}}"></weather-information>
+		</div>
 </div>
