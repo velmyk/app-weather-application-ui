@@ -28,11 +28,6 @@
 			return city.name;
 		}
 
-		function getCityShort(cityLength) {
-			var cityName = city.name;
-			return (cityName.length > cityLength) ? cityName.substring(0,cityLength) + constants.ELLIPSIS : cityName; 
-		}
-
 		function getTemp(date) {
 			return Math.round(findClosestVal(date,temperatureForecast));
 		}
@@ -68,7 +63,6 @@
 
 		return {
 			getCity: getCity,
-			getCityShort: getCityShort,
 			getTemp: getTemp,
 			getHumidity: getHumidity,
 			getWindSpeed: getWindSpeed,

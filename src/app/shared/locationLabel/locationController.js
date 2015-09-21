@@ -8,7 +8,7 @@
 	function locationController($scope, constants, WeatherService, DateLabel) {
 		var vm = this;
 			
-		vm.city = WeatherService.getCityShort(constants.MAXCITYNAME_MOBILE);
+		vm.city = WeatherService.getCity();
 		vm.time = DateLabel.getTimeLabel($scope.time);
 		
 		$scope.$watch("time", function () {

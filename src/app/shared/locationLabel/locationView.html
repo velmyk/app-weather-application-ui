@@ -1,11 +1,4 @@
 <div class="row current-location">
-	<div class='location-gear'>
-		<a ui-sref="settings">
-			<img src="svg/cogweel.svg" class="wheel" alt="gearwheel" /> 
-		</a>
-	</div>
-	<div class="row">
-		<div class='col-xs-12'>{{location.time | date:'dd-MM-yy'}} in {{location.city}}</div>
-	</div>	
+	<div class='col-xs-12 current-location__title'>{{location.time | date:'dd-MM-yy'}} in {{location.city}}</div>	
 </div>
 

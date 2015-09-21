@@ -56,6 +56,19 @@ body, html {
 	background-color: #484545;
 }
 
+.wheel {
+	height: 35px;
+	width: 40px;
+}
+
+.location-gear {
+	position: absolute;
+	top: 1vh;
+	left:0;
+	z-index: 100;
+	cursor: pointer;
+}
+
 .location-container {
 	position: absolute;
 	width: 95%; 
