@@ -1,6 +1,17 @@
-<div class="container-fluid" ng-class="home.bgClass" style="height:100vh">
-		<current-location></current-location>
-		<temp-forecast data-time="{{home.mockTimestamp}}"></temp-forecast>
- 		<current-weather data-time="{{home.mockTimestamp}}"></current-weather>
- 		<weather-information></weather-information>
+<div class=" container-fluid" ng-class="home.bgClass" style="height:100vh">
+		<div class="location-container">
+			<div class='location-gear'>
+				<a ui-sref="settings">
+					<img src="svg/cogweel.svg" class="wheel" alt="gearwheel" /> 
+				</a>
+			</div>			
+			<current-location data-time="{{home.mockTimestamp}}"></current-location>
+		</div>
+
+		<div class="weather-state-container">			
+			<temp-forecast data-time="{{home.mockTimestamp}}"></temp-forecast>
+ 			<current-weather data-time="{{home.mockTimestamp}}"></current-weather>
+ 			<weather-information></weather-information>
+ 		</div>
+
 </div>

@@ -3,13 +3,9 @@
   font-weight: lighter;
   font-size: 2em;
   height: 10vh;
-}
- 
-.wheel {
-	height: 35px;
-	width: 40px;
-}
 
-.location-gear {
-	padding-top: 0;
+  &__title {
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  }
 }

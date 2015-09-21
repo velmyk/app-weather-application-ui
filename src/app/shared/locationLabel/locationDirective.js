@@ -1,12 +1,21 @@
-angular
-	.module("app")
-	.directive("currentLocation", currentLocation);
+( function() {
+	"use strict";
 
-function currentLocation() {
+	angular
+		.module("app")
+		.directive("currentLocation", currentLocation);
 
-	return {
-		restrict: "E",
-		replace: true,
-		templateUrl: "shared/locationLabel/locationView.html"
-	};
-}
+	function currentLocation() {
+
+		return {
+			restrict: "E",
+			replace: true,
+			scope: {
+				time: "@"
+			},
+			controller: "locationController",
+			controllerAs: "location",
+			templateUrl: "shared/locationLabel/locationView.html"
+		};
+	}
+})();

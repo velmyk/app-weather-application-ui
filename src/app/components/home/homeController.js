@@ -14,7 +14,6 @@
 		vm.mockTimestamp = mockTimestamp;
 
 		$scope.$watch('home.mockTimestamp', function(){
-			vm.city = WeatherService.getCity();
 			vm.wSpeed = WeatherService.getWindSpeed(vm.mockTimestamp);
 			vm.wDegree = parseInt(WeatherService.getWindDirection(vm.mockTimestamp));
 			vm.humidity = WeatherService.getHumidity(vm.mockTimestamp);
