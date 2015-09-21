@@ -6,31 +6,54 @@ angular
 	.module("app")
 	.factory("WeatherClassService", WeatherClassService);
 
-function WeatherClassService(WeatherClasses ,WeatherClassesMap) {
- 	var m = WeatherClassesMap.getWeatherClassesMap();
- 	var mainWeatherClass, backgroundColor;
+function WeatherClassService(WeatherClasses ,WeatherClassesMap, WeatherService, NavSrv) {
+	var m = WeatherClassesMap.getWeatherClassesMap(),
+					mainWeatherClass,
+					backgroundColor,
+					homeBackGround = {
+						bgClass: '',
+						mainWeatherClass: ''
+					};
 
-	function getWeatherClass( weatherId ){
+	function setBgClass ( displayTime ) {
+
+		var weatherId = WeatherService.getWeatherId( displayTime );
+
  				
 		for (var [key, value] of m) {
 
-		  	if(key.test(weatherId)){
+			if(key.test(weatherId)){
 
-		  		mainWeatherClass = value;
-		  		backgroundColor = value;
-		  		
-		  	break;
-		  }
+				homeBackGround.bgClass = value;
+				break;
+			}
+		}
+	}
+
+	function getBgClass() {
+		return homeBackGround.bgClass;
+	}
+
+	function getWeatherIconClass( displayTime ){
+
+		var weatherId = WeatherService.getWeatherId( displayTime );
+ 				
+		for (var [key, value] of m) {
+
+			if(key.test(weatherId)){
+
+				mainWeatherClass = value;
+				break;
+			}
 		}
 
- 		return {
- 			mainWeatherClass:mainWeatherClass,
- 			backgroundColorClass:backgroundColor
- 		};
+		return mainWeatherClass;
 	}
-  
-  	return {
-		getWeatherClass: getWeatherClass
+
+	return {
+		getBgClass: getBgClass,
+		getWeatherIconClass: getWeatherIconClass,
+		setBgClass: setBgClass
 	};
 }
 

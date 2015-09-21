@@ -13,7 +13,7 @@
             },
             controller: "CurrentWeatherCtrl",
             controllerAs: "weatherCtrl",
-            templateUrl: "shared/currentWeather/currentWeatherView.html",
+            templateUrl: "shared/currentWeather/currentWeatherView.html"
         };
     }
 })();

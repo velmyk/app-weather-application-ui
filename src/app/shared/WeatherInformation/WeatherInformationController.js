@@ -17,7 +17,7 @@
 
 			vm.humidityClass = HumidityService.getHumidityClass(vm.humidity);
 			vm.moonPhaseClass = MoonPhaseCounter.getMoonPhaseClass( $scope.time );
-			vm.bgClass = WeatherClassService.getWeatherClass(vm.weatherId).backgroundColorClass;
+			// vm.bgClass = WeatherClassService.getWeatherClass(vm.weatherId).backgroundColorClass;
 		});
 	}
 

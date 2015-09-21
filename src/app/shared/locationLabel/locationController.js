@@ -7,6 +7,7 @@
 
 	function locationController($scope, constants, WeatherService, DateLabel) {
 		/*jshint validthis:true */
+
 		var vm = this;
 			
 		vm.city = WeatherService.getCity();

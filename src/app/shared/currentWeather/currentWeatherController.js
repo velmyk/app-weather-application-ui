@@ -11,8 +11,9 @@
 		$scope.$watch('time', function(){
 			vm.desc = WeatherService.getWeatherDesc( $scope.time );
 			vm.main = WeatherService.getWeatherState( $scope.time );
-			vm.weatherId = WeatherService.getWeatherId( $scope.time );
-			vm.mainImageClass = WeatherClassService.getWeatherClass(vm.weatherId).mainWeatherClass;
-		})
+			// vm.weatherId = WeatherService.getWeatherId( $scope.time );
+			WeatherClassService.setBgClass( $scope.time );
+			vm.mainImageClass = WeatherClassService.getWeatherIconClass( $scope.time );
+		});
 	}
 })();

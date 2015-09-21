@@ -46,18 +46,6 @@
 			return (new Date((time.now + days * TIME_IN_SECONDS.DAY)*1000).setHours(15))/1000;
 		}
 
-		// function setMaxDays (day) {
-		// 	time.maxDays = day;
-		// }
-
-		// function getMaxDays () {
-		// 	return time.maxDays;
-		// }
-
-		// function getDisplayTime () {
-		// 	return time.displayTime;
-		// }
-
 		return {
 			time: time,
 			arrowImg : arrowImg,
