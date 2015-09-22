@@ -4,8 +4,13 @@
   font-size: 2em;
   height: 10vh;
 
-  &__title {
+  &-title {
+  	max-height: 16vh;
   	overflow: hidden;
   	text-overflow: ellipsis;
+
+  	&__city {
+  		white-space: nowrap;
+  	}
   }
 }
