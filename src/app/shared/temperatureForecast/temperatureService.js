@@ -1,29 +1,29 @@
 (function() {
-	"use strict";
+  "use strict";
 
-	angular
-		.module("app")
-			.factory("Daynight", Daynight);
+  angular
+    .module("app")
+      .factory("Daynight", Daynight);
 
-	function Daynight() {
+  function Daynight() {
 
-		function isNight(date){
-			var dayPart = (new Date(date)).getHours();
-			if ((dayPart > 22) && (dayPart < 6)) {
-				return true;
-			} else {
-				return false;
-			}
-		}
+    function isNight(date){
+      var dayPart = (new Date(date * 1000)).getHours();
+      if ((dayPart > 6) && (dayPart < 22)) {
+        return false;
+      } else {
+        return true;
+      }
+    }
 
-		function isDay(date){
-			return !isNight(date);
-		}
+    function isDay(date){
+      return !isNight(date);
+    }
 
-		return {
-			isDay : isDay,
-			isNight : isNight,
-		};
-	}
+    return {
+      isDay : isDay,
+      isNight : isNight,
+    };
+  }
 
 })();
