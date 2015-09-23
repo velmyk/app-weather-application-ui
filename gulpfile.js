@@ -38,7 +38,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     nodemon = require('gulp-nodemon'),
     clean = require('gulp-clean'),
-    babel = require('gulp-babel');
+    babel = require('gulp-babel'),
+    Server = require('karma').Server;
 
 
 var bases = {
@@ -208,6 +209,14 @@ gulp.task('copy-svg', function() {
     .pipe(gulp.dest(path.build.svg));
 });
 
+gulp.task('unit-test', function(){  
+    new Server({
+        configFile:__dirname + '/karma.conf.js',
+        singleRun: false
+    }).start();
+});
+
+
 gulp.task('node-server', ['build-app-dev'], function () {
   nodemon({
     script: 'server.js'
@@ -220,7 +229,7 @@ gulp.task('node-server-release', ['build-app-release'], function () {
   })
 })
 
-gulp.task('default', ['copy','copy-svg', 'watch', 'node-server']);
+gulp.task('default', ['unit-test', 'copy','copy-svg', 'watch', 'node-server']);
 
 gulp.task('release', ['copy','copy-svg', 'watch', 'node-server-release']);
 

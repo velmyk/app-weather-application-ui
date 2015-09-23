@@ -1,29 +1,25 @@
 (function() {
-	"use strict";
+  "use strict";
 
-	angular
-		.module("app")
-			.factory("Daynight", Daynight);
+  angular
+    .module("app")
+      .factory("Daynight", Daynight);
 
-	function Daynight() {
+  function Daynight(constants) {
 
-		function isNight(date){
-			var dayPart = (new Date(date)).getHours();
-			if ((dayPart > 22) && (dayPart < 6)) {
-				return true;
-			} else {
-				return false;
-			}
-		}
+    function isNight(date){
+      var dayPart = (new Date(date * constants.MILISEC_IN_SEC)).getHours();
+      return !((dayPart > 6) && (dayPart < 22));
+    }
 
-		function isDay(date){
-			return !isNight(date);
-		}
+    function isDay(date){
+      return !isNight(date);
+    }
 
-		return {
-			isDay : isDay,
-			isNight : isNight,
-		};
-	}
+    return {
+      isDay : isDay,
+      isNight : isNight,
+    };
+  }
 
 })();
