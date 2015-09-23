@@ -41,7 +41,6 @@ var gulp = require('gulp'),
     babel = require('gulp-babel'),
     Server = require('karma').Server;
 
-
 var bases = {
  app: 'src/',
  dist: 'build/'
@@ -56,7 +55,7 @@ var path = {
       },
       src: { //Source files
           html: 'src/index.html',
-          js: 'src/app/**/*.js',
+          js: ['src/app/**/*.js', '!src/app/**/*.spec.js'],
           style: 'src/assets/scss/main.scss',
           svg: 'src/assets/svg/*.svg',
           views: 'src/app/**/*.html',
@@ -121,7 +120,6 @@ gulp.src(path.src.js)
     .pipe(concat('all.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write('./'))
-    
     .pipe(gulp.dest(path.build.js));
 });
 

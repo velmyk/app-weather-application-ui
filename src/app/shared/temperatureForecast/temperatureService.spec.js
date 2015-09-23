@@ -1,4 +1,4 @@
-'use strict;'
+'use strict';
 
 describe('Daynight', function() {
     var sut,
@@ -24,3 +24,4 @@ describe('Daynight', function() {
         });
     });
 });
+

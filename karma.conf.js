@@ -22,8 +22,6 @@ module.exports = function(config) {
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'src/**/*.js',
-      'unit-tests/**/*.js',
-      'unit-tests/app/shared/**/*.js',
       'src/app/**/*.html'
     ],
 
@@ -32,7 +30,6 @@ module.exports = function(config) {
 
     preprocessors: {
       'src/**/*.js': ['babel'],
-      'unit-tests/*.spec.js': ['babel'],
       'src/app/**/*.html' :['ng-html2js']
     },
 
