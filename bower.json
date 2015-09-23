@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "angular": "~1.4.4",
+    "angular-mocks": "~1.4.6",
     "angular-ui-router": "~0.2.15",
     "bootstrap": "~3.3.5"
   }
