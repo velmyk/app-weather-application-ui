@@ -209,7 +209,7 @@ gulp.task('copy-svg', function() {
     .pipe(gulp.dest(path.build.svg));
 });
 
-gulp.task('test', function(){  
+gulp.task('unit-test', function(){  
     new Server({
         configFile:__dirname + '/karma.conf.js',
         singleRun: false
@@ -229,7 +229,7 @@ gulp.task('node-server-release', ['build-app-release'], function () {
   })
 })
 
-gulp.task('default', ['copy','copy-svg', 'watch', 'node-server']);
+gulp.task('default', ['unit-test', 'copy','copy-svg', 'watch', 'node-server']);
 
 gulp.task('release', ['copy','copy-svg', 'watch', 'node-server-release']);
 
