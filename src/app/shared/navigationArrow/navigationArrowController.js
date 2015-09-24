@@ -4,11 +4,10 @@
 	angular.module("app")
 		.controller("NavigationArrowController", NavigationArrowController);
 
-	function NavigationArrowController($scope, TimeTrackingService) {
+	function NavigationArrowController($scope, NavigationArrowService) {
 		/*jshint validthis:true */
 		var vm = this;
-		vm.arrowImg = TimeTrackingService.arrowImg( $scope.direction );
-		vm.changeDay = TimeTrackingService.changeDay( $scope.direction );
+		vm.arrowImg = NavigationArrowService.arrowImg( $scope.direction );
 	}
 	
 })();

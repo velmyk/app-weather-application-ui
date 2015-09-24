@@ -14,14 +14,6 @@
 			maxDays: 5
 		};
 
-		function arrowImg(direction) {
-			return (direction === "left") ? "svg/z-arrow-left.svg" : "svg/z-arrow-right.svg";
-		}
-
-		function changeDay(direction) {
-			return (direction === "left") ? minusDay : plusDay;
-		}
-
 		function plusDay() {
 			if (time.displayDay < (time.maxDays - 1)) {
 				time.displayDay ++;
@@ -48,8 +40,6 @@
 
 		return {
 			time: time,
-			arrowImg : arrowImg,
-			changeDay: changeDay,
 			minusDay: minusDay,
 			plusDay: plusDay
 		};
