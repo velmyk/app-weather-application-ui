@@ -1,60 +1,58 @@
-(function () {
+(function() {
 	"use strict";
 
 
-angular
-	.module("app")
-	.factory("WeatherClassService", WeatherClassService);
+	angular
+		.module("app")
+		.factory("WeatherClassService", WeatherClassService);
 
-function WeatherClassService(WeatherClasses ,WeatherClassesMap, WeatherService, NavSrv) {
-	var m = WeatherClassesMap.getWeatherClassesMap(),
-					mainWeatherClass,
-					backgroundColor,
-					homeBackGround = {
-						bgClass: '',
-						mainWeatherClass: ''
-					};
+	function WeatherClassService( WeatherClasses, WeatherClassesMap, WeatherService ) {
+		var map = WeatherClassesMap.getWeatherClassesMap(),
+						mainWeatherClass,
+						backgroundColor,
+						homeBackGround = {
+							bgClass: ''
+						};
 
-	function setBgClass ( displayTime ) {
+		function setBgClass ( displayTime ) {
 
-		var weatherId = WeatherService.getWeatherId( displayTime );
+			var weatherId = WeatherService.getWeatherId( displayTime );
 
- 				
-		for (var [key, value] of m) {
+			for (var [key, value] of map) {
 
-			if(key.test(weatherId)){
+				if(key.test(weatherId)){
 
-				homeBackGround.bgClass = value;
-				break;
-			}
-		}
-	}
-
-	function getBgClass() {
-		return homeBackGround.bgClass;
-	}
-
-	function getWeatherIconClass( displayTime ){
-
-		var weatherId = WeatherService.getWeatherId( displayTime );
- 				
-		for (var [key, value] of m) {
-
-			if(key.test(weatherId)){
-
-				mainWeatherClass = value;
-				break;
+					homeBackGround.bgClass = value;
+					break;
+				}
 			}
 		}
 
-		return mainWeatherClass;
-	}
+		function getBgClass() {
+			return homeBackGround.bgClass;
+		}
 
-	return {
-		getBgClass: getBgClass,
-		getWeatherIconClass: getWeatherIconClass,
-		setBgClass: setBgClass
-	};
-}
+		function getWeatherIconClass( displayTime ){
+
+			var weatherId = WeatherService.getWeatherId( displayTime );
+
+			for (var [key, value] of map) {
+
+				if(key.test(weatherId)){
+
+					mainWeatherClass = value;
+					break;
+				}
+			}
+
+			return mainWeatherClass;
+		}
+
+		return {
+			getBgClass: getBgClass,
+			getWeatherIconClass: getWeatherIconClass,
+			setBgClass: setBgClass
+		};
+	}
 
 })();

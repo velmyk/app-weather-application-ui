@@ -3,7 +3,7 @@
 
 	angular
 		.module("app")
-		.directive("currentLocation", currentLocation);
+		.directive("location", currentLocation);
 
 	function currentLocation() {
 
@@ -13,8 +13,8 @@
 			scope: {
 				time: "@"
 			},
-			controller: "locationController",
-			controllerAs: "location",
+			controller: "LocationController",
+			controllerAs: "locationCtrl",
 			templateUrl: "shared/locationLabel/locationView.html"
 		};
 	}

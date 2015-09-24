@@ -1,5 +1,3 @@
-/* jshint ignore:start */
-
 "use strict";
 
 describe('app', function() {
@@ -34,5 +32,3 @@ describe('app', function() {
   });
 });
 });
-
-/* jshint ignore:end */

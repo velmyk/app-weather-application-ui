@@ -6,7 +6,9 @@
 	.service("HumidityService", HumidityService);
 
 	function HumidityService(humidityClasses){
+
 		var humidityClass;
+		
 		function getHumidityClass(humidity){
 			if ( humidity < 72 ){
 				humidityClass = humidityClasses.low;

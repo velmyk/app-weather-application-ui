@@ -12,9 +12,9 @@ function weatherInformation() {
 			scope: {
 				time: "@"
 			},
-			controller: "weatherInformationCtrl",
+			controller: "WeatherInformationController",
 			controllerAs: "weatherInfoCtrl",
-			templateUrl: "shared/WeatherInformation/WeatherInformationView.html"
+			templateUrl: "shared/weatherInfo/weatherInfoView.html"
 		};
 }
 

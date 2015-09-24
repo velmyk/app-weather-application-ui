@@ -5,11 +5,11 @@
 					<img src="svg/cogweel.svg" class="wheel" alt="gearwheel" /> 
 				</a>
 			</div>
-			<current-location data-time="{{home.time.displayTime}}"></current-location>
+			<location data-time="{{home.time.displayTime}}"></location>
 		</div>
 
 		<div class="weather-state-container">
-			<temp-forecast data-time="{{home.time.displayTime}}"></temp-forecast>
+			<temperature data-time="{{home.time.displayTime}}"></temperature>
 			<div class="row" ng-swipe-left="home.plusDay()" ng-swipe-right="home.minusDay()">
 				<navigation-arrow data-direction="left" class="col-xs-3"></navigation-arrow>
 				<current-weather data-time="{{home.time.displayTime}}" class="col-xs-6"></current-weather>

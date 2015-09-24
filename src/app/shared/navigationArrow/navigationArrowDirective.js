@@ -1,4 +1,4 @@
-(function(){
+(function() {
 	"use strict";
 
 	angular.module('app')
@@ -12,7 +12,7 @@
 				time: "=",
 				direction: "@"
 			},
-			controller: "navigationArrowCtrl",
+			controller: "NavigationArrowController",
 			controllerAs: "navArrowCtrl",
 			templateUrl: "shared/navigationArrow/navigationArrowView.html",
 		};

@@ -12,7 +12,7 @@
 				currentDay: "@",
 				days: "@"
 			},
-			controller: "navigationDotsCtrl",
+			controller: "NavigationDotsController",
 			controllerAs: "navDotsCtrl",
 			templateUrl: "shared/navigationDots/navigationDotsView.html",
 		};

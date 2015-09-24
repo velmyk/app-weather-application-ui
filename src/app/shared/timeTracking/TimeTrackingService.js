@@ -3,9 +3,9 @@
 
 	angular
 		.module("app")
-			.factory("NavSrv", NavSrv);
+			.factory("TimeTrackingService", TimeTrackingService);
 
-	function NavSrv(TIME_IN_SECONDS) {
+	function TimeTrackingService(TIME_IN_SECONDS) {
 
 		var time = {
 			now: 1441875600,

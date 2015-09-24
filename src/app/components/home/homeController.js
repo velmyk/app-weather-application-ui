@@ -1,22 +1,23 @@
-(function () {
+(function() {
 	"use strict";
+
 	angular
-	.module('app')
-	.controller('homeController', homeController);
+		.module('app')
+		.controller('HomeController', HomeController);
 
 
-	function homeController($scope, WeatherService, WeatherClassService, NavSrv) {
+	function HomeController($scope, WeatherService, WeatherClassService, TimeTrackingService) {
 		/*jshint validthis:true */
 		var vm = this; 
 
-		vm.time = NavSrv.time;
+		vm.time = TimeTrackingService.time;
 
 		vm.getBgClass = WeatherClassService.getBgClass;
 
 		vm.city = WeatherService.getCity();
 		
-		vm.plusDay = NavSrv.plusDay;
-		vm.minusDay = NavSrv.minusDay;
+		vm.plusDay = TimeTrackingService.plusDay;
+		vm.minusDay = TimeTrackingService.minusDay;
 
 	}
 
