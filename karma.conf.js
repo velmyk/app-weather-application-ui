@@ -30,18 +30,15 @@ module.exports = function(config) {
 
     preprocessors: {
       'src/**/*.js': ['babel'],
-      'src/app/**/*.html' :['ng-html2js']
+      'src/app/**/*.html': ['ng-html2js']
     },
 
     ngHtml2JsPreprocessor: {
-      moduleName: 'templates'
+      moduleName: 'templates',
+      stripPrefix: 'src/app/'
     },
 
     reporters: ['progress'],
-
-    ngHtml2JsPreprocessor: {
-        moduleName: 'templates'
-    },
 
     port: 9876,
 
