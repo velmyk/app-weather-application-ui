@@ -1,8 +1,9 @@
-@import "../../app/components/home/home.scss";
-@import "../../app/components/settings/settings.scss";
-@import "../../app/shared/locationLabel/location-style.scss";
-@import "../../app/shared/temperatureForecast/temperature-style.scss";
-@import "../../app/shared/WeatherInformation/WeatherInformationStyles.scss";
-@import "../../app/shared/WeatherInformation/humidityClassesStyles.scss";
-@import "../../app/shared/WeatherInformation/moonClassesStyles.scss";
-@import "../../app/shared/currentWeather/currentWeather-style.scss";
+@import "../../app/components/home/homeStyles.scss";
+@import "../../app/components/settings/settingsStyles.scss";
+@import "../../app/shared/locationLabel/locationStyles.scss";
+@import "../../app/shared/temperature/temperatureStyles.scss";
+@import "../../app/shared/weatherInfo/weatherInfoStyles.scss";
+@import "../../app/shared/weatherInfo/humidityClassesStyles.scss";
+@import "../../app/shared/weatherInfo/moonClassesStyles.scss";
+@import "../../app/shared/currentWeather/currentWeatherStyles.scss";
+@import "../../app/shared/navigationDots/navigationDotsStyles.scss";

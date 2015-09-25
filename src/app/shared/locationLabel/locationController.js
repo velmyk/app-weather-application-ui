@@ -3,18 +3,21 @@
 
 	angular
 		.module("app")
-		.controller("locationController", locationController);
+		.controller("LocationController", LocationController);
 
-	function locationController($scope, constants, WeatherService, DateLabel) {
+	function LocationController( $scope, constants, WeatherService, DateLabelService ) {
 		/*jshint validthis:true */
+
 		var vm = this;
 			
 		vm.city = WeatherService.getCity();
-		vm.time = DateLabel.getTimeLabel($scope.time);
+		vm.time = DateLabelService.getTimeLabel($scope.time);
 		
-		$scope.$watch("time", function () {
-			vm.time = DateLabel.getTimeLabel($scope.time);
-		});	
+		$scope.$watch("time", refreshData);
+
+		function refreshData(){
+			vm.time = DateLabelService.getTimeLabel($scope.time);
+		}
 	}
 
 })();

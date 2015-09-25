@@ -1,8 +1,13 @@
-angular
-	.module('app')
-	.controller('settingsController', settingsController);
+(function() {
+	"use strict";
 
-function settingsController() {
-	
-}
+	angular
+		.module('app')
+		.controller('SettingsController', SettingsController);
+
+	function SettingsController() {
+
+	}
+
+})();
 

@@ -4,12 +4,12 @@
 
 angular
 	.module("app")
-	.service("MoonPhaseCounter", MoonPhaseCounter);
+	.service("MoonPhaseService", MoonPhaseService);
 
 
-	function MoonPhaseCounter(MoonPhaseMap) {
+	function MoonPhaseService( MoonPhaseMap ) {
 		
-		function getMoonPhase(weatherDate) {
+		function getMoonPhase( weatherDate ) {
 
 			var year = weatherDate.getFullYear();
 			var month = weatherDate.getMonth()+1;
@@ -23,12 +23,12 @@ angular
 
 		var phase;
 		var moonPhaseClass;
-		var m = MoonPhaseMap.getMoonPhaseMap();
+		var map = MoonPhaseMap.getMoonPhaseMap();
 
-		function getMoonPhaseClass(weatherDate){
+		function getMoonPhaseClass( weatherDate ){
 			phase = getMoonPhase(new Date(weatherDate*1000));
 
-			label:for (var [key, value] of m) {
+			label:for (var [key, value] of map) {
 						for(var i=0; i<key.length; i++){
 							if(key[i] == phase){
 								moonPhaseClass = value;

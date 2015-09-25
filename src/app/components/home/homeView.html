@@ -1,17 +1,21 @@
-<div class=" container-fluid" ng-class="home.bgClass" style="height:100vh">
+<div class=" container-fluid" ng-class="home.getBgClass()" style="height:100vh">
 		<div class="location-container">
 			<div class='location-gear'>
 				<a ui-sref="settings">
 					<img src="svg/cogweel.svg" class="wheel" alt="gearwheel" /> 
 				</a>
-			</div>			
-			<current-location data-time="{{home.mockTimestamp}}"></current-location>
+			</div>
+			<location data-time="{{home.time.displayTime}}"></location>
 		</div>
 
-		<div class="weather-state-container">			
-			<temp-forecast data-time="{{home.mockTimestamp}}"></temp-forecast>
- 			<current-weather data-time="{{home.mockTimestamp}}"></current-weather>
- 			<weather-information></weather-information>
- 		</div>
-
+		<div class="weather-state-container">
+			<temperature data-time="{{home.time.displayTime}}"></temperature>
+			<div class="row" ng-swipe-left="home.plusDay()" ng-swipe-right="home.minusDay()">
+				<navigation-arrow data-direction="left" class="col-xs-3" ng-click="home.minusDay()"></navigation-arrow>
+				<current-weather data-time="{{home.time.displayTime}}" class="col-xs-6"></current-weather>
+				<navigation-arrow data-direction="right" class="col-xs-3" ng-click="home.plusDay()"></navigation-arrow>
+				<navigation-dots data-current-day="{{home.time.displayDay}}" data-days="{{home.time.maxDays}}"></navigation-dots>
+			</div>
+			<weather-information data-time="{{home.time.displayTime}}"></weather-information>
+		</div>
 </div>

@@ -13,7 +13,7 @@
 					.state("home",{
 						url: "/home",
 						templateUrl: "components/home/homeView.html",
-						controller: "homeController",
+						controller: "HomeController",
 						controllerAs:'home',
 						resolve: {
 							loadForecast: function (OpenWeatherAPI) {
@@ -25,7 +25,7 @@
 					.state("settings",{
 						url: "/settings",
 						templateUrl: "components/settings/settingsView.html",
-						controller: "settingsController",
+						controller: "SettingsController",
 						controllerAs: "settings"
 					});
 		});

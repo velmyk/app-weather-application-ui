@@ -1,13 +1,13 @@
 'use strict';
 
-describe('Daynight', function() {
+describe('DayNightService', function() {
     var sut,
         DAY_TIME = Math.round(new Date(2015, 9, 23, 11, 11, 11, 111 ).getTime()/1000), // timestamp in seconds
         NIGHT_TIME = Math.round(new Date(2015, 9, 23, 23, 11, 11, 111 ).getTime()/1000); // timestamp in seconds
 
     beforeEach(module('app'));
-    beforeEach(inject(function(_Daynight_) {
-        sut = _Daynight_;
+    beforeEach(inject(function(_DayNightService_) {
+        sut = _DayNightService_;
     }));
 
     describe('isDay method', function() {

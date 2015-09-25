@@ -3,13 +3,13 @@
 
 	angular
 		.module("app")
-		.service("DateLabel", DateLabel);
+		.service("DateLabelService", DateLabelService);
 
-	function DateLabel(constants){
+	function DateLabelService( constants ){
 
-		function getTimeLabel(timestamp) {
+		function getTimeLabel( timestamp ) {
 			const miliseconds = 1000,
-				  day = 24*60*60*1000; 
+				  day = 24 * 60 * 60 * 1000; 
 
 			var scopeTime = new Date(timestamp * miliseconds),
 				today = new Date();

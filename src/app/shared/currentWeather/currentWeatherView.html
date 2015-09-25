@@ -1,34 +1,16 @@
 <div class="weather-blabla">
 	<div class="col-xs-12">
 		<div class="row">
-			<!--left arrow-->
-			<div class="col-xs-4"><img src="svg/z-arrow-left.svg"  class="leftarrow"/>
-			</div>
 			<!--current weather icon-->
 			<div class="col-xs-4 weatherIcon">
 					<div ng-class="'main '+ weatherCtrl.mainImageClass" >	</div>
 			</div>
-			<!--right arrow-->
-			<div class="col-xs-4"><img src="svg/z-arrow-right.svg" class="rightarrow"/>
-			</div>
-		</div>
-	</div>
-	<div class="row  ">
-		<!--weather description-->
-		<div class="col-xs-12 weather ">
-			{{weatherCtrl.desc}}
 		</div>
 	</div>
 	<div class="row">
-		<!--7days listing-->
-		<div class="col-xs-12">
-			<ul class="circles">
-				<li><span class="circle"><img src="svg/circle-active.svg"  class="controls"></span></li>
-				<li><span class="circle"><img src="svg/circle.svg"  class="controls"></span></li>
-				<li><span class="circle"><img src="svg/circle.svg"  class="controls"></span></li>
-				<li><span class="circle"><img src="svg/circle.svg"  class="controls"></span></li>
-				<li><span class="circle"><img src="svg/circle.svg"  class="controls"></span></li>
-			</ul>
+		<!--weather description-->
+		<div class="col-xs-12 weather ">
+			{{weatherCtrl.desc}}
 		</div>
 	</div>
 </div>

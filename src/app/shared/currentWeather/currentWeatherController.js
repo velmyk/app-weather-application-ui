@@ -5,19 +5,16 @@
 	.controller("CurrentWeatherCtrl", CurrentWeatherCtrl);
 
 
-	function CurrentWeatherCtrl($scope, WeatherService, WeatherClassService) {
+	function CurrentWeatherCtrl( $scope, WeatherService, WeatherClassService ) {
 		/*jshint validthis:true */
-		var vm = this , 
-			 today=+$scope.time;
+		var vm = this;
+		$scope.$watch('time', refreshData);
 
-		function dataInit (time) {
-			vm.desc = WeatherService.getWeatherDesc(+time);
-			vm.main = WeatherService.getWeatherState(+time);
-			vm.weatherId = WeatherService.getWeatherId(+time);
-			vm.mainImageClass = WeatherClassService.getWeatherClass(vm.weatherId).mainWeatherClass;
+		function refreshData(){
+			vm.desc = WeatherService.getWeatherDesc( $scope.time );
+			vm.main = WeatherService.getWeatherState( $scope.time );
+			WeatherClassService.setBgClass( $scope.time );
+			vm.mainImageClass = WeatherClassService.getWeatherIconClass( $scope.time );
 		}
-
-		dataInit($scope.time);
-
 	}
 })();

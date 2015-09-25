@@ -3,9 +3,9 @@
 
   angular
     .module("app")
-      .factory("Daynight", Daynight);
+      .factory("DayNightService", DayNightService);
 
-  function Daynight(constants) {
+  function DayNightService(constants) {
 
     function isNight(date){
       var dayPart = (new Date(date * constants.MILISEC_IN_SEC)).getHours();

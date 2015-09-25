@@ -1,37 +1,58 @@
-(function () {
+(function() {
 	"use strict";
 
 
-angular
-	.module("app")
-	.factory("WeatherClassService", WeatherClassService);
+	angular
+		.module("app")
+		.factory("WeatherClassService", WeatherClassService);
 
-function WeatherClassService(WeatherClasses ,WeatherClassesMap) {
- 	var m = WeatherClassesMap.getWeatherClassesMap();
- 	var mainWeatherClass, backgroundColor;
+	function WeatherClassService( WeatherClasses, WeatherClassesMap, WeatherService ) {
+		var map = WeatherClassesMap.getWeatherClassesMap(),
+						mainWeatherClass,
+						backgroundColor,
+						homeBackGround = {
+							bgClass: ''
+						};
 
-	function getWeatherClass( weatherId ){
- 				
-		for (var [key, value] of m) {
+		function setBgClass ( displayTime ) {
 
-		  	if(key.test(weatherId)){
+			var weatherId = WeatherService.getWeatherId( displayTime );
 
-		  		mainWeatherClass = value;
-		  		backgroundColor = value;
-		  		
-		  	break;
-		  }
+			for (var [key, value] of map) {
+
+				if(key.test(weatherId)){
+
+					homeBackGround.bgClass = value;
+					break;
+				}
+			}
 		}
 
- 		return {
- 			mainWeatherClass:mainWeatherClass,
- 			backgroundColorClass:backgroundColor
- 		};
+		function getBgClass() {
+			return homeBackGround.bgClass;
+		}
+
+		function getWeatherIconClass( displayTime ){
+
+			var weatherId = WeatherService.getWeatherId( displayTime );
+
+			for (var [key, value] of map) {
+
+				if(key.test(weatherId)){
+
+					mainWeatherClass = value;
+					break;
+				}
+			}
+
+			return mainWeatherClass;
+		}
+
+		return {
+			getBgClass: getBgClass,
+			getWeatherIconClass: getWeatherIconClass,
+			setBgClass: setBgClass
+		};
 	}
-  
-  	return {
-		getWeatherClass: getWeatherClass
-	};
-}
 
 })();
