@@ -34,7 +34,6 @@
 		}
 
 		function calculateTime (days) {
-			var now = time.now;
 			return (new Date((time.now + days * TIME_IN_SECONDS.DAY)*1000).setHours(15))/1000;
 		}
 
