@@ -22,6 +22,24 @@
 				}
 			]
 		};
+
+		vm.daysToDisplay = {
+			settingsKey: "daysToDisplay",
+			buttons: [
+				{
+					value: 3,
+					title: 3
+				},
+				{
+					value: 4,
+					title: 4
+				},
+				{
+					value: 5,
+					title: 5
+				}
+			]
+		};
 	}
 
 })();

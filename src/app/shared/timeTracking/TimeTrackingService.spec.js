@@ -19,6 +19,7 @@ describe('TimeTrackingService', function() {
     beforeEach(inject(function(_$rootScope_, _TimeTrackingService_, TIME_IN_SECONDS) {
         MOCK_TIME_IN_SECONDS = TIME_IN_SECONDS;
         sut = _TimeTrackingService_;
+        sut.initTime();
     }));
 
     function calculateTime (days) {
