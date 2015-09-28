@@ -4,6 +4,11 @@
 		.module('app',[
 			'templates',
 			'ui.router',
-			'ngTouch'
-		]);
+			'ngTouch',
+			'LocalStorageModule'
+		])
+		.config(function (localStorageServiceProvider) {
+  			localStorageServiceProvider
+    			.setPrefix('ls');
+		});
 })();

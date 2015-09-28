@@ -1,0 +1,33 @@
+$settingsButtonHeight: 50px;
+$settingsButtonWidth: 100px;
+$btnSelected: #E6E6E6;
+$btnBorderSelected: #ADADAD;
+
+.settings-item {
+	&-title {
+		font-size: 0.7em;
+	}
+
+	&-controlls {
+		&__button {
+		
+		}
+
+		&-radio {
+			opacity: 0;
+			display: none;
+		}
+
+		&-button {
+			padding: 10px 15px;
+			text-align: center;	
+
+			&-active {
+				background-color: $btnSelected;
+				border-color: $btnBorderSelected;
+			}
+		}
+
+
+	}
+}
