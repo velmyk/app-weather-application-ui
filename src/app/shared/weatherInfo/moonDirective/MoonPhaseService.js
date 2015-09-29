@@ -24,7 +24,6 @@ angular
 		var phase;
 		var moonPhaseClass;
 		var map = MoonPhaseMap.getMoonPhaseMap();
-
 		function getMoonPhaseClass( weatherDate ){
 			phase = getMoonPhase(new Date(weatherDate*1000));
 
