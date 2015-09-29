@@ -1,70 +1,58 @@
-.weather-wrapper {
- height: 30vh;
-}
-
-img.rightarrow, img.leftarrow {
-	height: 20vh;
-	width: 10vh;
-	padding-top:5vh;
-	margin:auto;
-
-}
-
-
 .weatherIcon{
 	padding:0;
 	margin:0; 
+	position: relative;
+	bottom: 6vh;
 }
 
-
 .main {
-	height:20vh;
+	height:23vh;
 	width: 20vh;
 	margin:auto;
-		&.thunder{
-			@include bgImage(url("../svg/lightning.svg"));
-		}
-		&.drizzle{
-			@include bgImage(url("../svg/drizzle.svg"));
-		}
-		&.lightRain{
-			@include bgImage(url("../svg/rain-sun.svg"));
-		}
-		&.heavyRain{
-			@include bgImage(url("../svg/rain.svg"));
-		}
-		&.freezingRain{
-			@include bgImage(url("../svg/snow-rain.svg"));
-		}
-		&.snow{
-			@include bgImage(url("../svg/snow.svg"));
-		}
-		&.clearSky{
-			@include bgImage(url("../svg/sun.svg"));
-		}
-		&.fewClouds{
-			@include bgImage(url("../svg/light-cloud.svg"));
-		}
-		&.scatteredClouds{
-			@include bgImage(url("../svg/cloud.svg"));
-		}
-		&.overcastClouds{
-			@include bgImage(url("../svg/high-cloud.svg"));
-		}
-		&.mist{
-			@include bgImage(url("../svg/mist.svg"));
-		}
-		&.tornado{
-			@include bgImage(url("../svg/hurricane.svg"));
-		}
-
-	
+	&.thunder{
+		@include bgImage(url("../svg/lightning.svg"));
+	}
+	&.drizzle{
+		@include bgImage(url("../svg/drizzle.svg"));
+	}
+	&.lightRain{
+		@include bgImage(url("../svg/rain-sun.svg"));
+	}
+	&.heavyRain{
+		@include bgImage(url("../svg/rain.svg"));
+	}
+	&.freezingRain{
+		@include bgImage(url("../svg/snow-rain.svg"));
+	}
+	&.snow{
+		@include bgImage(url("../svg/snow.svg"));
+	}
+	&.clearSky{
+		@include bgImage(url("../svg/sun.svg"));
+	}
+	&.fewClouds{
+		@include bgImage(url("../svg/light-cloud.svg"));
+	}
+	&.scatteredClouds{
+		@include bgImage(url("../svg/cloud.svg"));
+	}
+	&.overcastClouds{
+		@include bgImage(url("../svg/high-cloud.svg"));
+	}
+	&.mist{
+		@include bgImage(url("../svg/mist.svg"));
+	}
+	&.tornado{
+		@include bgImage(url("../svg/hurricane.svg"));
+	}
 }
 
 .weather {
-	font-size: 2em;
-	top: -10px;
-
+	font-size: 1.725em;
+	bottom: 6vh;
+	position: relative;
+	text-transform: capitalize;
+	padding: 0;
 }
 
 li {
@@ -75,12 +63,41 @@ li {
 .controls {
 	width: 9px;
 	height: 9px;
-
-	
 }
 
 .circles {
 	width: 50%;
 	margin: auto;
 	position: relative;
+}
+
+
+@media only screen 
+and (min-device-width : 600px) 
+{
+	.weatherIcon{
+		padding:0;
+		margin:0;
+		position:relative;
+		bottom: 0;
+
+	}
+
+	.main{
+		width:80%;
+		height:35vh;
+		background-position: 50%;
+		
+	}
+
+	.weather {
+		font-size: 1.5em;
+		position: relative;
+		bottom:0;
+		height:10vh;
+		line-height:10vh;
+		text-transform: capitalize;
+		padding: 0;
+	}
+
 }
