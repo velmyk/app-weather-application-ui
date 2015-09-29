@@ -32,8 +32,12 @@
 				return constants.TODAYSTR;
 			} else if (+scopeTime == (+today) + day) {
 				return constants.TOMORROWSTR;
+			}
+
+			if (dayDisplayType == 1) {
+				return scopeTime;
 			} else {
-				return (dayDisplayType == 1) ? scopeTime : weekDay[scopeTime.getDay()];
+				return weekDay[scopeTime.getDay()];
 			}
 		}
 
