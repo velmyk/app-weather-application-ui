@@ -40,6 +40,24 @@
 				}
 			]
 		};
+
+		vm.syncPeriod = {
+			settingsKey: "syncPeriod",
+			buttons: [
+				{
+					value: 1,
+					title: "Off"
+				},
+				{
+					value: 2,
+					title: "4hrs"
+				},
+				{
+					value: 3,
+					title: "8hrs"
+				}
+			]
+		};
 	}
 
 })();
