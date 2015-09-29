@@ -1,11 +1,11 @@
 .temperature {
- height: 40vh;
+	height: 40vh;
 }
 
 .temperature-value {
-  font-size: 8em;
-  font-weight: lighter;
-  text-align: center;
+	font-size: 8em;
+	font-weight: lighter;
+	text-align: center;
 }
 
 .day-night {
@@ -22,3 +22,42 @@
 	position: relative;
 	font-size: 1.5em;
 }
+
+@media only screen 
+and (min-device-width : 600px) 
+{
+	.main-temp {
+		height: 20vh;
+		width:100%;
+		line-height:20vh;
+		
+	}
+
+	.temperature-value {
+		font-size: 4em;
+		font-weight: lighter;
+		text-align: center;
+		position: relative;
+
+	}
+
+	.day-night {
+		line-height:120%;
+		position: absolute;
+		right: 10%;
+		bottom: 30%;
+		top: 9vh;
+	}
+
+	.day-night-shift {
+		display: block;
+		font-size:1.1em;
+	}
+
+	.temperature-minor {
+		position: relative;
+		font-size: 1.1em;
+	}
+
+}
+

@@ -1,7 +1,17 @@
 @mixin bgImage($url){
 		background: $url no-repeat;
 		background-size: 100% auto;
+		background-position:50%;
 }
+$full-width: 100%;
+$full-heigth: 100%;
+$font-stack: 'Titillium Web', sans-serif;
+$bg-color: #343434;
+$col-green: #1D9E48;
+$col-violet: #75608B;
+$col-blue: #375D81;
+
+
 
 body, html {
   color: white;
@@ -76,4 +86,53 @@ body, html {
 
 .weather-state-container {
 	margin-top: 10vh;
+	height: 80%;
+}
+
+.arrow-left {
+	position: relative;
+	right: 2vh;
+}
+
+.arrow-right {
+	position: relative;
+	right: 2vh;
+}
+.other-info {
+		position: relative;
+		margin: -6px;
+		bottom:-5vh;
+	}
+
+@media only screen 
+and (min-device-height : 500px)
+and (max-device-height: 599px) {
+
+.other-info {
+	position: relative;
+		margin: -6px;
+		bottom:-10vh;
+}
+
+}
+
+
+@media only screen 
+and (min-device-height : 600px) {
+
+.other-info {
+	position: relative;
+		margin: -6px;
+		bottom:-13vh;
+}
+
+.weather {
+	top: 0vh;
+}
+
+.nav-dots {
+	position: relative;
+	top: 5vh;
+}
+
 }

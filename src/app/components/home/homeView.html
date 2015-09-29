@@ -1,21 +1,24 @@
-<div class=" container-fluid" ng-class="home.getBgClass()" style="height:100vh">
-		<div class="location-container">
-			<div class='location-gear'>
-				<a ui-sref="settings">
-					<img src="svg/cogweel.svg" class="wheel" alt="gearwheel" /> 
-				</a>
-			</div>
-			<location data-time="{{home.time.displayTime}}"></location>
+<div class=" container-fluid" ng-class="home.getBgClass(home.time.displayTime)" style="height:100vh">
+	<div class="location-container">
+		<div class='location-gear'>
+			<a ui-sref="settings">
+				<img src="svg/cogweel.svg" class="wheel" alt="gearwheel" /> 
+			</a>
 		</div>
-
-		<div class="weather-state-container">
-			<temperature data-time="{{home.time.displayTime}}"></temperature>
-			<div class="row" ng-swipe-left="home.plusDay()" ng-swipe-right="home.minusDay()">
-				<navigation-arrow data-direction="left" class="col-xs-3" ng-click="home.minusDay()"></navigation-arrow>
-				<current-weather data-time="{{home.time.displayTime}}" class="col-xs-6"></current-weather>
-				<navigation-arrow data-direction="right" class="col-xs-3" ng-click="home.plusDay()"></navigation-arrow>
-				<navigation-dots data-current-day="{{home.time.displayDay}}" data-days="{{home.time.maxDays}}"></navigation-dots>
-			</div>
-			<weather-information data-time="{{home.time.displayTime}}"></weather-information>
+		<location class="current-location" data-time="{{home.time.displayTime}}"></location>
+	</div>
+	<div class="weather-state-container">
+		<temperature data-time="{{home.time.displayTime}}"></temperature>
+		<div class="row" ng-swipe-left="home.plusDay()" ng-swipe-right="home.minusDay()">
+			<navigation-arrow data-direction="left" class="col-xs-2 arrow-left" ng-click="home.minusDay()"></navigation-arrow>
+			<current-weather data-time="{{home.time.displayTime}}" class="col-xs-8 weather-wrapper"></current-weather>
+			<navigation-arrow data-direction="right" class="col-xs-2 arrow-right" ng-click="home.plusDay()"></navigation-arrow>
+			<navigation-dots data-current-day="{{home.time.displayDay}}" data-days="{{home.time.maxDays}}"></navigation-dots>
 		</div>
+		<div class="row other-info">
+			<humidity-information class="col-xs-4" data-time="{{home.time.displayTime}}"></humidity-information>
+			<wind-information class="col-xs-4" data-time="{{home.time.displayTime}}"></wind-information>  
+			<moon-information class="col-xs-4" data-time="{{home.time.displayTime}}"></moon-information>  
+		</div>
+	</div>
 </div>

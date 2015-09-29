@@ -1,7 +1,12 @@
+.moon-value {
+	font-size: 1.4em;
+	text-align: center;
+	}
+
 .moon-img {
-		height: 9vh;
-		width: 9vh;
-		margin:auto;
+	height: 8vh;
+	width: 8vh;
+	margin:auto;
 
 		&.MoonPhaseOne{
 			@include bgImage(url("../svg/moon1.svg"));
@@ -43,4 +48,17 @@
 		
 }
 
+.wind-moon {
+	height: 19vh;
+	overflow: hidden;
+	text-align: center;
+	width: $full-width;
+	display:table;
+}
 
+.wind-moon-wrapper{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	width:$full-width;
+}

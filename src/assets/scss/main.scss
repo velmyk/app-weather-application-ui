@@ -1,10 +1,13 @@
 @import "../../app/components/home/homeStyles.scss";
+//@import "../../app/components/home/homeTablet-style.scss";
 @import "../../app/components/settings/settingsStyles.scss";
 @import "../../app/shared/locationLabel/locationStyles.scss";
 @import "../../app/shared/temperature/temperatureStyles.scss";
-@import "../../app/shared/weatherInfo/weatherInfoStyles.scss";
-@import "../../app/shared/weatherInfo/humidityClassesStyles.scss";
-@import "../../app/shared/weatherInfo/moonClassesStyles.scss";
+@import "../../app/shared/weatherInfo/moonDirective/moonClassesStyles.scss";
+@import "../../app/shared/weatherInfo/humidityDirective/humidityClassesStyles.scss";
+@import "../../app/shared/weatherInfo/windInfoDirective/windInformationStyles.scss";
 @import "../../app/shared/currentWeather/currentWeatherStyles.scss";
 @import "../../app/shared/navigationDots/navigationDotsStyles.scss";
 @import "../../app/shared/settingsSwitcher/settingsSwitcherStyles.scss";
+@import "../../app/shared/navigationArrow/navigationArrowStyles.scss";
+

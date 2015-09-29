@@ -2,7 +2,8 @@
   padding-top: 2%;
   font-weight: lighter;
   font-size: 2em;
-  height: 10vh;
+  height: 16vh;
+  vertical-align: middle;
 
   &-title {
   	max-height: 16vh;
@@ -13,4 +14,40 @@
   		white-space: nowrap;
   	}
   }
+}
+
+@media only screen 
+and (min-device-height : 480px) 
+and (min-device-width: 600px)
+{
+
+  .current-location {
+    padding-top: 2%;
+    font-weight: lighter;
+    font-size: 1.5em;
+    height: 16vh;
+    display: table-cell;
+  }
+    
+
+  &-title {
+    max-height: 16vh;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align:middle;
+    &__city {
+      white-space: nowrap;
+    }
+  }
+ }
+
+.current-day {
+    margin:0;
+    padding:0;
+    background-color: $bg-color;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    width: $full-width;
+        display: table;
 }
