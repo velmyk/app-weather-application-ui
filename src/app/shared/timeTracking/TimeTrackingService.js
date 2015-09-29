@@ -5,14 +5,20 @@
 		.module("app")
 			.factory("TimeTrackingService", TimeTrackingService);
 
-	function TimeTrackingService(TIME_IN_SECONDS) {
+	function TimeTrackingService(TIME_IN_SECONDS, localStorageService) {
 
-		var time = {
-			now: 1441875600,
-			displayTime: 1441875600,
-			displayDay: 0,
-			maxDays: 5
-		};
+		var time = {};
+
+		function initTime() {
+			time.now = 1441875600;
+			time.displayTime = 1441875600;
+			time.displayDay = 0;
+			time.maxDays = getMaxDays();
+		}
+
+		function getMaxDays() {
+			return localStorageService.get("daysToDisplay") || 5;
+		}
 
 		function plusDay() {
 			if (time.displayDay < (time.maxDays - 1)) {
@@ -38,6 +44,7 @@
 		}
 
 		return {
+			initTime: initTime,
 			time: time,
 			minusDay: minusDay,
 			plusDay: plusDay

@@ -7,6 +7,39 @@
 
 	function SettingsController() {
 
+		var vm = this;
+
+		vm.displayDay = {
+			settingsKey: "dayDisplayType",
+			buttons: [
+				{
+					value: "1",
+					title: "Date"
+				},
+				{
+					value: "2",
+					title: "Weekday"
+				}
+			]
+		};
+
+		vm.daysToDisplay = {
+			settingsKey: "daysToDisplay",
+			buttons: [
+				{
+					value: 3,
+					title: 3
+				},
+				{
+					value: 4,
+					title: 4
+				},
+				{
+					value: 5,
+					title: 5
+				}
+			]
+		};
 	}
 
 })();

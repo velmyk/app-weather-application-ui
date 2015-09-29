@@ -1,0 +1,16 @@
+<div>
+	<div class="row settings-item">
+		<div class="row settings-item-title">{{switcher.title}}</div>
+		<div class="row settings-item-controlls btn-group" role="group">
+			<label ng-repeat="button in switcher.buttons"
+ 						 class="btn btn-default settings-item-controlls-button"
+ 						 ng-class="(switcher.settingsKeyValue == button.value) ? 'settings-item-controlls-button-active' : ''">
+  			<input  class="settings-item-controlls-radio"
+  							ng-model="switcher.settingsKeyValue"
+  							type="radio"
+  							value="{{button.value}}">
+  						{{button.title}}
+  		</label>
+  		</div>
+	</div>
+</div>

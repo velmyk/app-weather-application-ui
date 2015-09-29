@@ -12,6 +12,8 @@
 
 		vm.time = TimeTrackingService.time;
 
+		TimeTrackingService.initTime();
+
 		vm.getBgClass = WeatherClassService.getBgClass;
 
 		vm.city = WeatherService.getCity();

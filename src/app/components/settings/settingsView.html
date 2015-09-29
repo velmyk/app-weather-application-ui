@@ -5,8 +5,12 @@
 				<img src="svg/cogweel.svg" class="wheel" alt="gearwheel" /> 
 			</a>
 		</div>
-		<div class="col-xs-8">
+		<div class="col-xs-8 settings-title">
 			Settings
 		</div>
+	</div>
+	<div class="row">
+		<settings-switcher data-title="Show day as:" data-init="{{settings.displayDay}}"></settings-switcher>
+		<settings-switcher data-title="Days to show:" data-init="{{settings.daysToDisplay}}" class="max-days-settings"></settings-switcher>
 	</div>
 </div>
