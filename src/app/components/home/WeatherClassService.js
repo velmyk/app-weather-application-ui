@@ -6,35 +6,30 @@
 		.module("app")
 		.factory("WeatherClassService", WeatherClassService);
 
-	function WeatherClassService( WeatherClasses, WeatherClassesMap, WeatherService ) {
+	function WeatherClassService( WeatherClassesMap, WeatherService ) {
 		var map = WeatherClassesMap.getWeatherClassesMap(),
 						mainWeatherClass,
-						backgroundColor,
-						homeBackGround = {
-							bgClass: ''
-						};
+						weatherId,
+						backgroundColor;
 
-		function setBgClass ( displayTime ) {
 
-			var weatherId = WeatherService.getWeatherId( displayTime );
-
+		function getBgClass(displayTime) {
+			weatherId = WeatherService.getWeatherId( displayTime );
+			
 			for (var [key, value] of map) {
 
 				if(key.test(weatherId)){
 
-					homeBackGround.bgClass = value;
+					backgroundColor = value;
 					break;
 				}
 			}
-		}
-
-		function getBgClass() {
-			return homeBackGround.bgClass;
+			return backgroundColor;
 		}
 
 		function getWeatherIconClass( displayTime ){
 
-			var weatherId = WeatherService.getWeatherId( displayTime );
+			weatherId = WeatherService.getWeatherId( displayTime );
 
 			for (var [key, value] of map) {
 
@@ -50,8 +45,7 @@
 
 		return {
 			getBgClass: getBgClass,
-			getWeatherIconClass: getWeatherIconClass,
-			setBgClass: setBgClass
+			getWeatherIconClass: getWeatherIconClass
 		};
 	}
 

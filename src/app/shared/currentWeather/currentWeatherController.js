@@ -13,7 +13,6 @@
 		function refreshData(){
 			vm.desc = WeatherService.getWeatherDesc( $scope.time );
 			vm.main = WeatherService.getWeatherState( $scope.time );
-			WeatherClassService.setBgClass( $scope.time );
 			vm.mainImageClass = WeatherClassService.getWeatherIconClass( $scope.time );
 		}
 	}
