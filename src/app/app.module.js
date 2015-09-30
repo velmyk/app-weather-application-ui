@@ -5,7 +5,8 @@
 			'templates',
 			'ui.router',
 			'ngTouch',
-			'LocalStorageModule'
+			'LocalStorageModule',
+			'angular-loading-bar'
 		])
 		.config(function (localStorageServiceProvider) {
   			localStorageServiceProvider

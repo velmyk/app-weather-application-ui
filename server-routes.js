@@ -8,7 +8,7 @@ module.exports = function(app) {
 	app.get('/api/weather', function (req, res){
 		var statusCode = 404,
 			  resData = {"error": "city not found"};
-			  
+
 		weather.forEach( function (item, i ) {
 			if (item.city.id == req.query.id) {
 				statusCode = 200;
@@ -16,8 +16,10 @@ module.exports = function(app) {
 				return;
 			}
 		});
-	
-		res.status(statusCode).json(resData);
+
+		setTimeout(function(){
+			res.status(statusCode).json(resData);
+		}, 2000);
 	});
 
 	app.get('/api/city/all', function (req, res){
