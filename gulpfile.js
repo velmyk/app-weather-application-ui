@@ -64,7 +64,7 @@ var path = {
       watch: { // Which files we want to watch
           html: ['src/app/**/*.html','src/index.html'],
           js: 'src/app/**/*.js',
-          style: ['src/assets/scss/main.scss', 'src/app/**/*.scss'],
+          style: ['src/assets/scss/*.scss', 'src/app/**/*.scss'],
           svg: 'src/assets/svg/*.svg'
       }
 };

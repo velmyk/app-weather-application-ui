@@ -9,7 +9,12 @@
 			'angular-loading-bar'
 		])
 		.config(function (localStorageServiceProvider) {
-  			localStorageServiceProvider
-    			.setPrefix('ls');
+			localStorageServiceProvider
+				.setPrefix('ls');
+		})
+
+		.config(function(cfpLoadingBarProvider) {
+			cfpLoadingBarProvider.spinnerTemplate = '<div class="screen-preloader">Weather App</div>';
 		});
+
 })();
