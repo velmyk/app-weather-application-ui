@@ -13,7 +13,7 @@
 				.setPrefix('ls');
 		})
 
-		.config(function(cfpLoadingBarProvider) {
+		.config(function (cfpLoadingBarProvider) {
 			cfpLoadingBarProvider.spinnerTemplate = '<div class="screen-preloader">Weather App</div>';
 		});
 
