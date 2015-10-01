@@ -1,0 +1,11 @@
+.screen-preloader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 101;
+	background: #464547 url("../svg/loading-spin.svg") no-repeat center;
+	font-size: 2em;
+	padding: 10vh;
+}
