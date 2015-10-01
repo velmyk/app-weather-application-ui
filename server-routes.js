@@ -17,9 +17,7 @@ module.exports = function(app) {
 			}
 		});
 
-		setTimeout(function(){
-			res.status(statusCode).json(resData);
-		}, 2000);
+		res.status(statusCode).json(resData);
 	});
 
 	app.get('/api/city/all', function (req, res){
