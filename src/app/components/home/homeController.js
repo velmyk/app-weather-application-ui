@@ -7,7 +7,6 @@
 
 
 	function HomeController($scope, WeatherService, WeatherClassService, TimeTrackingService) {
-		/*jshint validthis:true */
 		var vm = this; 
 
 		vm.time = TimeTrackingService.time;
@@ -17,9 +16,11 @@
 		vm.getBgClass = WeatherClassService.getBgClass;
 
 		vm.city = WeatherService.getCity();
-		
+
 		vm.plusDay = TimeTrackingService.plusDay;
 		vm.minusDay = TimeTrackingService.minusDay;
+
+		vm.getClosestDates = TimeTrackingService.getClosestDates;
 
 	}
 
