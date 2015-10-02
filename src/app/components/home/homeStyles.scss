@@ -129,18 +129,23 @@ body, html {
 }
 
 @media screen 
-and (max-height: 499px) {
+and (max-device-height: 499px) {
 .day-night {
 	position: absolute;
 	right: 10%;
 	top: 24%;
 }
 
+.nav-dots {
+	position: relative;
+	bottom: 10vh;
+}
+
 }
 
 @media screen 
-and (min-height : 500px)
-and (max-height: 599px) {
+and (min-device-height : 500px)
+and (max-device-height: 599px) {
 
 .other-info {
 	position: relative;
@@ -155,12 +160,17 @@ and (max-height: 599px) {
 	top: 21%;
 }
 
+.nav-dots {
+	position: relative;
+	bottom: 10vh;
+}
+
 }
 
 
 @media screen 
-and (min-height : 600px)
-and (max-height : 699px) {
+and (min-device-height : 600px)
+and (max-device-height : 699px) {
 
 .other-info {
 	position: relative;
@@ -170,12 +180,12 @@ and (max-height : 699px) {
 }
 
 .weather {
-	top: 0vh;
+	top: -10vh;
 }
 
 .nav-dots {
 	position: relative;
-    top: -5.5vh;
+	bottom: 8vh;
 }
 
 .day-night {
@@ -187,7 +197,7 @@ and (max-height : 699px) {
 }
 
 @media screen 
-and (min-height : 700px) {
+and (min-device-height : 700px) {
 
 .other-info {
 	position: relative;
@@ -197,12 +207,12 @@ and (min-height : 700px) {
 }
 
 .weather {
-	top: 0vh;
+	top: -10vh;
 }
 
 .nav-dots {
 	position: relative;
-    top: -5.5vh;
+	bottom: 5vh;
 }
 
 .day-night {
