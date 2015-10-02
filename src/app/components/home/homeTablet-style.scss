@@ -60,7 +60,7 @@ body, html {
 
 .current-time {
     font-size: 9em;
-    height: 35%;
+    height: 25%;
     span {
         bottom: 75px;
         font-size: 0.1em;
@@ -69,8 +69,9 @@ body, html {
 }
 
 .current-date-value {
-    font-size: 1.5em;
-    //line-height: 10vh;
+    margin-top: 8%;
+    font-size: 2em;
+    line-height: 1vh;
 }
 
 .location-value {
@@ -84,6 +85,7 @@ body, html {
         top: 12px;
     }
     display: inline-block;
+    margin-top: 10%;
 } 
 
 .location-value:before {
