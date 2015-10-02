@@ -2,7 +2,7 @@
 	padding:0;
 	margin:0; 
 	position: relative;
-	bottom: 6vh;
+	bottom: 13vh;
 }
 
 .main {
@@ -48,7 +48,7 @@
 }
 
 .weather {
-	font-size: 1.725em;
+	font-size: 2.25em;
 	bottom: 6vh;
 	position: relative;
 	text-transform: capitalize;
@@ -57,7 +57,6 @@
 
 li {
 	display: inline-block;
-	padding-left: 10px;
 }
 
 .controls {
@@ -73,31 +72,26 @@ li {
 
 
 @media only screen 
-and (min-device-width : 600px) 
+and (min-width : 639px) 
 {
 	.weatherIcon{
 		padding:0;
 		margin:0;
 		position:relative;
 		bottom: 0;
+		height: 70%;
 
 	}
 
 	.main{
 		width:80%;
-		height:35vh;
 		background-position: 50%;
 		
 	}
 
 	.weather {
-		font-size: 1.5em;
-		position: relative;
-		bottom:0;
-		height:10vh;
-		line-height:10vh;
-		text-transform: capitalize;
-		padding: 0;
+    position: relative;
+    text-transform: capitalize;
 	}
 
 }

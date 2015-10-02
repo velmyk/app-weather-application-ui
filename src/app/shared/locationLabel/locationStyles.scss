@@ -6,19 +6,19 @@
   vertical-align: middle;
 
   &-title {
-  	max-height: 16vh;
-  	overflow: hidden;
-  	text-overflow: ellipsis;
+    max-height: 16vh;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-  	&__city {
-  		white-space: nowrap;
-  	}
+    &__city {
+      white-space: nowrap;
+    }
   }
 }
 
 @media only screen 
-and (min-device-height : 480px) 
-and (min-device-width: 600px)
+//and (min-device-height : 480px) 
+and (min-width: 639px)
 {
 
   .current-location {
@@ -50,4 +50,5 @@ and (min-device-width: 600px)
     vertical-align: middle;
     width: $full-width;
         display: table;
+        height: 17%;
 }
