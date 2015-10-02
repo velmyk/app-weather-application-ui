@@ -19,7 +19,7 @@ describe('Tablet date controller', function() {
                 this.MILISEC_IN_SEC = 10;
             });
             $provide.service('DateLabelService', function() {
-                this.getTimeLabel = jasmine.createSpy('getTimeLabel').and.returnValue("today");
+                this.getTimeLabel = jasmine.createSpy('getTimeLabel').and.returnValue(mockTimeLabel);
             });
         });
     });
@@ -29,17 +29,19 @@ describe('Tablet date controller', function() {
         mockConstants = constants;
         mockDateLabelService = DateLabelService;
         mockScope = _$rootScope_.$new();
-        sut = $controller("TabletDateController", {$scope: mockScope});
-        mockScope.vm = sut;
+        sut = $controller("TabletDateController", { $scope: mockScope, 
+                                                    SETTINGS: mockSETTINGS, 
+                                                    constants: mockConstants, 
+                                                    DateLabelService: mockDateLabelService });
     }));
 
-    it("should get time label ", function() {
+
+    it("should set sut.timeLabel equal to returned value from getTimeLabel method from DateLabelService", function() {
         mockScope.$digest();
-        var timeLabel = mockDateLabelService.getTimeLabel();
-        expect(sut.timeLabel).toEqual(timeLabel);
+        expect(sut.timeLabel).toEqual(mockTimeLabel);
     })
 
-    it("expect getTimeLabel to have been called with $scope.time and DisplayDateType", function() {
+    it("expect getTimeLabel to have been called with 'time' and 'DisplayDateType'", function() {
         mockScope.$digest();
         var mockDisplayDayType = mockSETTINGS.DISPLAY_DAY_TYPE.buttons[1].value;
         expect(mockDateLabelService.getTimeLabel).toHaveBeenCalledWith(sut.time, mockDisplayDayType)
@@ -51,12 +53,11 @@ describe('Tablet date controller', function() {
         expect(sut.timeInMilisec).toEqual(timeInMilisec);
     })
 
-    it("should refresh data when time changes", function() {
+    it("should refresh sut-time when scope-time changes", function() {
         var oldTimeInMilisec = mockConstants.MILISEC_IN_SEC*sut.time;
         mockScope.time = new Date();
         mockScope.$digest();
         var refreshedTimeInMilisec = mockConstants.MILISEC_IN_SEC*sut.time;
-        expect(sut.time).toEqual(mockScope.time);
         expect(sut.timeInMilisec).not.toEqual(oldTimeInMilisec);
         expect(sut.timeInMilisec).toEqual(refreshedTimeInMilisec);
     })
