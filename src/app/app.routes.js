@@ -8,7 +8,7 @@
 
 				function isTablet () {
 					var width = $windowProvider.$get().innerWidth;
-					if ( width > 640){
+					if ( width > 639){
 						return true;
 					}
 				}
