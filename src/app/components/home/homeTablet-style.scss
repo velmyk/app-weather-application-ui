@@ -1,0 +1,106 @@
+$full-width: 100%;
+$full-heigth: 100%;
+$font-stack: 'Titillium Web', sans-serif;
+$bg-color: #343434;
+$col-green: #1D9E48;
+$col-violet: #75608B;
+$col-blue: #375D81;
+
+
+
+body, html {
+    background-color: $bg-color;
+    color: white;
+    font: $font-stack;
+    height: $full-heigth;
+    text-align: center;
+    width: $full-width;
+}
+
+@media screen and (orientation: portrait) and (min-width: 639px) {
+    body{
+        -webkit-transform: rotate(-90deg);
+           -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+             -o-transform: rotate(-90deg);
+                transform: rotate(-90deg);
+        -webkit-transform-origin: left top;
+           -moz-transform-origin: left top;
+            -ms-transform-origin: left top;
+             -o-transform-origin: left top;
+                transform-origin: left top;
+        width: 100vh;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+} 
+
+.container-fluid {
+    overflow: hidden;
+    padding: 0;
+}
+
+.current-date_location {
+    float: left;
+    height: $full-heigth;
+    overflow: hidden;
+    width: ($full-width*0.37);
+}
+
+.empty1 {
+    height: 17%;
+    width: $full-width;
+}
+
+.empty2 {
+    //height: 25vh;
+    width: $full-width;
+}
+
+.current-time {
+    font-size: 9em;
+    height: 35%;
+    span {
+        bottom: 75px;
+        font-size: 0.1em;
+        position: relative;
+    }
+}
+
+.current-date-value {
+    font-size: 1.5em;
+    //line-height: 10vh;
+}
+
+.location-value {
+    font-size: 1.75em;
+    //height: 15vh;
+    //line-height: 15vh;
+    span {
+        font-size: 0.5em;
+        left: -40px;
+        position: relative;
+        top: 12px;
+    }
+} 
+
+.today-block {
+    float: left;
+    //height: $full-heigth;
+    overflow: hidden;
+    width: ($full-width*0.21);
+    height: $full-heigth;
+}
+
+.tomorrow-block {
+    @extend .today-block;
+}
+
+.day-after-tomorrow-block {
+    @extend .today-block;
+}
+
+.info-wrapper {
+    height: 83%;
+}
