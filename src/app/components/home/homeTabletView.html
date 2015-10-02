@@ -6,7 +6,7 @@
 		<div class="location-value">{{home.city}}<span>Ukraine</span></div>
 		<div class="empty2"></div>
 	</div>
-	<div class="today-block" ng-repeat="timeValue in home.timeArray">
+	<div class="today-block" ng-repeat="timeValue in home.getClosestDates()">
 		<div class="current-day">
 			<location class="current-location" data-time="{{timeValue}}"></location>
 		</div>

@@ -158,7 +158,8 @@ and (max-device-height: 599px) {
 
 @media screen 
 and (min-device-height : 600px)
-and (max-device-height : 699px) {
+and (max-device-height : 699px)
+and (orientation: portrait) {
 
 .other-info {
 	position: relative;
@@ -207,6 +208,18 @@ and (min-device-height : 700px) {
 	position: absolute;
 	right: 10%;
 	top: 18%;
+}
+
+}
+
+@media screen 
+and (orientation: landscape)
+and (min-device-height : 640px) {
+
+	.day-night {
+	position: absolute;
+	right: 10%;
+	top: 30vh;
 }
 
 }

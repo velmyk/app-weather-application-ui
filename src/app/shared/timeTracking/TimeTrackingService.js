@@ -5,7 +5,7 @@
 		.module("app")
 			.factory("TimeTrackingService", TimeTrackingService);
 
-	function TimeTrackingService(TIME_IN_SECONDS) {
+	function TimeTrackingService(TIME_IN_SECONDS, localStorageService) {
 
 		var time = {};
 		var closestDates =[];
@@ -60,8 +60,7 @@
 		}
 
 		return {
-			getMaxDays: getMaxDays,
-			setMaxDays: setMaxDays,
+			initTime: initTime,
 			time: time,
 			minusDay: minusDay,
 			plusDay: plusDay,
