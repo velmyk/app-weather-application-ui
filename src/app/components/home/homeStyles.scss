@@ -3,21 +3,12 @@
 		background-size: 100% auto;
 		background-position:50%;
 }
-$full-width: 100%;
-$full-heigth: 100%;
-$font-stack: 'Titillium Web', sans-serif;
-$bg-color: #343434;
-$col-green: #1D9E48;
-$col-violet: #75608B;
-$col-blue: #375D81;
-
-
 
 body, html {
   color: white;
   text-align: center;
   font-family: 'Titillium Web', sans-serif;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   box-sizing: border-box;
 }
@@ -31,50 +22,62 @@ body, html {
 
 .thunder{
 	background-color: #999999;
+	background-size: 75% auto;
 }
 .drizzle{
 	background-color: #9cb8be;
+	background-size: 75% auto;
 }
 .lightRain{
 	background-color: #bda881;
+	background-size: 75% auto;
 }
 .heavyRain{
 	background-color: #675680;
+	background-size: 75% auto;
 }
 .freezingRain{
 	background-color: #36b1bf;
+	background-size: 75% auto;
 }
 .snow{
 	background-color: #375d81;
+	background-size: 75% auto;
 }
 .clearSky{
 	background-color: #f2385a;
+	background-size: 75% auto;
 }
 .fewClouds{
 	background-color: #f1854b;
+	background-size: 75% auto;
 }
 .scatteredClouds{
 	background-color: #c27146;
+	background-size: 75% auto;
 }
 .overcastClouds{
 	background-color: #1d9e48;
+	background-size: 75% auto;
 }
 .mist{
 	background-color: #75608b;
+	background-size: 75% auto;
+
 }
 .tornado{
 	background-color: #484545;
+	background-size: 75% auto;
 }
 
 .wheel {
-	height: 35px;
-	width: 40px;
+	height: 6%;
 }
 
 .location-gear {
 	position: absolute;
-	top: 1vh;
-	left:0;
+	top: 3.5vh;
+	left: 4vh;
 	z-index: 100;
 	cursor: pointer;
 }
@@ -92,38 +95,78 @@ body, html {
 .arrow-left {
 	position: relative;
 	right: 2vh;
+    height: 9vh;
+    top: -7vh;
 }
 
 .arrow-right {
-	position: relative;
-	right: 2vh;
+	@extend .arrow-left;
 }
+
 .other-info {
-		position: relative;
+	position: relative;
+    height: 20vh;
+    margin: -6px;
+    bottom: 4vh;
+}
+
+.wholeWeather {
+	height: 45%;
+}
+
+.current-location-title {
+    position: relative;
+    top: 1vh;
+}
+
+.weather {
+	font-size: 2em;
+	font-weight: lighter;
+    position: relative;
+    text-transform: capitalize;
+    padding: 0;
+    top: -12vh;
+}
+
+@media screen 
+and (max-height: 499px) {
+.day-night {
+	position: absolute;
+	right: 10%;
+	top: 24%;
+}
+
+}
+
+@media screen 
+and (min-height : 500px)
+and (max-height: 599px) {
+
+.other-info {
+	position: relative;
+		height: 20vh;
+		margin: -6px;
+		bottom:-2vh;
+}
+
+.day-night {
+	position: absolute;
+	right: 10%;
+	top: 21%;
+}
+
+}
+
+
+@media screen 
+and (min-height : 600px)
+and (max-height : 699px) {
+
+.other-info {
+	position: relative;
+		height: 20vh;
 		margin: -6px;
 		bottom:-5vh;
-	}
-
-@media only screen 
-and (min-device-height : 500px)
-and (max-device-height: 599px) {
-
-.other-info {
-	position: relative;
-		margin: -6px;
-		bottom:-10vh;
-}
-
-}
-
-
-@media only screen 
-and (min-device-height : 600px) {
-
-.other-info {
-	position: relative;
-		margin: -6px;
-		bottom:-13vh;
 }
 
 .weather {
@@ -132,7 +175,40 @@ and (min-device-height : 600px) {
 
 .nav-dots {
 	position: relative;
-	top: 5vh;
+    top: -5.5vh;
+}
+
+.day-night {
+	position: absolute;
+	right: 10%;
+	top: 20%;
+}
+
+}
+
+@media screen 
+and (min-height : 700px) {
+
+.other-info {
+	position: relative;
+		height: 20vh;
+		margin: -6px;
+		bottom:-12vh;
+}
+
+.weather {
+	top: 0vh;
+}
+
+.nav-dots {
+	position: relative;
+    top: -5.5vh;
+}
+
+.day-night {
+	position: absolute;
+	right: 10%;
+	top: 18%;
 }
 
 }
