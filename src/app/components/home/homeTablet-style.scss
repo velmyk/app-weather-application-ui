@@ -83,7 +83,15 @@ body, html {
         position: relative;
         top: 12px;
     }
+    display: inline-block;
 } 
+
+.location-value:before {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+}
 
 .today-block {
     float: left;

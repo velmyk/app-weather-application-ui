@@ -1,6 +1,6 @@
 @mixin bgImage($url){
 		background: $url no-repeat;
-		background-size: 100% auto;
+		background-size: 75% auto;
 		background-position:50%;
 }
 
@@ -22,52 +22,40 @@ body, html {
 
 .thunder{
 	background-color: #999999;
-	background-size: 75% auto;
 }
 .drizzle{
 	background-color: #9cb8be;
-	background-size: 75% auto;
 }
 .lightRain{
 	background-color: #bda881;
-	background-size: 75% auto;
 }
 .heavyRain{
 	background-color: #675680;
-	background-size: 75% auto;
 }
 .freezingRain{
 	background-color: #36b1bf;
-	background-size: 75% auto;
 }
 .snow{
 	background-color: #375d81;
-	background-size: 75% auto;
 }
 .clearSky{
 	background-color: #f2385a;
-	background-size: 75% auto;
 }
 .fewClouds{
 	background-color: #f1854b;
-	background-size: 75% auto;
 }
 .scatteredClouds{
 	background-color: #c27146;
-	background-size: 75% auto;
 }
 .overcastClouds{
 	background-color: #1d9e48;
-	background-size: 75% auto;
 }
 .mist{
 	background-color: #75608b;
-	background-size: 75% auto;
 
 }
 .tornado{
 	background-color: #484545;
-	background-size: 75% auto;
 }
 
 .wheel {
