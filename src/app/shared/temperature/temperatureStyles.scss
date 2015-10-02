@@ -3,34 +3,35 @@
 }
 
 .temperature-value {
-	font-size: 8em;
+	font-size: 10em;
 	font-weight: lighter;
 	text-align: center;
-}
-
-.day-night {
-	position: absolute;
-	right: 10%;
-	bottom: 21%;
+	position: relative;
+	bottom: 5vh;
 }
 
 .day-night-shift {
 	display: block;
+	font-size: 1.5em;
+	font-weight: lighter;
 }
 
 .temperature-minor {
 	position: relative;
-	font-size: 1.5em;
+	font-size: 2em;
+	font-weight: lighter;
+}
+
+.main-temp {
+	height: 30%;
 }
 
 @media only screen 
-and (min-device-width : 600px) 
+and (min-width : 639px) 
 {
 	.main-temp {
-		height: 20vh;
 		width:100%;
-		line-height:20vh;
-		
+		height: 25%;
 	}
 
 	.temperature-value {
@@ -38,26 +39,25 @@ and (min-device-width : 600px)
 		font-weight: lighter;
 		text-align: center;
 		position: relative;
+		bottom: -5vh;
 
 	}
 
 	.day-night {
-		line-height:120%;
 		position: absolute;
 		right: 10%;
-		bottom: 30%;
-		top: 9vh;
+		top: 40%;
 	}
 
 	.day-night-shift {
 		display: block;
-		font-size:1.1em;
+		font-size:1em;
 	}
 
 	.temperature-minor {
 		position: relative;
-		font-size: 1.1em;
+		font-size: 1.5em;
+		top: -1vh;
 	}
 
 }
-
