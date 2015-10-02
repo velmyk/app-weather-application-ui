@@ -1,6 +1,9 @@
 .moon-value {
-	font-size: 1.4em;
-	text-align: center;
+    font-size: 1.4em;
+    text-align: center;
+    position: relative;
+    bottom: 4vh;
+    font-weight: lighter;
 	}
 
 .moon-img {
@@ -10,50 +13,62 @@
 
 		&.MoonPhaseOne{
 			@include bgImage(url("../svg/moon1.svg"));
+			background-size: 120%;
 		}
 
 		&.MoonPhaseTwo{
 			@include bgImage(url("../svg/moon2.svg"));
+			background-size: 120%;
 		}
 		&.MoonPhaseThree{
 			@include bgImage(url("../svg/moon3.svg"));
+			background-size: 120%;
 		}
 		&.MoonPhaseFour{
 			@include bgImage(url("../svg/moon4.svg"));
+			background-size: 120%;
 		}
 		&.MoonPhaseFive{
 			@include bgImage(url("../svg/moon5.svg"));
+			background-size: 120%;
 		}
 		&.MoonPhaseSix{
 			@include bgImage(url("../svg/moon6.svg"));
+			background-size: 120%;
 		}
 		&.MoonPhaseSeven{
 			@include bgImage(url("../svg/moon7.svg"));
+			background-size: 120%;
 		}
 		&.MoonPhaseEight{
 			@include bgImage(url("../svg/moon8.svg"));
+			background-size: 120%;
 		}
 		&.MoonPhaseNine{
 			@include bgImage(url("../svg/moon9.svg"));
+			background-size: 120%;
 		}
 		&.MoonPhaseTen{
 			@include bgImage(url("../svg/moon10.svg"));
+			background-size: 120%;
 		}
 		&.MoonPhaseEleven{
 			@include bgImage(url("../svg/moon11.svg"));
+			background-size: 120%;
 		}
 		&.MoonPhaseTwelve{
 			@include bgImage(url("../svg/moon12.svg"));
+			background-size: 120%;
 		}
 		
 }
 
 .wind-moon {
-	height: 19vh;
 	overflow: hidden;
 	text-align: center;
 	width: $full-width;
 	display:table;
+	height: 30%;
 }
 
 .wind-moon-wrapper{

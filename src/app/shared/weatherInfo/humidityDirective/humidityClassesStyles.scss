@@ -5,19 +5,23 @@
 	//humidity images
 		&.lowHumidity{
 			@include bgImage(url("../svg/humidity-low.svg"));
+			background-size: 120%;
 		}
 		&.mediumHumidity{
 			@include bgImage(url("../svg/humidity-mid.svg"));
+			background-size: 120%;
 		}
 		&.highHumidity{
 			@include bgImage(url("../svg/humidity-high.svg"));
+			background-size: 120%;
 		}
 
 }
 
 .humidity-value{
-	font-size: 1.4em;
-	text-align: center;
+    font-size: 1.4em;
+    text-align: center;
+    position: relative;
+    bottom: 4vh;
+    font-weight: lighter;
 }
-
-
