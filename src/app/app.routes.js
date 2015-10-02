@@ -8,9 +8,7 @@
 
 				function isTablet () {
 					var width = $windowProvider.$get().innerWidth;
-					if ( width > 639){
-						return true;
-					}
+					return width > 639;
 				}
 
 				$urlRouterProvider.otherwise('/home');
