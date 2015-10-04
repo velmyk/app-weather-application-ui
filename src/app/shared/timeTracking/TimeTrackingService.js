@@ -23,14 +23,17 @@
 								 time.tomorrow,
 								 time.theDayAfterTomorrow 
 								];
-			}
+		}
 		
 		function getClosestDates (){
 			return closestDates;
 		}
 
 		function getMaxDays() {
-			return localStorageService.get("daysToDisplay") || 5;
+			if(!localStorageService.get("daysToDisplay")) {
+				localStorageService.set("daysToDisplay", 3);
+			}
+			return localStorageService.get("daysToDisplay");
 		}
 
 		function plusDay() {
