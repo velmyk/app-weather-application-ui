@@ -17,14 +17,15 @@
 			6: "Saturday"
 		};
 
-		function getTimeLabel( timestamp ) {
+		function getTimeLabel( timestamp, dayDisplayType ) {
 			const miliseconds = 1000,
 						day = 24 * 60 * 60 * 1000; 
 
 			var scopeTime = new Date(timestamp * miliseconds),
-					today = new Date(),
-					dayDisplayType = localStorageService.get("dayDisplayType") || 1;
-				
+					today = new Date() ;
+
+			if (!dayDisplayType) dayDisplayType = localStorageService.get("dayDisplayType") || 1;
+			
 			scopeTime.setHours(0,0,0,0);
 			today.setHours(0,0,0,0);
 
