@@ -8,7 +8,7 @@
 	</div>
 	<div class="today-block" ng-repeat="timeValue in home.getClosestDates()">
 		<div class="current-day">
-			<location class="current-location" data-time="{{timeValue}}"></location>
+			<tablet-time class="current-location" data-time="{{timeValue}}"></tablet-time>
 		</div>
 		<div ng-class="home.getBgClass(timeValue)" class="info-wrapper">
 			<current-weather data-time="{{timeValue}}" class="wholeWeather"></current-weather>
