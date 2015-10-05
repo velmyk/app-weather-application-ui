@@ -4,12 +4,7 @@
 	angular
 		.module('app')
 		.config( 
-			function($stateProvider, $urlRouterProvider, $windowProvider) {
-
-				function isTablet () {
-					var width = $windowProvider.$get().innerWidth;
-					return width > 639;
-				}
+			function($stateProvider, $urlRouterProvider, DeviceTypeServiceProvider) {
 
 				$urlRouterProvider.otherwise('/home');
 				
@@ -17,7 +12,7 @@
 
 					.state("home",{
 						url: "/home",
-						templateUrl: !isTablet() ? "components/home/homeView.html" : "components/home/homeTabletView.html",
+						templateUrl: !DeviceTypeServiceProvider.$get().isTablet() ? "components/home/homeView.html" : "components/home/homeTabletView.html",
 						controller: "HomeController",
 						controllerAs:'home',
 						resolve: {

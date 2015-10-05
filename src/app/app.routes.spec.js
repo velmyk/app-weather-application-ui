@@ -5,8 +5,7 @@ describe('UI-Router ("app" module)', function () {
   var $rootScope,
       $location,
       $state,
-      $injector,
-      mockOpenWeatherAPI;
+      $injector;
 
   beforeEach(module('app'));
 
@@ -18,16 +17,48 @@ describe('UI-Router ("app" module)', function () {
           this.loadForecast = jasmine.createSpy('loadForecast').and.returnValue({data: 'data'});
       });
 
+      // $provide.provider('DeviceTypeService', function() {
+
+      //   this.$get = function() {
+      //     var isTablet = jasmine.createSpy('isTablet').and.returnValue(true);
+
+      //     return {
+      //       isTablet: isTablet
+      //     };
+      //   };
+      // });
+
     });
+    
   });
 
-  beforeEach(inject(function( _$rootScope_, _$location_, _$state_, _$injector_, _OpenWeatherAPI_){
+    // //Getting reference of the provider
+    // var DeviceTypeServiceProvider;
+
+    // module(function(_DeviceTypeServiceProvider_) {
+    //   DeviceTypeServiceProvider = _DeviceTypeServiceProvider_;
+    // });
+
+    // module(function($provide) {
+    //   $provide.service('DeviceTypeService', function() {
+    //     this.isTablet = jasmine.createSpy('isTablet').and.returnValue(true);
+        
+    //   });
+    // });
+
+    // var DeviceTypeService;
+
+    // inject(function(_DeviceTypeService_) {
+    //   DeviceTypeService = _DeviceTypeService_;
+    // });
+
+
+  beforeEach(inject(function( _$rootScope_, _$location_, _$state_, _$injector_){
 
     $rootScope = _$rootScope_;
     $location = _$location_;
     $state = _$state_;
     $injector = _$injector_;
-    mockOpenWeatherAPI = _OpenWeatherAPI_;
 
   }));
 
@@ -56,11 +87,6 @@ describe('UI-Router ("app" module)', function () {
 
     // describe('should show', function(){
 
-    //   var mockWindow;
-    //   beforeEach(inject(function ($window) {
-    //       mockWindow = $window;
-    //   }));
-
     //   it('mobile view if width <= 639', function () {
     //     $state.go(state);
     //     $rootScope.$digest();
@@ -68,7 +94,7 @@ describe('UI-Router ("app" module)', function () {
     //   });
 
     //   it('tablet view if width > 639', function () {
-    //     $location.url('/home');
+    //     $state.go(state);
     //     $rootScope.$digest();
     //     expect($state.current.templateUrl).toEqual('components/home/homeTabletView.html');
     //   });
