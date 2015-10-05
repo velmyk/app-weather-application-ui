@@ -1,27 +1,26 @@
 .humidity-img {
 	height: 8vh;
-	width: 8vh;
 	margin:auto;
+	width: 8vh;
 	//humidity images
-		&.lowHumidity{
+		&.lowHumidity {
 			@include bgImage(url("../svg/humidity-low.svg"));
 			background-size: 120%;
 		}
-		&.mediumHumidity{
+		&.mediumHumidity {
 			@include bgImage(url("../svg/humidity-mid.svg"));
 			background-size: 120%;
 		}
-		&.highHumidity{
+		&.highHumidity {
 			@include bgImage(url("../svg/humidity-high.svg"));
 			background-size: 120%;
 		}
-
 }
 
-.humidity-value{
-    font-size: 1.4em;
-    text-align: center;
-    position: relative;
+.humidity-value {
     bottom: 4vh;
+    font-size: 1.4em;
     font-weight: lighter;
+    position: relative;
+    text-align: center;
 }

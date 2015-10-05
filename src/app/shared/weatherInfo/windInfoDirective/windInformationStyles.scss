@@ -1,14 +1,15 @@
-.wind-img{
+.wind-img {
+	bottom: 1vh;
 	height: 10vh;
-	width: 10vh;
 	margin:auto;
 	position: relative;
-	bottom: 1vh;
+	width: 10vh;
 }
+
 .wind-value {
-    font-size: 1.4em;
-    text-align: center;
-    position: relative;
     bottom: 4vh;
+    font-size: 1.4em;
     font-weight: lighter;
-	}
+    position: relative;
+    text-align: center;
+}

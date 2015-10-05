@@ -1,58 +1,58 @@
-.weatherIcon{
-	padding:0;
-	margin:0; 
-	position: relative;
+.weatherIcon {
 	bottom: 13vh;
+	margin: 0; 
+	padding: 0;
+	position: relative;
 }
 
 .main {
-	height:23vh;
+	height: 23vh;
+	margin: auto;
 	width: 20vh;
-	margin:auto;
-	&.thunder{
+	&.thunder {
 		@include bgImage(url("../svg/lightning.svg"));
 	}
-	&.drizzle{
+	&.drizzle {
 		@include bgImage(url("../svg/drizzle.svg"));
 	}
-	&.lightRain{
+	&.lightRain {
 		@include bgImage(url("../svg/rain-sun.svg"));
 	}
-	&.heavyRain{
+	&.heavyRain {
 		@include bgImage(url("../svg/rain.svg"));
 	}
-	&.freezingRain{
+	&.freezingRain {
 		@include bgImage(url("../svg/snow-rain.svg"));
 	}
-	&.snow{
+	&.snow {
 		@include bgImage(url("../svg/snow.svg"));
 	}
-	&.clearSky{
+	&.clearSky {
 		@include bgImage(url("../svg/sun.svg"));
 	}
-	&.fewClouds{
+	&.fewClouds {
 		@include bgImage(url("../svg/light-cloud.svg"));
 	}
-	&.scatteredClouds{
+	&.scatteredClouds {
 		@include bgImage(url("../svg/cloud.svg"));
 	}
-	&.overcastClouds{
+	&.overcastClouds {
 		@include bgImage(url("../svg/high-cloud.svg"));
 	}
-	&.mist{
+	&.mist {
 		@include bgImage(url("../svg/mist.svg"));
 	}
-	&.tornado{
+	&.tornado {
 		@include bgImage(url("../svg/hurricane.svg"));
 	}
 }
 
 .weather {
-	font-size: 2.25em;
 	bottom: 6vh;
+	font-size: 2.25em;
+	padding: 0;
 	position: relative;
 	text-transform: capitalize;
-	padding: 0;
 }
 
 li {
@@ -60,39 +60,33 @@ li {
 }
 
 .controls {
-	width: 9px;
 	height: 9px;
+	width: 9px;
 }
 
 .circles {
-	width: 50%;
 	margin: auto;
 	position: relative;
+	width: 50%;
 }
 
-
-@media only screen 
-and (min-device-width : 639px) 
-{
-	.weatherIcon{
-		padding:0;
-		margin:0;
-		position:relative;
+@media only screen and (min-device-width : 639px) {
+	.weatherIcon {
 		bottom: 0;
 		height: 70%;
-
+		margin:0;
+		padding:0;
+		position:relative;
 	}
 
-	.main{
+	.main {
+		background-position: 50%;	
 		width:50%;
-		background-position: 50%;
-		
 	}
 
 	.weather {
-    position: relative;
-    text-transform: capitalize;
-    top: 0vh;
+    	position: relative;
+    	text-transform: capitalize;
+    	top: 0vh;
 	}
-
 }

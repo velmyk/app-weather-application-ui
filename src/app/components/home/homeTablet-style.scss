@@ -20,19 +20,19 @@ body, html {
 @media screen and (orientation: portrait) and (min-width: 639px) {
     body{
         -webkit-transform: rotate(-90deg);
-           -moz-transform: rotate(-90deg);
-            -ms-transform: rotate(-90deg);
-             -o-transform: rotate(-90deg);
-                transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
         -webkit-transform-origin: left top;
-           -moz-transform-origin: left top;
-            -ms-transform-origin: left top;
-             -o-transform-origin: left top;
-                transform-origin: left top;
-        width: 100vh;
+        -moz-transform-origin: left top;
+        -ms-transform-origin: left top;
+        -o-transform-origin: left top;
+        transform-origin: left top;
+        left: 0;
         position: absolute;
         top: 100%;
-        left: 0;
+        width: 100vh;
     }
 } 
 
@@ -54,7 +54,6 @@ body, html {
 }
 
 .empty2 {
-    //height: 25vh;
     width: $full-width;
 }
 
@@ -69,15 +68,13 @@ body, html {
 }
 
 .current-date-value {
-    margin-top: 8%;
     font-size: 2em;
     line-height: 1vh;
+    margin-top: 8%;
 }
 
 .location-value {
     font-size: 1.75em;
-    //height: 15vh;
-    //line-height: 15vh;
     span {
         font-size: 0.5em;
         left: -40px;
@@ -89,26 +86,19 @@ body, html {
 } 
 
 .location-value:before {
-    display: inline-block;
-    width: 20px;
+    @include bgImage(url("../svg/placeholder.svg"));;
+    content: '';
+    display: block;
+    float: left;
     height: 20px;
-    background-color: white;
+    width: 20px;
 }
 
 .today-block {
     float: left;
-    //height: $full-heigth;
+    height: $full-heigth;
     overflow: hidden;
     width: ($full-width*0.21);
-    height: $full-heigth;
-}
-
-.tomorrow-block {
-    @extend .today-block;
-}
-
-.day-after-tomorrow-block {
-    @extend .today-block;
 }
 
 .info-wrapper {

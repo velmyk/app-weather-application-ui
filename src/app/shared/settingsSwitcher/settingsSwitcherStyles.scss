@@ -9,13 +9,10 @@ $btnBorderSelected: #ADADAD;
 	}
 
 	&-controlls {
-		&__button {
-		
-		}
 
 		&-radio {
-			opacity: 0;
 			display: none;
+			opacity: 0;
 		}
 
 		&-button {
@@ -27,7 +24,5 @@ $btnBorderSelected: #ADADAD;
 				border-color: $btnBorderSelected;
 			}
 		}
-
-
 	}
 }
