@@ -8,11 +8,12 @@
 		/*jshint validthis:true */
 		var vm = this;
 
-		vm.dotsNum = new Array( + $scope.days );
+		vm.dotsNum = [];
 
 		$scope.$watch('currentDay', refreshData);
 
 		function refreshData() {
+			vm.dotsNum[ $scope.days - 1 ] = '';
 			vm.currentDot = $scope.currentDay;
 		}
 	}
