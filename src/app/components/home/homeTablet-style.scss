@@ -6,8 +6,6 @@ $col-green: #1D9E48;
 $col-violet: #75608B;
 $col-blue: #375D81;
 
-
-
 body, html {
     background-color: $bg-color;
     color: white;
@@ -103,4 +101,26 @@ body, html {
 
 .info-wrapper {
     height: 83%;
+}
+
+@media screen and (orientation: portrait) and (min-width: 768px) {
+    body {
+        height: 75%;
+    }
+
+    .current-time {
+        font-size: 9em;
+        height: 25%;
+        margin-top: 8%;
+        span {
+            bottom: 75px;
+            font-size: 0.1em;
+            position: relative;
+        }
+    }
+
+    .day-night {
+        position: relative;
+        top: -1vh;
+    }
 }
