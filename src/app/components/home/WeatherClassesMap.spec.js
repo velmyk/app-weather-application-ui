@@ -1,6 +1,6 @@
 "use strict";
 describe('app', function() {
-  var sut, mockWeatherClasses, mockWeatherClasses, patterns;
+  var sut, mockWeatherClasses,mockWeatherClassesArr, patterns;
   
   beforeEach(module('app'));
 
@@ -23,15 +23,29 @@ describe('app', function() {
     });
   });
 
+
   beforeEach( inject(function( WeatherClassesMap, WeatherClasses ) {
 
     sut = WeatherClassesMap;
     mockWeatherClasses = WeatherClasses;
 
+    mockWeatherClassesArr = [ mockWeatherClasses.thunder ,
+                              mockWeatherClasses.drizzle ,
+                              mockWeatherClasses.lightRain ,
+                              mockWeatherClasses.heavyRain ,
+                              mockWeatherClasses.freezingRain ,
+                              mockWeatherClasses.snow ,
+                              mockWeatherClasses.clearSky ,
+                              mockWeatherClasses.fewClouds ,
+                              mockWeatherClasses.scatteredClouds ,
+                              mockWeatherClasses.overcastClouds ,
+                              mockWeatherClasses.mist ,
+                              mockWeatherClasses.tornado 
+                            ];
   }));
-  
+
   describe('Weather classes map', function() {
-    beforeEach(function(){
+
       var thunderPattern = '/^2|^90[1,2,5,6]|^95[^1-4]|^96/';
       var drizzlePattern ='/^3/';
       var lightRainPattern ='/^50[0-1]$/';
@@ -59,21 +73,7 @@ describe('app', function() {
                  tornado
               ];
 
-    mockWeatherClasses = [  mockWeatherClasses.thunder ,
-                            mockWeatherClasses.drizzle ,
-                            mockWeatherClasses.lightRain ,
-                            mockWeatherClasses.heavyRain ,
-                            mockWeatherClasses.freezingRain ,
-                            mockWeatherClasses.snow ,
-                            mockWeatherClasses.clearSky ,
-                            mockWeatherClasses.fewClouds ,
-                            mockWeatherClasses.scatteredClouds ,
-                            mockWeatherClasses.overcastClouds ,
-                            mockWeatherClasses.mist ,
-                            mockWeatherClasses.tornado 
-                          ];
-  });
-
+     
   function getValueFromMap(map, searchingKey){
     var mapValue;
 
@@ -85,19 +85,22 @@ describe('app', function() {
       return mapValue;
     }
 
-    it('should return correct values depending on key ', function() {
+  for(var index = 0; index < patterns.length; index++) {
+
+      testWeatherClassMap( patterns[index], index);
+
+  }
+
+  function testWeatherClassMap(input,index) {
+    it('when key is ' + input + 'it should return correct value from mockWeatherClassesArr', function() {
       var map = sut.getWeatherClassesMap();
-      var mapValue;
-      
-      for (var index = 0; index < patterns.length; index++) {
-          mapValue = getValueFromMap(map, patterns[index]);
-          expect(mapValue).toEqual( mockWeatherClasses[index] );
-      }
-    }); 
+      var mapValue  = getValueFromMap(map, input);
+          expect(mapValue).toEqual(mockWeatherClassesArr[index]);
+    });
+  }
 
     it('should provide a map for main image and background which consist of 12 key-values', function(){
       var map = sut.getWeatherClassesMap();
-      expect(map).toBeDefined();
       expect(map.size).toEqual(12);
     }); 
   })

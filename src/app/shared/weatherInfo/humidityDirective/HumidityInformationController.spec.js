@@ -5,6 +5,7 @@ describe('Humidity Information Controller', function() {
         mockScope,
         MockWeatherService,
         MockHumidityService,
+        mockDate = 1111111111,
         mockHumidity = 100,
         mockHumidityClass = "one";
 
@@ -42,7 +43,7 @@ describe('Humidity Information Controller', function() {
         expect(sut.humidityClass).toEqual(mockHumidityClass);
     })
     it("should call getHumidity method with 'time' as an argument", function() {
-        mockScope.time = +new Date();
+        mockScope.time = mockDate;
         mockScope.$digest();
         expect(MockWeatherService.getHumidity).toHaveBeenCalledWith(mockScope.time);
     })
