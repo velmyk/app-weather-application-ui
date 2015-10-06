@@ -217,13 +217,13 @@ gulp.task('unit-test', function(){
 
 gulp.task('node-server', ['build-app-dev'], function () {
   nodemon({
-    script: 'server.js'
+    script: 'server/app.js'
   })
 })
 
 gulp.task('node-server-release', ['build-app-release'], function () {
   nodemon({
-    script: 'server.js'
+    script: 'server/app.js'
   })
 })
 

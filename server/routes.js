@@ -1,5 +1,5 @@
-var	weather = require("./data/weather.json"),
-		cities = require("./data/cities.json");
+var	weather = require("../data/weather.json"),
+		cities = require("../data/cities.json");
 
 
 
