@@ -65,6 +65,7 @@
 			minusDay: minusDay,
 			plusDay: plusDay,
 			getClosestDates: getClosestDates
+
 		};
 	}
 	

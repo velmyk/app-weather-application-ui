@@ -1,82 +1,71 @@
-@mixin bgImage($url){
-		background: $url no-repeat;
-		background-size: 100% auto;
-		background-position:50%;
+@mixin bgImage($url) {
+	background: $url no-repeat;
+	background-size: 75% auto;
+	background-position: 50%;
 }
-$full-width: 100%;
-$full-heigth: 100%;
-$font-stack: 'Titillium Web', sans-serif;
-$bg-color: #343434;
-$col-green: #1D9E48;
-$col-violet: #75608B;
-$col-blue: #375D81;
-
-
 
 body, html {
-  color: white;
-  text-align: center;
-  font-family: 'Titillium Web', sans-serif;
-  height: 100vh;
-  width: 100%;
-  box-sizing: border-box;
+	box-sizing: border-box;
+	color: white;
+	font-family: 'Titillium Web', sans-serif;
+	height: 100%;
+	text-align: center;
+	width: 100%;
 }
 
 .row, ul, li {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
-
-.thunder{
+.thunder {
 	background-color: #999999;
 }
-.drizzle{
+.drizzle {
 	background-color: #9cb8be;
 }
-.lightRain{
+.lightRain {
 	background-color: #bda881;
 }
-.heavyRain{
+.heavyRain {
 	background-color: #675680;
 }
-.freezingRain{
+.freezingRain {
 	background-color: #36b1bf;
 }
-.snow{
+.snow {
 	background-color: #375d81;
 }
-.clearSky{
+.clearSky {
 	background-color: #f2385a;
 }
-.fewClouds{
+.fewClouds {
 	background-color: #f1854b;
 }
-.scatteredClouds{
+.scatteredClouds {
 	background-color: #c27146;
 }
-.overcastClouds{
+.overcastClouds {
 	background-color: #1d9e48;
 }
-.mist{
+.mist {
 	background-color: #75608b;
 }
-.tornado{
+.tornado {
 	background-color: #484545;
 }
 
 .wheel {
-	height: 35px;
-	width: 40px;
+	height: 6%;
 }
 
 .location-gear {
-	position: absolute;
-	top: 1vh;
-	left:0;
-	z-index: 100;
 	cursor: pointer;
+	left: 4vh;
+	position: absolute;
+	top: 3.5vh;
+	z-index: 100;
 }
 
 .location-container {
@@ -85,54 +74,138 @@ body, html {
 }
 
 .weather-state-container {
-	margin-top: 10vh;
 	height: 80%;
+	margin-top: 10vh;
 }
 
 .arrow-left {
+	height: 9vh;
 	position: relative;
 	right: 2vh;
+	top: -7vh;
 }
 
 .arrow-right {
-	position: relative;
-	right: 2vh;
-}
-.other-info {
-		position: relative;
-		margin: -6px;
-		bottom:-5vh;
-	}
-
-@media only screen 
-and (min-device-height : 500px)
-and (max-device-height: 599px) {
-
-.other-info {
-	position: relative;
-		margin: -6px;
-		bottom:-10vh;
+	@extend .arrow-left;
 }
 
+.other-info {
+	bottom: 4vh;
+	height: 20vh;
+	margin: -6px;
+	position: relative;
 }
 
+.wholeWeather {
+	height: 45%;
+}
 
-@media only screen 
-and (min-device-height : 600px) {
-
-.other-info {
+.current-location-title {
 	position: relative;
-		margin: -6px;
-		bottom:-13vh;
+	top: 1vh;
 }
 
 .weather {
-	top: 0vh;
-}
-
-.nav-dots {
+	font-size: 2.3rem;
+	font-weight: lighter;
+	padding: 0;
 	position: relative;
-	top: 5vh;
+	text-transform: capitalize;
+	top: -12vh;
 }
 
+@media screen and (max-device-height: 499px) {
+	.day-night {
+		position: absolute;
+		right: 10%;
+		top: 24%;
+	}
+
+	.nav-dots {
+		bottom: 10vh;
+		position: relative;
+	}
+}
+
+@media screen 
+and (min-device-height : 500px)
+and (max-device-height: 599px) {
+	.other-info {
+		bottom:-2vh;
+		height: 20vh;
+		margin: -6px;
+		position: relative;
+	}
+
+	.day-night {
+		position: absolute;
+		right: 10%;
+		top: 21%;
+	}
+
+	.nav-dots {
+		bottom: 10vh;
+		position: relative;
+	}
+}
+
+@media screen 
+and (min-device-height : 600px)
+and (max-device-height : 699px)
+and (orientation: portrait) {
+	.other-info {
+		bottom:-5vh;
+		height: 20vh;
+		margin: -6px;
+		position: relative;
+	}
+
+	.weather {
+		top: -10vh;
+	}
+
+	.nav-dots {
+		bottom: 8vh;
+		position: relative;
+	}
+
+	.day-night {
+		position: absolute;
+		right: 10%;
+		top: 20%;
+	}
+}
+
+@media screen and (min-device-height : 700px) {
+	.other-info {
+		bottom:-12vh;
+		height: 20vh;
+		margin: -6px;
+		position: relative;
+	}
+
+	.weather {
+		top: -10vh;
+	}
+
+	.nav-dots {
+		bottom: 5vh;
+		position: relative;
+	}
+
+	.day-night {
+		position: absolute;
+		right: 10%;
+		top: 18%;
+	}
+}
+
+@media screen 
+and (orientation: landscape)
+and (min-device-height : 640px) {
+	.day-night {
+		position: absolute;
+		right: 10%;
+		top: 30vh;
+	}
 }

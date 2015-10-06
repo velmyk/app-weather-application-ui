@@ -1,9 +1,15 @@
-.wind-img{
-	height: 8vh;
-	width: 8vh;
+.wind-img {
+	bottom: 1vh;
+	height: 10vh;
 	margin:auto;
+	position: relative;
+	width: 10vh;
 }
+
 .wind-value {
-	font-size: 1.4em;
-	text-align: center;
-	}
+    bottom: 4vh;
+    font-size: 1.4em;
+    font-weight: lighter;
+    position: relative;
+    text-align: center;
+}

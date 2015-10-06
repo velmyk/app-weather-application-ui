@@ -4,15 +4,15 @@
 	angular
 		.module('app')
 		.config( 
-			function($stateProvider, $urlRouterProvider) {
+			function($stateProvider, $urlRouterProvider, DeviceTypeServiceProvider) {
 
 				$urlRouterProvider.otherwise('/home');
-
+				
 				$stateProvider
 
 					.state("home",{
 						url: "/home",
-						templateUrl: "components/home/homeView.html",
+						templateUrl: !DeviceTypeServiceProvider.$get().isTablet() ? "components/home/homeView.html" : "components/home/homeTabletView.html",
 						controller: "HomeController",
 						controllerAs:'home',
 						resolve: {

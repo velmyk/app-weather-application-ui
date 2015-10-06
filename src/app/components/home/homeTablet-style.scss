@@ -1,0 +1,126 @@
+$full-width: 100%;
+$full-heigth: 100%;
+$font-stack: 'Titillium Web', sans-serif;
+$bg-color: #343434;
+$col-green: #1D9E48;
+$col-violet: #75608B;
+$col-blue: #375D81;
+
+body, html {
+    background-color: $bg-color;
+    color: white;
+    font: $font-stack;
+    height: $full-heigth;
+    text-align: center;
+    width: $full-width;
+}
+
+@media screen and (orientation: portrait) and (min-width: 639px) {
+    body{
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        -webkit-transform-origin: left top;
+        -moz-transform-origin: left top;
+        -ms-transform-origin: left top;
+        -o-transform-origin: left top;
+        transform-origin: left top;
+        left: 0;
+        position: absolute;
+        top: 100%;
+        width: 100vh;
+    }
+} 
+
+.container-fluid {
+    overflow: hidden;
+    padding: 0;
+}
+
+.current-date_location {
+    float: left;
+    height: $full-heigth;
+    overflow: hidden;
+    width: ($full-width*0.37);
+}
+
+.empty1 {
+    height: 17%;
+    width: $full-width;
+}
+
+.empty2 {
+    width: $full-width;
+}
+
+.current-time {
+    font-size: 9em;
+    height: 25%;
+    span {
+        bottom: 75px;
+        font-size: 0.1em;
+        position: relative;
+    }
+}
+
+.current-date-value {
+    font-size: 2em;
+    line-height: 1vh;
+    margin-top: 8%;
+}
+
+.location-value {
+    font-size: 1.75em;
+    span {
+        font-size: 0.5em;
+        left: -40px;
+        position: relative;
+        top: 12px;
+    }
+    display: inline-block;
+    margin-top: 10%;
+} 
+
+.location-value:before {
+    @include bgImage(url("../svg/placeholder.svg"));;
+    content: '';
+    display: block;
+    float: left;
+    height: 6%;
+    width: 40px;
+}
+
+.today-block {
+    float: left;
+    height: $full-heigth;
+    overflow: hidden;
+    width: ($full-width*0.21);
+}
+
+.info-wrapper {
+    height: 83%;
+}
+
+@media screen and (orientation: portrait) and (min-width: 768px) {
+    body {
+        height: 75%;
+    }
+
+    .current-time {
+        font-size: 9em;
+        height: 25%;
+        margin-top: 8%;
+        span {
+            bottom: 75px;
+            font-size: 0.1em;
+            position: relative;
+        }
+    }
+
+    .day-night {
+        position: relative;
+        top: -1vh;
+    }
+}

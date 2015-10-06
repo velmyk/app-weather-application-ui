@@ -6,7 +6,7 @@
 		.module("app")
 		.factory("WeatherClassService", WeatherClassService);
 
-	function WeatherClassService( WeatherClassesMap, WeatherService ) {
+	function WeatherClassService( WeatherClasses, WeatherClassesMap, WeatherService ) {
 		var map = WeatherClassesMap.getWeatherClassesMap(),
 						mainWeatherClass,
 						weatherId,
