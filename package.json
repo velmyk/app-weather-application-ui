@@ -36,5 +36,8 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "morgan": "^1.1.1",
     "phantomjs": "^1.9.18"
+  },
+  "dependencies": {
+    "mongoose": "^4.1.10"
   }
 }
