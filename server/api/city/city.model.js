@@ -5,12 +5,13 @@ var mongoose = require('mongoose'),
 
 var CitySchema = new Schema({
 	_id: Number,
-  name: String,
-  country: String,
-  coord: {
-  	lon: Number,
-  	lat: Number
-  }
+	name: Array,
+  	country: String,
+  	coord: {
+  		lon: String,
+  		lat: Number
+  	},
+  	pole: Number
 });
 
 module.exports = mongoose.model('City', CitySchema);

@@ -4,7 +4,7 @@
 	angular
 		.module("app")
 		.constant("constants", {
-			APIURL: "/api/weather",
+			APIURL: "http://localhost:8888/api/weather",
 			APIKEY: "01fd2cb2e81a0044dad76f3cbaf09e5d",
 			TODAYSTR: "Today",
 			TOMORROWSTR: "Tomorrow",
