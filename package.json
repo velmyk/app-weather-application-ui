@@ -36,7 +36,9 @@
     "karma-ng-html2js-preprocessor": "^0.1.2",
     "karma-phantomjs-launcher": "^0.2.1",
     "morgan": "^1.1.1",
-    "phantomjs": "^1.9.18"
+    "phantomjs": "^1.9.18",
+    "protractor": "^2.5.0"
+
   },
   "dependencies": {
     "mongoose": "^4.1.10"
