@@ -9,6 +9,7 @@ module.exports = function(config) {
       'phantomjs',
       'karma-phantomjs-launcher',
       'karma-ng-html2js-preprocessor',
+      'karma-coverage',
       'morgan'
     ],
 
@@ -32,7 +33,7 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      'src/**/*.js': ['babel'],
+      'src/**/*.js': ['babel', 'coverage'],
       'src/app/**/*.html': ['ng-html2js']
     },
 
@@ -41,7 +42,12 @@ module.exports = function(config) {
       stripPrefix: 'src/app/'
     },
 
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
+
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    },
 
     port: 9876,
 
