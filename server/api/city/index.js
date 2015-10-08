@@ -4,6 +4,6 @@ var express = require("express"),
 	controller = require("./city.controller"),
 	router = express.Router();
 
-router.get('/:phrase', controller.show);
+router.get('/search/:phrase', controller.search);
 
 module.exports = router;
