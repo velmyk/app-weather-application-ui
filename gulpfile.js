@@ -46,6 +46,10 @@ var bases = {
  dist: 'build/'
 };
 
+var port = {
+  client: 8080
+}
+
 var path = {
       build: { //Build files
           html: 'build/',
@@ -214,20 +218,28 @@ gulp.task('unit-test', function(){
     }).start();
 });
 
+gulp.task("client", ['build-app-dev'], function () {
+    connect.server({
+        port: port.client,
+        root: 'build',
+        livereload : true
+    });
+});
 
-gulp.task('node-server', ['build-app-dev'], function () {
+gulp.task("client-release", ['build-app-release'], function () {
+    connect.server({
+        port: port.client,
+        root: 'build',
+        livereload : true
+    });
+});
+
+gulp.task('node-server', function () {
   nodemon({
-    script: 'server.js'
+    script: 'server/app.js'
   })
 })
 
-gulp.task('node-server-release', ['build-app-release'], function () {
-  nodemon({
-    script: 'server.js'
-  })
-})
-
-gulp.task('default', ['unit-test', 'copy','copy-svg', 'watch', 'node-server']);
-
-gulp.task('release', ['copy','copy-svg', 'watch', 'node-server-release']);
+gulp.task('default', ['unit-test', 'copy','copy-svg', 'watch', 'node-server', 'client']);
+gulp.task('release', ['copy','copy-svg', 'watch', 'node-server', 'client-release']);
 
