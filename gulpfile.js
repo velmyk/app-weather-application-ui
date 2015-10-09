@@ -36,6 +36,14 @@ var gulp = require('gulp'),
     templateCache = require('gulp-angular-templatecache'),
     ngAnnotate = require('gulp-ng-annotate'),
     concat = require('gulp-concat'),
+    create = require('gulp-cordova-create'),
+    description = require('gulp-cordova-description'),
+    plugin = require('gulp-cordova-plugin'),
+    version = require('gulp-cordova-version'),
+    author = require('gulp-cordova-author'),
+    pref = require('gulp-cordova-preference'),
+    android = require('gulp-cordova-build-android'),
+    icon = require('gulp-cordova-icon'),
     nodemon = require('gulp-nodemon'),
     clean = require('gulp-clean'),
     babel = require('gulp-babel'),
@@ -89,6 +97,11 @@ gulp.task('clean', function() {
     .pipe(clean());
 });
 
+
+gulp.task('clean-cordova', function() {
+  return gulp.src('.cordova')
+    .pipe(clean());
+});
 
 gulp.task('jshint', function() {
   return gulp.src(path.src.js)
@@ -220,6 +233,20 @@ gulp.task('copy', function() {
 gulp.task('copy-svg', function() {
   gulp.src(path.src.svg)
     .pipe(gulp.dest(path.build.svg));
+});
+
+gulp.task('create', ['clean-cordova'], function() {
+    return gulp.src('build')
+        .pipe(create({directory: '.cordova', id: 'cdbrzzs.wthrpp', name: 'WeatherApp'}))
+        .pipe(plugin('org.apache.cordova.file'))
+        .pipe(plugin('org.apache.cordova.inappbrowser'))
+        .pipe(description('codeBrazzers weather application'))
+        .pipe(version('4.1.2', {androidVersionCode: 412}))
+        .pipe(author('Codebrazzers', 'codebrazzers@gmail.com', 'https://github.com/codebrazzersweatherapp'))
+        .pipe(android({
+            androidTarget: 'android-412'
+        }))
+        pipe(gulp.dest('apk'));
 });
 
 gulp.task('unit-test', function(){  
