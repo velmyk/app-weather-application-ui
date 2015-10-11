@@ -8,25 +8,20 @@
 	function TimeTrackingService(TIME_IN_SECONDS, localStorageService) {
 
 		var time = {};
-		var closestDates =[];
 
 		function initTime() {
 			time.now = 1441875600;
 			time.displayTime = 1441875600;
 			time.displayDay = 0;
 			time.maxDays = getMaxDays();
-
-			time.tomorrow = calculateTime(1);
-			time.theDayAfterTomorrow = calculateTime(2);
-
-			closestDates =[ time.now,
-								 time.tomorrow,
-								 time.theDayAfterTomorrow 
-								];
 		}
 		
 		function getClosestDates (){
-			return closestDates;
+			return [
+								calculateTime(0),
+								calculateTime(1),
+								calculateTime(2)
+							];
 		}
 
 		function getMaxDays() {
