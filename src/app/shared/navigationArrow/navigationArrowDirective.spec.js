@@ -1,6 +1,6 @@
 "use strict";
 
-describe('Custome temperature directive', function() {
+describe('Custome navigation arrow directive', function() {
 
   var mockScope,
       element, 
@@ -11,7 +11,7 @@ describe('Custome temperature directive', function() {
 
 	beforeEach(inject(function(_$rootScope_, _$compile_){
   	mockScope = _$rootScope_.$new();
-  	element = angular.element('<temperature data-time="1449882061"></temperature>');
+  	element = angular.element('<navigation-arrow data-direction="right"></navigation-arrow>');
   	compiledDirective = _$compile_(element)(mockScope);
   	mockScope.$digest();
   	isolateScope = element.isolateScope();
@@ -19,7 +19,7 @@ describe('Custome temperature directive', function() {
 	}));
 
 	it('has valid data in isolate scope', function() {
-		expect(isolateScope.time).toEqual("1449882061");
+		expect(isolateScope.direction).toEqual("right");
 	});
 
 });

@@ -1,4 +1,4 @@
-(function (  ) {
+(function () {
     'use strict';
 
     angular.module('app')
@@ -11,7 +11,7 @@
             scope: {
                 time: "@"
             },
-            controller: "CurrentWeatherCtrl",
+            controller: "CurrentWeatherController",
             controllerAs: "weatherCtrl",
             templateUrl: "shared/currentWeather/currentWeatherView.html"
         };

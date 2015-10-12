@@ -2,8 +2,8 @@
 	"use strict";
 
 	angular
-	.module("app")
-	.controller("TemperatureController", TemperatureController);
+		.module("app")
+			.controller("TemperatureController", TemperatureController);
 
 	function TemperatureController($scope, WeatherService, DayNightService) {
 		/*jshint validthis:true */
