@@ -1,11 +1,11 @@
 (function() {
 	"use strict";
 
-	angular.module("app")
-	.controller("CurrentWeatherCtrl", CurrentWeatherCtrl);
+	angular
+		.module("app")
+			.controller("CurrentWeatherController", CurrentWeatherController);
 
-
-	function CurrentWeatherCtrl( $scope, WeatherService, WeatherClassService ) {
+	function CurrentWeatherController( $scope, WeatherService, WeatherClassService ) {
 		/*jshint validthis:true */
 		var vm = this;
 		$scope.$watch('time', refreshData);

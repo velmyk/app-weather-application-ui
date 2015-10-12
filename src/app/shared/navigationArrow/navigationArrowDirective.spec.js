@@ -1,6 +1,6 @@
 "use strict";
 
-describe('Custome temperature directive', function() {
+describe('Custome navigation arrow directive', function() {
 
   var mockScope,
       element, 
