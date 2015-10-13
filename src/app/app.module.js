@@ -7,7 +7,9 @@
 			'ui.router',
 			'ngTouch',
 			'LocalStorageModule',
-			'angular-loading-bar'
+			'angular-loading-bar',
+			'ngSanitize',
+			'ui.select'
 		]);
 
 })();
