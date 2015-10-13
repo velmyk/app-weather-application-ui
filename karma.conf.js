@@ -24,7 +24,7 @@ module.exports = function(config) {
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-local-storage/dist/angular-local-storage.js',
       'bower_components/angular-loading-bar/build/loading-bar.js',
-      'bower_components/angular-ui-select/dist/select.js',
+      'bower_components/ui-select/dist/select.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'node_modules/karma-babel-preprocessor/node_modules/babel-core/browser-polyfill.js',
       'src/**/*.js',

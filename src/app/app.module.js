@@ -8,8 +8,8 @@
 			'ngTouch',
 			'LocalStorageModule',
 			'angular-loading-bar',
-			'ngSanitize',
-			'ui.select'
+			'ui.select',
+			'ngSanitize'
 		]);
 
 })();
