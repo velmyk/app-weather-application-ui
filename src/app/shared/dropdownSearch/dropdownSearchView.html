@@ -1,0 +1,16 @@
+<div>
+
+  <ui-select ng-model="vm.city.selected"
+             theme="bootstrap"
+             reset-search-input="false"
+             style="width: 100%;">
+    <ui-select-match placeholder="Enter an address...">{{$select.selected.name[0]}}</ui-select-match>
+    <ui-select-choices repeat="city in vm.cities"
+             refresh="vm.refreshCities($select.search)"
+             refresh-delay="300">
+      <div ng-bind-html="city.name[0] | highlight: $select.search"></div>
+    </ui-select-choices>
+  </ui-select>
+
+</div>
+
