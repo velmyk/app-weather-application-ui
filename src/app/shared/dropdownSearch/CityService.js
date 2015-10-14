@@ -17,7 +17,8 @@
 
 			cities = $http({
 				url: constants.CITIES_API_URL + searchPhrase,
-				method: "GET"
+				method: "GET",
+				ignoreLoadingBar: true
 			});
 
 			def.resolve(cities);

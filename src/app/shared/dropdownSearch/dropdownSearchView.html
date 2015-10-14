@@ -8,7 +8,8 @@
     <ui-select-choices repeat="city in vm.cities"
              refresh="vm.refreshCities($select.search)"
              refresh-delay="300">
-      <div ng-bind-html="city.name[0] | highlight: $select.search"></div>
+      <span ng-bind-html="city.name[0] | highlight: $select.search"></span>
+      <span ng-bind-html="city.country | highlight: $select.search"></span>
     </ui-select-choices>
   </ui-select>
 
