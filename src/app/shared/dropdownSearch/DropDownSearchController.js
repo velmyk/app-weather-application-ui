@@ -23,7 +23,9 @@
 		}
 
 		$scope.$watch('vm.city.selected', function(){
-			(vm.city.selected) ? SettingsSwitcherService.setValueToLocalStorage('locationToDisplay', vm.city.selected._id): '';
+			if (vm.city.selected) {
+				SettingsSwitcherService.setValueToLocalStorage('locationToDisplay', vm.city.selected._id);
+			}
 		});
 }
 
