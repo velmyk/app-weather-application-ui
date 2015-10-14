@@ -9,15 +9,21 @@
 
 		function setSettings($event) {
 			var key = $event.target.attributes["data-settings-key"].value,
-			    value = $event.target.attributes["data-settings-value"].value;
+					value = $event.target.attributes["data-settings-value"].value;
 			
 			localStorageService.remove(key);
 			localStorageService.set(key,value);
 		}
 
+		function setValueToLocalStorage(key, value) {
+			localStorageService.remove(key);
+			localStorageService.set(key,value);
+		}
+
 		return {
-			setSettings : setSettings
+			setSettings: setSettings,
+			setValueToLocalStorage: setValueToLocalStorage
 		};
 	}
-	
+
 })();

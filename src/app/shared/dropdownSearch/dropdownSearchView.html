@@ -4,7 +4,7 @@
              theme="bootstrap"
              reset-search-input="false"
              style="width: 100%;">
-    <ui-select-match placeholder="Enter an address...">{{$select.selected.name[0]}}</ui-select-match>
+    <ui-select-match placeholder="Enter the city...">{{$select.selected.name[0]}}</ui-select-match>
     <ui-select-choices repeat="city in vm.cities"
              refresh="vm.refreshCities($select.search)"
              refresh-delay="300">

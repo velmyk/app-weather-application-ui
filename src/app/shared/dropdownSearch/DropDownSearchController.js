@@ -5,7 +5,7 @@
 		.module("app")
 			.controller("DropdownSearchController", DropdownSearchController);
 
-	function DropdownSearchController($scope, CityService) {
+	function DropdownSearchController($scope, CityService, SettingsSwitcherService) {
 
 		var vm = this;
 
@@ -22,6 +22,9 @@
 			vm.cities = cities.data.list;
 		}
 
-	}
+		$scope.$watch('vm.city.selected', function(){
+			(vm.city.selected) ? SettingsSwitcherService.setValueToLocalStorage('locationToDisplay', vm.city.selected._id): '';
+		});
+}
 
 })();
