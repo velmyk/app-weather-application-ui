@@ -5,23 +5,18 @@
 		.module("app")
 		.service("WeatherService", WeatherService);
 
-	
-	function WeatherService( $http, constants, OpenWeatherAPI ) {
-		var	hourAndHalf = 5400,
-			halfADay = 43200,
-			threeHours = 10800,
-			windForecast = OpenWeatherAPI.windForecast,
-			humidityForecast = OpenWeatherAPI.humidityForecast,
-			temperatureForecast = OpenWeatherAPI.temperatureForecast,
-			weatherStateForecast = OpenWeatherAPI.weatherStateForecast,
-			city = OpenWeatherAPI.city;
-
+	function WeatherService( $http, TIME_IN_SECONDS, OpenWeatherAPI ) {
+		var	windForecast = OpenWeatherAPI.windForecast,
+				humidityForecast = OpenWeatherAPI.humidityForecast,
+				temperatureForecast = OpenWeatherAPI.temperatureForecast,
+				weatherStateForecast = OpenWeatherAPI.weatherStateForecast,
+				city = OpenWeatherAPI.city;
 
 		function findClosestVal( current,forecast ) {
 			var diff;
 			for (var dt in forecast) {
 				diff = Math.abs(dt - current);
-				if (diff <= threeHours) {
+				if (diff <= ( TIME_IN_SECONDS.HOUR * 3 ) ) {
 					return forecast[dt];
 				}
 			}
@@ -33,7 +28,7 @@
 
 		function getTemp( date ) {
 			var temperature = findClosestVal(date,temperatureForecast);
-			return (temperature)? Math.round(temperature) : getTemp(+date - hourAndHalf);
+			return (temperature) ? Math.round(temperature) : getTemp( +date - ( TIME_IN_SECONDS.HOUR * 1.5 ) );
 		}
 
 		function getHumidity( date ) {
@@ -60,8 +55,9 @@
 			return findClosestVal(date, weatherStateForecast).desc;
 		}
 
+
 		function getClosestTemp( date ) {
-			var closestDate = +date + halfADay;
+			var closestDate = +date + TIME_IN_SECONDS.DAY * 0.5;
 			return getTemp(closestDate);
 		}
 

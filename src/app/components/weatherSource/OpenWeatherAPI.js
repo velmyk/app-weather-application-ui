@@ -35,6 +35,7 @@
 			return	$http({
 						url: constants.APIURL,
 						method: "GET",
+						ignoreLoadingBar: true,
 						params: {
 							id: cityID,
 							units: "metric",
