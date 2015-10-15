@@ -5,20 +5,21 @@
 		.module("app")
 			.factory("TimeTrackingService", TimeTrackingService);
 
-	function TimeTrackingService(TIME_IN_SECONDS, localStorageService) {
-
+	function TimeTrackingService(TIME_IN_SECONDS, localStorageService, ClockService) {
+		var milliseconds=1000;
 		var time = {};
+		
 
 		function initTime() {
-			time.now = 1441875600;
-			time.displayTime = 1441875600;
+			time.now = ClockService.getCurrentTime().currentTime/milliseconds;
+			time.displayTime = time.now ;
 			time.displayDay = 0;
 			time.maxDays = getMaxDays();
 		}
 		
 		function getClosestDates (){
 			return [
-								calculateTime(0),
+								time.now,
 								calculateTime(1),
 								calculateTime(2)
 							];
@@ -51,7 +52,7 @@
 		}
 
 		function calculateTime (days) {
-			return (new Date((time.now + days * TIME_IN_SECONDS.DAY)*1000).setHours(15))/1000;
+			return (new Date((time.now + days * TIME_IN_SECONDS.DAY)*milliseconds).setHours(15))/milliseconds;
 		}
 
 		return {
