@@ -1,0 +1,15 @@
+<div class="container-fluid settings">
+	<div class="row">
+		<div class="col-xs-2">
+			<a ui-sref="home">
+				<img src="svg/cogweel.svg" class="wheel" alt="gearwheel" /> 
+			</a>
+		</div>
+		<div class="col-xs-8 settings-title">
+			Settings
+		</div>
+	</div>
+	<div class="row">
+		<settings-switcher data-title="Sync period:" data-init="{{settings.syncPeriod}}" class="max-days-settings"></settings-switcher>
+	</div>
+</div>

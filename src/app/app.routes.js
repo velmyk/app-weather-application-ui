@@ -24,7 +24,7 @@
 
 					.state("settings",{
 						url: "/settings",
-						templateUrl: "components/settings/settingsView.html",
+						templateUrl: !DeviceTypeServiceProvider.$get().isTablet() ? "components/settings/settingsView.html" : "components/settings/settingsTabletView.html",
 						controller: "SettingsController",
 						controllerAs: "settings"
 					});
