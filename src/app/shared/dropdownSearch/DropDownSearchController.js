@@ -5,7 +5,7 @@
 		.module("app")
 			.controller("DropdownSearchController", DropdownSearchController);
 
-	function DropdownSearchController($scope, CityService, SettingsSwitcherService) {
+	function DropdownSearchController($scope, $rootScope, CityService, SettingsSwitcherService) {
 
 		var vm = this;
 
@@ -20,6 +20,7 @@
 
 	  function displayCities(cities){
 			vm.cities = cities.data.list;
+			$rootScope.showLoader = false;
 		}
 
 		$scope.$watch('vm.city.selected', function(){
