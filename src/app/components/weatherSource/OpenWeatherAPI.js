@@ -5,13 +5,13 @@
 		.module("app")
 		.service("OpenWeatherAPI", OpenWeatherAPI);
 
-	function OpenWeatherAPI( $http, constants ){
-		var cityID = 703448,
-			city = {},
-			windForecast = {},
-			humidityForecast = {},
-			temperatureForecast = {},
-			weatherStateForecast = {};
+	function OpenWeatherAPI( $http, constants, localStorageService ){
+
+		var city = {},
+				windForecast = {},
+				humidityForecast = {},
+				temperatureForecast = {},
+				weatherStateForecast = {};
 
 		function fetchResponse( response ){
 			city.name = response.data.city.name;
@@ -37,7 +37,7 @@
 						method: "GET",
 						ignoreLoadingBar: true,
 						params: {
-							id: cityID,
+							id: localStorageService.get('locationToDisplay') || 703448,
 							units: "metric",
 							APPID: constants.APIKEY
 						}
