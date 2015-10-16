@@ -34,7 +34,7 @@ describe('Dropdown Serch Controller', function(){
 	}));
 
 	it('should have empty object city when settings page opens', function(){
-		expect(sut.city).toEqual({});
+		expect(sut.city).toEqual({selected: null});
 	});
 
 	it('should send request to server when search phrase has more then 2 symbols', function(){
@@ -63,7 +63,7 @@ describe('Dropdown Serch Controller', function(){
 
 	it('should save id of selected city to localStorage', function(){
 		spyOn(localStorageService, 'set');
-		expect(sut.city).toEqual({});
+		expect(sut.city).toEqual({selected: null});
 		sut.city.selected = {"_id":823556,"country":"RU","coord":{"lon":"39.638889","lat":43.794167},"name":["Khartsiz Pervyy"]};
 		mockScope.$digest();
 		expect(localStorageService.set).toHaveBeenCalled();

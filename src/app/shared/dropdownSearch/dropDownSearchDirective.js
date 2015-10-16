@@ -11,7 +11,7 @@
 			scope: {},
 			templateUrl: "shared/dropdownSearch/dropdownSearchView.html",
 			controller: "DropdownSearchController",
-			controllerAs: "vm"
+			controllerAs: "dropDownCtrl"
 		};
 	}
 
