@@ -5,11 +5,13 @@
 		.module("app")
 			.controller("DropdownSearchController", DropdownSearchController);
 
-	function DropdownSearchController($scope, $rootScope, CityService, SettingsSwitcherService) {
+	function DropdownSearchController($scope, PreloaderService, CityService, SettingsSwitcherService) {
 
 		var vm = this;
 
 		vm.city = {};
+
+		vm.indicatorStatus = PreloaderService.loadIndicator;
 
 		vm.refreshCities = function(searchPhrase) {
 			if(searchPhrase.trim().length > 2) {
@@ -20,7 +22,7 @@
 
 	  function displayCities(cities){
 			vm.cities = cities.data.list;
-			$rootScope.showLoader = false;
+			PreloaderService.disableIndicator();
 		}
 
 		$scope.$watch('vm.city.selected', function(){

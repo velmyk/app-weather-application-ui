@@ -5,7 +5,7 @@
 		.module("app")
 			.factory("CityService", CityService);
 
-	function CityService($http, $rootScope, constants) {
+	function CityService($http, constants, PreloaderService) {
 
 		return {
 			getCities : getCities
@@ -13,7 +13,7 @@
 
 		function getCities(searchPhrase) {
 
-			$rootScope.showLoader = true;
+			PreloaderService.enableIndicator();
 
 			return $http({
 				url: constants.CITIES_API_URL + searchPhrase,
