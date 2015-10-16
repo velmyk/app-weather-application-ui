@@ -37,7 +37,7 @@
 						method: "GET",
 						ignoreLoadingBar: true,
 						params: {
-							id: localStorageService.get('locationToDisplay') || 703448,
+							id: localStorageService.get('locationToDisplay') || constants.DEFAULT_CITY_ID,
 							units: "metric",
 							APPID: constants.APIKEY
 						}

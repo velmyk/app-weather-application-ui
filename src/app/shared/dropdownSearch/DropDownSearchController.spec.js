@@ -5,7 +5,8 @@ describe('Dropdown Serch Controller', function(){
 	var mockScope,
 			CityService,
 			localStorageService,
-			sut;
+			sut,
+			PreloaderService;
 
 	beforeEach(module('app'));
 
@@ -23,12 +24,13 @@ describe('Dropdown Serch Controller', function(){
 
 	}));
 
-	beforeEach(inject(function(_$rootScope_, _$controller_, _CityService_, _localStorageService_){
+	beforeEach(inject(function(_$rootScope_, _$controller_, _CityService_, _localStorageService_, _PreloaderService_){
 		mockScope = _$rootScope_.$new();
 		sut = _$controller_('DropdownSearchController', {$scope: mockScope});
 		mockScope.vm = sut;
 		CityService = _CityService_;
 		localStorageService = _localStorageService_;
+		PreloaderService = _PreloaderService_;
 	}));
 
 	it('should have empty object city when settings page opens', function(){
@@ -51,6 +53,12 @@ describe('Dropdown Serch Controller', function(){
 		sut.refreshCities('abcd');
 		expect(sut.cities).toEqual(jasmine.any(Array));
 		expect(sut.cities.length).toEqual(2);
+	});
+
+	it('should turn of load indicator when comes request from server', function(){
+		spyOn(PreloaderService, 'disableIndicator').and.callThrough();
+		sut.refreshCities('abc');
+		expect(PreloaderService.disableIndicator).toHaveBeenCalled();
 	});
 
 	it('should save id of selected city to localStorage', function(){
