@@ -35,7 +35,6 @@
 			return	$http({
 						url: constants.APIURL,
 						method: "GET",
-						ignoreLoadingBar: true,
 						params: {
 							id: localStorageService.get('locationToDisplay') || constants.DEFAULT_CITY_ID,
 							units: "metric",

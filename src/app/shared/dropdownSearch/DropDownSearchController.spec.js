@@ -55,12 +55,6 @@ describe('Dropdown Serch Controller', function(){
 		expect(sut.cities.length).toEqual(2);
 	});
 
-	it('should turn of load indicator when comes request from server', function(){
-		spyOn(PreloaderService, 'disableIndicator').and.callThrough();
-		sut.refreshCities('abc');
-		expect(PreloaderService.disableIndicator).toHaveBeenCalled();
-	});
-
 	it('should save id of selected city to localStorage', function(){
 		spyOn(localStorageService, 'set');
 		expect(sut.city).toEqual({selected: null});

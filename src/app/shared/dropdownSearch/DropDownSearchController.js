@@ -22,7 +22,6 @@
 
 		function displayCities(cities){
 			vm.cities = cities.data.list;
-			PreloaderService.disableIndicator();
 		}
 
 		$scope.$watch('dropDownCtrl.city.selected', function(){

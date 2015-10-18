@@ -3,17 +3,15 @@
 
 	angular
 		.module("app")
-			.factory("CityService", CityService);
+			.factory( "CityService", CityService );
 
-	function CityService($http, constants, PreloaderService) {
+	function CityService ( $http, constants ) {
 
 		return {
 			getCities : getCities
 		};
 
-		function getCities(searchPhrase) {
-
-			PreloaderService.enableIndicator();
+		function getCities ( searchPhrase ) {
 
 			return $http({
 				url: constants.CITIES_API_URL + searchPhrase,
