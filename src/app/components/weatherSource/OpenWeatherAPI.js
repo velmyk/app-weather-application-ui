@@ -36,7 +36,7 @@
 						url: constants.APIURL,
 						method: "GET",
 						params: {
-							id: localStorageService.get('locationToDisplay') || constants.DEFAULT_CITY_ID,
+							id: localStorageService.get('locationToDisplay', constants.DEFAULT_CITY_ID),
 							units: "metric",
 							APPID: constants.APIKEY
 						}
