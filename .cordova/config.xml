@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="412" id="cdbrzzs.wthrpp" version="4.1.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>WeatherApp</name>
-    <description>codeBrazzers weather application</description>
-    <author email="codebrazzers@gmail.com" href="https://github.com/codebrazzersweatherapp">Codebrazzers</author>
-    <content src="index.html" />
-    <access origin="*" />
-</widget>
