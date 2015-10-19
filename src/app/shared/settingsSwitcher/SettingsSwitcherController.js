@@ -11,7 +11,7 @@
 
 		vm.title = $scope.title;
 		vm.settingsKey = init.settingsKey;
-		vm.settingsKeyValue = localStorageService.get(vm.settingsKey) || 1;
+		vm.settingsKeyValue = localStorageService.get(vm.settingsKey, 1);
 		vm.buttons = init.buttons;
 		vm.setValue = SettingsSwitcherService.setSettings;
 
