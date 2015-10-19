@@ -60,12 +60,18 @@ and (max-device-height: 800px) {
 }
 }
 
-@media screen //styles for devices with min height from 1024px
+@media screen
 and (orientation: landscape)
-and (min-device-height: 1024px) {
+and (device-height: 768px) {
     .day-night {
+        height: 45%;    }
+}
 
-    }
+@media screen
+and (orientation: landscape)
+and (device-height: 950px) {
+    .day-night {
+        height: 29%;    }
 }
 
 .container-fluid {
