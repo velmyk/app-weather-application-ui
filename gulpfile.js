@@ -39,7 +39,9 @@ var gulp = require('gulp'),
     nodemon = require('gulp-nodemon'),
     clean = require('gulp-clean'),
     babel = require('gulp-babel'),
-    Server = require('karma').Server;
+    Server = require('karma').Server,
+    ngConstant = require('gulp-ng-constant'),
+    replace = require('gulp-replace-task');
 
 var bases = {
  app: 'src/',
@@ -49,6 +51,11 @@ var bases = {
 var port = {
   client: 8080
 }
+var wrapper = "(function() { \n'use strict'; \n<%= __ngModule %>})();"
+    realTime = "ClockService.getCurrentTime().currentTime/milliseconds",
+    realTimePattern = /ClockService\.getCurrentTime\(\)\.currentTime\/milliseconds/,
+    devTime = 1441875600;
+    devTimePattern = new RegExp(devTime);
 
 var path = {
       build: { //Build files
@@ -63,7 +70,11 @@ var path = {
           style: 'src/assets/scss/main.scss',
           svg: 'src/assets/svg/*.svg',
           views: 'src/app/**/*.html',
-          favicon: 'favicon.ico'
+          favicon: 'favicon.ico',
+          constants: 'src/app/components/constants/',
+          time:'src/app/shared/timeTracking/TimeTrackingService.js',
+          timeDest:'src/app/shared/timeTracking/',
+          api: './APIConfig.json'
       },
       watch: { // Which files we want to watch
           html: ['src/app/**/*.html','src/index.html'],
@@ -240,6 +251,55 @@ gulp.task('node-server', function () {
   })
 })
 
-gulp.task('default', ['unit-test', 'copy','copy-svg', 'watch', 'node-server', 'client']);
-gulp.task('release', ['copy','copy-svg', 'watch', 'node-server', 'client-release']);
+gulp.task('dev-api', function () {
+  var myConfig = require(path.src.api);
+  var envConfig = myConfig["dev"];
+  return ngConstant({
+      wrap: wrapper,
+      name: "app.config",
+      constants: envConfig,
+      stream: true
+    })
+    .pipe(gulp.dest(path.src.constants));
+});
 
+gulp.task('prod-api', function () {
+  var myConfig = require(path.src.api);
+  var envConfig = myConfig["production"];
+  return ngConstant({
+      wrap: wrapper,
+      name: "app.config",
+      constants: envConfig,
+      stream: true
+    })
+    .pipe(gulp.dest(path.src.constants));
+});
+
+gulp.task('dev-time', function () {
+  gulp.src(path.src.time)
+    .pipe(replace({
+      patterns: [
+        {
+          match: realTimePattern,
+          replacement: devTime
+        }
+      ]
+    }))
+    .pipe(gulp.dest(path.src.timeDest));
+});
+
+gulp.task('real-time', function () {
+  gulp.src(path.src.time)
+    .pipe(replace({
+      patterns: [
+        {
+          match: devTimePattern ,
+          replacement: realTime
+        }
+      ]
+    }))
+    .pipe(gulp.dest(path.src.timeDest));
+})
+
+gulp.task('default', ['dev-api','dev-time', 'copy','copy-svg', 'watch','unit-test', 'node-server', 'client']);
+gulp.task('release', ['prod-api','real-time','copy','copy-svg', 'watch', 'node-server', 'client-release']);

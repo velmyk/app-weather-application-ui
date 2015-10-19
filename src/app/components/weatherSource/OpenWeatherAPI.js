@@ -5,7 +5,7 @@
 		.module("app")
 		.service("OpenWeatherAPI", OpenWeatherAPI);
 
-	function OpenWeatherAPI( $http, constants, localStorageService ){
+	function OpenWeatherAPI( $http, constants, localStorageService, API_CONSTANTS ){
 
 		var city = {},
 				windForecast = {},
@@ -33,12 +33,12 @@
 
 		function loadForecast() {
 			return	$http({
-						url: constants.APIURL,
+						url: API_CONSTANTS.APIURL,
 						method: "GET",
 						params: {
 							id: localStorageService.get('locationToDisplay', constants.DEFAULT_CITY_ID),
 							units: "metric",
-							APPID: constants.APIKEY
+							APPID: API_CONSTANTS.APIKEY
 						}
 					})
 					.then(fetchResponse);
