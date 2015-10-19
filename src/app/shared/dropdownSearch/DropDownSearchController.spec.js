@@ -57,7 +57,6 @@ describe('Dropdown Serch Controller', function(){
 	it('should get array from server in respond', function(){
 		sut.refreshCities('abcd');
 		$rootScope.$apply();
-		console.log(sut.cities);
 		expect(sut.cities).toEqual(jasmine.any(Array));
 		expect(sut.cities.length).toEqual(2);
 	});

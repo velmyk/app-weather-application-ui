@@ -27,7 +27,7 @@
 				},
 
 				responseError: function( rejection ) {
-					if( ~response.config.url.indexOf(constants.CITIES_API_URL) ) {
+					if( ~rejection.config.url.indexOf(constants.CITIES_API_URL) ) {
 						PreloaderService.disableIndicator();
 					}
 					return $q.reject(rejection);
