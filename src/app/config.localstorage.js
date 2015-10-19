@@ -20,7 +20,7 @@
 							result = defaultValue;
 						}
 						return result;
-					}
+					};
 
 					$delegate.get = newGet;
 
