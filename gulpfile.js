@@ -118,11 +118,9 @@ gulp.task('clean', function() {
 
 
 gulp.task('clean-cordova', function() {
-  gulp.src(cordovaConf.create.dir)
+  gulp.src([cordovaConf.create.dir, cordovaConf.apkDest])
     .pipe(clean());
-  gulp.src(cordovaConf.apkDest)
-    .pipe(clean());
-});
+ });
 
 gulp.task('jshint', function() {
   return gulp.src(path.src.js)
@@ -256,7 +254,7 @@ gulp.task('copy-svg', function() {
     .pipe(gulp.dest(path.build.svg));
 });
 
-gulp.task('build-cordova', ['copy-svg', 'clean-cordova', 'build-app-release'], function() {
+gulp.task('build-cordova', ['prod-api', 'real-time', 'copy-svg', 'clean-cordova', 'build-app-release'], function() {
     return gulp.src(cordovaConf.buildSrc)
       .pipe(create(cordovaConf.create))
       .pipe(plugin(cordovaConf.plugins))
