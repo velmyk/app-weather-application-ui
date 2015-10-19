@@ -41,6 +41,7 @@ var gulp = require('gulp'),
     plugin = require('gulp-cordova-plugin'),
     version = require('gulp-cordova-version'),
     author = require('gulp-cordova-author'),
+    xml = require('gulp-cordova-xml'),
     pref = require('gulp-cordova-preference'),
     android = require('gulp-cordova-build-android'),
     icon = require('gulp-cordova-icon'),
@@ -64,6 +65,24 @@ var wrapper = "(function() { \n'use strict'; \n<%= __ngModule %>})();"
     realTimePattern = /ClockService\.getCurrentTime\(\)\.currentTime\/milliseconds/,
     devTime = 1441875600;
     devTimePattern = new RegExp(devTime);
+
+var cordovaConf = {
+  buildSrc: 'build',
+  apkDest: 'apk',
+  create: {
+    dir: 'cordova',
+    id: 'com.cdbrzzs.wthrpp',
+    name: 'WeatherApp'
+  },
+  plugins: [
+    'org.apache.cordova.device',
+    'cordova-plugin-screen-orientation',
+    'cordova-plugin-whitelist'
+  ],
+  xml: [
+    '<allow-intent href="http://*/*" />'
+  ]
+};
 
 var path = {
       build: { //Build files
@@ -99,7 +118,9 @@ gulp.task('clean', function() {
 
 
 gulp.task('clean-cordova', function() {
-  return gulp.src('.cordova')
+  gulp.src(cordovaConf.create.dir)
+    .pipe(clean());
+  gulp.src(cordovaConf.apkDest)
     .pipe(clean());
 });
 
@@ -235,18 +256,13 @@ gulp.task('copy-svg', function() {
     .pipe(gulp.dest(path.build.svg));
 });
 
-gulp.task('create', ['clean-cordova'], function() {
-    return gulp.src('build')
-        .pipe(create({directory: '.cordova', id: 'cdbrzzs.wthrpp', name: 'WeatherApp'}))
-        .pipe(plugin('org.apache.cordova.file'))
-        .pipe(plugin('org.apache.cordova.inappbrowser'))
-        .pipe(description('codeBrazzers weather application'))
-        .pipe(version('4.1.2', {androidVersionCode: 412}))
-        .pipe(author('Codebrazzers', 'codebrazzers@gmail.com', 'https://github.com/codebrazzersweatherapp'))
-        .pipe(android({
-            androidTarget: 'android-412'
-        }))
-        pipe(gulp.dest('apk'));
+gulp.task('build-cordova', ['copy-svg', 'clean-cordova', 'build-app-release'], function() {
+    return gulp.src(cordovaConf.buildSrc)
+      .pipe(create(cordovaConf.create))
+      .pipe(plugin(cordovaConf.plugins))
+      .pipe(xml(cordovaConf.xml))
+      .pipe(android())
+      .pipe(gulp.dest(cordovaConf.apkDest));
 });
 
 gulp.task('unit-test', function(){  
