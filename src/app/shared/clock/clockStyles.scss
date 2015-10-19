@@ -4,78 +4,65 @@
   transform: translateY(-50%);
 }
 
-#watch { 
-  width:100%;
-  height:25%;
-  font-size:250%;
- }
-
-#watch ul { 
-  list-style:none; 
-  margin:0; 
-  padding:0;
-  line-height:0;
-
-}
-
-#watch .digital-wrap {
-  display: inline-block;
-  margin:auto;
-  height:3em;
-  overflow:hidden;
-  @include vertical-align;
-
-}
-
-#watch .digital-wrap ul {
-  float:left;
-  width:2em;
-  height:3em;
-  color:#ddd;
-  padding: 0;
-  margin: 0;
-}
-
-
-#watch .digital-wrap li {
-  font-size:1.5em;
-  line-height:2em;
-  text-align:center;
+#watch {
+  font-size: 250%;
+  height: 25%;
+  width: 100%;
+  ul {
+    line-height: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .digital-wrap {
+    display: inline-block;
+    height: 3em;
+    margin: auto;
+    overflow: hidden;
+    @include vertical-align;
+    ul {
+      color: #ddd;
+      float: left;
+      height: 3em;
+      margin: 0;
+      padding: 0;
+      width: 2em;
+    }
+    li {
+      font-size: 1.5em;
+      line-height: 2em;
+      text-align: center;
+    }
+  }
 }
 
 .time-marker {
     font-size: 50%;
     @include vertical-align;
-    top:-20%;
-    
+    top: -20%; 
 }
 
 $dayInSec : 86400s;
 $hourInSec: 3600s;
 
-.divider{
-  float:left;
-  width:3%;
-  display:block;
-  height:100%;
+.divider {
+  float: left;
+  width: 3%;
+  display: block;
+  height: 100%;
   line-height: 300%;
 
 }
-.digit-seconds-animation{
-  animation:dsm 60s steps(60, end) 0s infinite;
+.digit-seconds-animation {
+  animation: dsm 60s steps(60, end) 0s infinite;
 }
-.digit-minutes-animation{
-  animation:dsm 3600s steps(60, start) infinite;
-}
-
-.digit-hours-animation{
-  animation:dh 86400s steps(24, start) infinite;
+.digit-minutes-animation {
+  animation: dsm 3600s steps(60, start) infinite;
 }
 
-#watch .digit-hours li {
- 
+.digit-hours-animation {
+  animation: dh 86400s steps(24, start) infinite;
 }
-
 
 @keyframes dsm {
   to { transform:translateY(-120em) }
@@ -85,30 +72,29 @@ $hourInSec: 3600s;
   to { transform:translateY(-48em) }
 }
 
-
-
 @media screen and (min-width: 768px) {
-  .time-marker{
-    top:-30%;
+  .time-marker {
+    top: -30%;
   }
 }
 
 @media screen and (min-width: 1200px) {
   
-  #watch{
+  #watch {
     font-size: 400%;
   }
-  .time-marker{
-    top:-35%;
+
+  .time-marker {
+    top: -35%;
   }
 }
 
-@media screen and (min-width: 2000px){
-  #watch{
+@media screen and (min-width: 2000px) {
+  #watch {
     font-size: 600%;
   }
-  .time-marker{
-    top:-30%;
+  
+  .time-marker {
+    top: -30%;
   }
 }
-

@@ -1,14 +1,13 @@
 .current-location {
     font-size: 2em;
     font-weight: lighter;
-    height: 16vh;
-    padding-top: 2%;
-    vertical-align: middle;
 
     &-title {
-        max-height: 16vh;
         overflow: hidden;
+        padding-left: 20%;
+        padding-top: 2%;
         text-overflow: ellipsis;
+        white-space: nowrap;
 
       &__city {
           white-space: nowrap;
@@ -16,17 +15,15 @@
     }
 }
 
-@media only screen and (min-device-width: 639px) {
+@media only screen and (min-device-width: 600px) {
     .current-location {
         display: table-cell;
         font-size: 1.5em;
         font-weight: lighter;
-        height: 16vh;
         padding-top: 2%;
     }
     
     &-title {
-        max-height: 16vh;
         overflow: hidden;
         text-overflow: ellipsis;
         vertical-align:middle;
@@ -46,4 +43,4 @@
     width: $full-width;
         display: table;
         height: 17%;
-}
+}   

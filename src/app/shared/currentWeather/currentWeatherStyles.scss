@@ -1,14 +1,13 @@
 .weatherIcon {
-	bottom: 13vh;
 	margin: 0; 
 	padding: 0;
 	position: relative;
 }
 
 .main {
-	height: 23vh;
+	height: 20%;
 	margin: auto;
-	width: 20vh;
+	width: 60%;
 	&.thunder {
 		@include bgImage(url("../svg/lightning.svg"));
 	}
@@ -48,8 +47,7 @@
 }
 
 .weather {
-	bottom: 6vh;
-	font-size: 2.73rem;
+	font-size: 2.6rem;
 	padding: 0;
 	position: relative;
 	text-transform: capitalize;
@@ -70,10 +68,11 @@ li {
 	width: 50%;
 }
 
-@media only screen and (min-device-width : 639px) {
+@media only screen 
+and (min-device-width : 600px) {
 	.weatherIcon {
 		bottom: 0;
-		height: 70%;
+		height: 60%;
 		margin:0;
 		padding:0;
 		position:relative;
@@ -81,7 +80,8 @@ li {
 
 	.main {
 		background-position: 50%;	
-		width:50%;
+		width: 80%;
+		height: 100%;
 	}
 
 	.weather {

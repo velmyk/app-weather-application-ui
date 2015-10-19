@@ -1,11 +1,7 @@
-.temperature {
-	height: 40vh;
-}
-
 .temperature-value {
-	bottom: 5vh;
 	font-size: 10em;
 	font-weight: lighter;
+	line-height: 100%;	
 	position: relative;
 	text-align: center;
 }
@@ -31,14 +27,24 @@
 	height: 30%;
 }
 
-@media only screen and (min-device-width : 639px) {
+.temperature-circle {
+	top: 20%;
+    border-radius: 15px;
+    border: 3px solid white;
+    height: 12px;
+    position: absolute;
+    width: 12px;
+}
+
+@media only screen 
+and (min-device-width : 600px) {
 	.main-temp {
 		height: 25%;
 		width:100%;
 	}
 
 	.temperature-value {
-		bottom: -5vh;
+		bottom: -25%;
 		font-size: 5em;
 		font-weight: lighter;
 		position: relative;
@@ -64,6 +70,6 @@
 	.temperature-minor {
 		font-size: 1.5em;
 		position: relative;
-		top: -1vh;
+		top: -5px;
 	}
 }
