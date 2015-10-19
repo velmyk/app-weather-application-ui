@@ -42,8 +42,8 @@
     top: -20%; 
 }
 
-$dayInSec : 86400s;
-$hourInSec: 3600s;
+$dayInSec : 86400s;//amount of seconds in day
+$hourInSec: 3600s;//amount of seconds in hour
 
 .divider {
   float: left;
@@ -64,36 +64,84 @@ $hourInSec: 3600s;
   animation: dh 86400s steps(24, start) infinite;
 }
 
-@keyframes dsm {
+@keyframes dsm {//animation description
   to { transform:translateY(-120em) }
 }
 
-@keyframes dh {
+@keyframes dh {//animation description
   to { transform:translateY(-48em) }
 }
 
-@media screen and (min-width: 768px) {
+@media screen 
+and (orientation: landscape) 
+and (min-height: 600px) {//styles for devices with width from 600px
   .time-marker {
-    top: -30%;
+    top: -23%;
+  }
+
+  .day-night {
+    bottom: 15%;
   }
 }
 
-@media screen and (min-width: 1200px) {
-  
+@media screen 
+and (orientation: landscape) 
+and (min-height: 768px) {//styles for devices with width from 768px
+  .time-marker {
+    top: -7%;
+  }
+}
+
+@media screen 
+and (orientation: landscape) 
+and (min-height: 800px) {//styles for devices with width from 800px
+  .day-night {
+    bottom: 30%;
+  }
+
+  .weather {
+    margin-top: -10%;
+  }
+}
+
+@media screen 
+and (orientation: landscape) 
+and (min-height: 900px) {//styles for devices with width from 900px
+  .time-marker {
+    top: 2%;
+  }
+  .day-night {
+    bottom: 35%;
+  }
+}
+
+@media screen 
+and (orientation: landscape) 
+and (min-height: 1024px) {//styles for devices with width from 1024px
+  .time-marker {
+    top: 7%;
+  }
+}
+
+@media screen 
+and (orientation: landscape) 
+and (min-height: 1200px) {//styles for devices with width from 1200px
   #watch {
     font-size: 400%;
   }
 
   .time-marker {
-    top: -35%;
+    top: -8%;
   }
 }
 
-@media screen and (min-width: 2000px) {
+@media screen 
+and (orientation: landscape) 
+and (min-height: 2000px) {//styles for devices with width from 2000px
   #watch {
     font-size: 600%;
   }
-  
+
   .time-marker {
     top: -30%;
   }

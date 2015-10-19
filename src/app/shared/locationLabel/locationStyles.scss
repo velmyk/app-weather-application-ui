@@ -15,7 +15,9 @@
     }
 }
 
-@media only screen and (min-device-width: 600px) {
+@media only screen 
+and (min-device-width: 600px) {//styles for device width from 600px
+
     .current-location {
         display: table-cell;
         font-size: 1.5em;
@@ -26,18 +28,19 @@
     &-title {
         overflow: hidden;
         text-overflow: ellipsis;
-        vertical-align:middle;
+        vertical-align: middle;
           &__city {
               white-space: nowrap;
           }
     }
+
  }
 
 .current-day {
     background-color: $bg-color;
-    margin:0;
+    margin: 0;
     overflow: hidden;
-    padding:0;
+    padding: 0;
     text-align: center;
     vertical-align: middle;
     width: $full-width;
