@@ -6,8 +6,6 @@
 
 
 		.constant("constants", {
-			APIURL: "http://api.openweathermap.org/data/2.5/forecast",
-			APIKEY: "01fd2cb2e81a0044dad76f3cbaf09e5d",
 			TODAYSTR: "Today",
 			TOMORROWSTR: "Tomorrow",
 			CITIES_API_URL: "http://localhost:8888/api/city/search/",

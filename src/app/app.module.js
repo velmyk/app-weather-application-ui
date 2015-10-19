@@ -9,7 +9,8 @@
 			'LocalStorageModule',
 			'angular-loading-bar',
 			'ui.select',
-			'ngSanitize'
+			'ngSanitize',
+			'app.config'
 		]);
 
 })();
