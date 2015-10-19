@@ -6,11 +6,6 @@
 	text-align: center;
 }
 
-.three-symbols {
-	text-align: center;
-	margin-right: 14%;
-}
-
 .day-night-shift {
 	display: block;
 	font-size: 1.5em;
@@ -49,17 +44,6 @@ and (min-device-width : 600px) {//styles for devices with width from 600px
 		font-weight: lighter;
 		position: relative;
 		text-align: center;
-	}
-
-	.three-symbols {
-		text-align: center;
-		margin-right: 14%;
-	}
-
-	.day-night {
-		position: relative;
-		right: -5em;
-		top: -20%;
 	}
 
 	.day-night-shift {

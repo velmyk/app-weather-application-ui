@@ -17,7 +17,7 @@
 			vm.closestForecast = WeatherService.getClosestTemp( $scope.time );
 			vm.isDay = DayNightService.isDay( $scope.time );
 			vm.isNight = DayNightService.isNight( $scope.time );
-			vm.symbols = ('' + vm.temperatureNow).length > 2 ? "three-symbols" : "two-symbols";
+			vm.belowMinusNine = vm.temperatureNow < -9 ? "temperature-left" : "temperature-center";
 		}
 
 }

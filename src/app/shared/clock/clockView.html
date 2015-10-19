@@ -1,8 +1,8 @@
 <div >
-  <div class="empty1"></div>
-  <div id="watch">
-    <div class="digital-wrap">
-      <ul class="digit-hours" >
+	<div class="empty1"></div>
+	<div id="watch">
+		<div class="digital-wrap">
+			<ul class="digit-hours" >
         <li ng-repeat ="value in clockCtrl.hoursDigits track by $index" ng-style="{'animation-delay': clockCtrl.hoursDelay+'s'}" class='digit-hours-animation'>{{value}}</li>
       </ul>
       <div class="divider">&colon;</div>
@@ -22,3 +22,5 @@
   <div class="current-date-value">{{clockCtrl.time.currentTime|date:'EEE, MMMM d'}}</div>
   <ng-transclude></ng-transclude>
 </div>
+
+

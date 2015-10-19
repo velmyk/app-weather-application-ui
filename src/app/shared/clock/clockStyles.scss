@@ -86,9 +86,17 @@ and (min-height: 600px) {//styles for devices with width from 600px
 
 @media screen 
 and (orientation: landscape) 
-and (min-height: 768px) {//styles for devices with width from 768px
+and (height: 768px) {//styles for devices with width from 768px
   .time-marker {
     top: -7%;
+  }
+
+  .weather {
+    top: 10px;
+  }
+
+  .location-value {
+    top: 6em;
   }
 }
 
@@ -102,6 +110,10 @@ and (min-height: 800px) {//styles for devices with width from 800px
   .weather {
     margin-top: -10%;
   }
+
+  .location-value {
+    top: 6em;
+  }
 }
 
 @media screen 
@@ -112,6 +124,10 @@ and (min-height: 900px) {//styles for devices with width from 900px
   }
   .day-night {
     bottom: 35%;
+  }
+
+  .location-value {
+    top: 7em;
   }
 }
 
