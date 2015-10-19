@@ -33,7 +33,7 @@ describe('TimeTrackingService', function() {
 	}
 
     function getMaxDays() {
-        return localStorageService.get("daysToDisplay") || 3;
+        return localStorageService.get("daysToDisplay", 3);
     }
 
     it("should get data from localStorage", function() {

@@ -24,7 +24,7 @@
 			var scopeTime = new Date(timestamp * miliseconds),
 					today = new Date() ;
 
-			if (!dayDisplayType) dayDisplayType = localStorageService.get("dayDisplayType") || 1;
+			if (!dayDisplayType) dayDisplayType = localStorageService.get("dayDisplayType", 1);
 			
 			scopeTime.setHours(0,0,0,0);
 			today.setHours(0,0,0,0);

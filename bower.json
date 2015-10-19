@@ -17,6 +17,8 @@
     "angular-touch": "~1.4.6",
     "angular-ui-router": "~0.2.15",
     "bootstrap": "~3.3.5",
-    "angular-loading-bar": "~0.8.0"
+    "angular-loading-bar": "~0.8.0",
+    "ui-select": "angular-ui-select#~0.13.2",
+    "angular-sanitize": "~1.4.7"
   }
 }

@@ -5,10 +5,10 @@
     .module("app")
       .factory("DayNightService", DayNightService);
 
-  function DayNightService(constants) {
+  function DayNightService(TIME_IN_MILISECONDS) {
 
     function isNight(date){
-      var dayPart = (new Date(date * constants.MILISEC_IN_SEC)).getHours();
+      var dayPart = (new Date(date * TIME_IN_MILISECONDS.SEC)).getHours();
       return !((dayPart > 6) && (dayPart < 22));
     }
 
