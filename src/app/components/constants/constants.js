@@ -4,7 +4,6 @@
 	angular
 		.module("app")
 
-
 		.constant("constants", {
 			TODAYSTR: "Today",
 			TOMORROWSTR: "Tomorrow",
@@ -12,17 +11,19 @@
 			DEFAULT_CITY_ID: 703448
 		})
 
-
 		.constant("TIME_IN_SECONDS", {
 			DAY: 86400,
 			HOUR: 3600,
 		})
 
-
 		.constant("TIME_IN_MILISECONDS", {
 			SEC: 1000
 		})
 
+		.constant("DISPLAY_TYPE", {
+			PORTRAIT: 'portrait',
+			LANDSCAPE: 'landscape'
+		})
 
 		.constant("SETTINGS", {
 

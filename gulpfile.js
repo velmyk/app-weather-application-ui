@@ -51,6 +51,7 @@ var gulp = require('gulp'),
     Server = require('karma').Server,
     ngConstant = require('gulp-ng-constant'),
     replace = require('gulp-replace-task');
+    repl = require('gulp-replace');
 
 var bases = {
  app: 'src/',
@@ -69,6 +70,8 @@ var wrapper = "(function() { \n'use strict'; \n<%= __ngModule %>})();"
 var cordovaConf = {
   buildSrc: 'build',
   apkDest: 'apk',
+  libMatch: "<!--CORDOVA-->",
+  libSrc: "<script src='cordova.js'></script><script src='cordova_plugins.js'></script>",
   create: {
     dir: 'cordova',
     id: 'com.cdbrzzs.wthrpp',
@@ -254,7 +257,13 @@ gulp.task('copy-svg', function() {
     .pipe(gulp.dest(path.build.svg));
 });
 
-gulp.task('build-cordova', ['prod-api', 'real-time', 'copy-svg', 'clean-cordova', 'build-app-release'], function() {
+gulp.task('lib-cordova', ['build-app-release'], function () {
+  return gulp.src(cordovaConf.buildSrc + "/index.html")
+          .pipe(repl(cordovaConf.libMatch, cordovaConf.libSrc))
+          .pipe(gulp.dest(cordovaConf.buildSrc));
+});
+
+gulp.task('build-cordova', ['prod-api', 'real-time', 'copy-svg', 'lib-cordova', 'clean-cordova'], function() {
     return gulp.src(cordovaConf.buildSrc)
       .pipe(create(cordovaConf.create))
       .pipe(plugin(cordovaConf.plugins))

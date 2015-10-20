@@ -3,19 +3,10 @@
 
 	angular
 		.module('app')
-			.run(function ($window, DeviceTypeService) {
-				
-				function lockScreen() {
-					var viewType = DeviceTypeService.isTablet() ? 'landscape' : 'portrait';
-	
-					if ($window.screen.lockOrientation) {
-						$window.screen.lockOrientation(viewType); 
-					}
-				}
+			.run(function ($window, ScreenLockService) {
 
 				document.addEventListener("deviceready", function () {
-					lockScreen();
+					ScreenLockService.lockScreen();
 				});
-				
 			});
 })();
