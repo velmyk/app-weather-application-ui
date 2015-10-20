@@ -36,12 +36,22 @@ var gulp = require('gulp'),
     templateCache = require('gulp-angular-templatecache'),
     ngAnnotate = require('gulp-ng-annotate'),
     concat = require('gulp-concat'),
+    create = require('gulp-cordova-create'),
+    description = require('gulp-cordova-description'),
+    plugin = require('gulp-cordova-plugin'),
+    version = require('gulp-cordova-version'),
+    author = require('gulp-cordova-author'),
+    xml = require('gulp-cordova-xml'),
+    pref = require('gulp-cordova-preference'),
+    android = require('gulp-cordova-build-android'),
+    icon = require('gulp-cordova-icon'),
     nodemon = require('gulp-nodemon'),
     clean = require('gulp-clean'),
     babel = require('gulp-babel'),
     Server = require('karma').Server,
     ngConstant = require('gulp-ng-constant'),
     replace = require('gulp-replace-task');
+    repl = require('gulp-replace');
 
 var bases = {
  app: 'src/',
@@ -56,6 +66,26 @@ var wrapper = "(function() { \n'use strict'; \n<%= __ngModule %>})();"
     realTimePattern = /ClockService\.getCurrentTime\(\)\.currentTime\/milliseconds/,
     devTime = 1441875600;
     devTimePattern = new RegExp(devTime);
+
+var cordovaConf = {
+  buildSrc: 'build',
+  apkDest: 'apk',
+  libMatch: "<!--CORDOVA-->",
+  libSrc: "<script src='cordova.js'></script><script src='cordova_plugins.js'></script>",
+  create: {
+    dir: 'cordova',
+    id: 'com.cdbrzzs.wthrpp',
+    name: 'WeatherApp'
+  },
+  plugins: [
+    'org.apache.cordova.device',
+    'cordova-plugin-screen-orientation',
+    'cordova-plugin-whitelist'
+  ],
+  xml: [
+    '<allow-intent href="http://*/*" />'
+  ]
+};
 
 var path = {
       build: { //Build files
@@ -89,6 +119,11 @@ gulp.task('clean', function() {
     .pipe(clean());
 });
 
+
+gulp.task('clean-cordova', function() {
+  gulp.src([cordovaConf.create.dir, cordovaConf.apkDest])
+    .pipe(clean());
+ });
 
 gulp.task('jshint', function() {
   return gulp.src(path.src.js)
@@ -220,6 +255,21 @@ gulp.task('copy', function() {
 gulp.task('copy-svg', function() {
   gulp.src(path.src.svg)
     .pipe(gulp.dest(path.build.svg));
+});
+
+gulp.task('lib-cordova', ['build-app-release'], function () {
+  return gulp.src(cordovaConf.buildSrc + "/index.html")
+          .pipe(repl(cordovaConf.libMatch, cordovaConf.libSrc))
+          .pipe(gulp.dest(cordovaConf.buildSrc));
+});
+
+gulp.task('build-cordova', ['prod-api', 'real-time', 'copy-svg', 'lib-cordova', 'clean-cordova'], function() {
+    return gulp.src(cordovaConf.buildSrc)
+      .pipe(create(cordovaConf.create))
+      .pipe(plugin(cordovaConf.plugins))
+      .pipe(xml(cordovaConf.xml))
+      .pipe(android())
+      .pipe(gulp.dest(cordovaConf.apkDest));
 });
 
 gulp.task('unit-test', function(){  
