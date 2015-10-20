@@ -31,6 +31,11 @@
     width: 12px;
 }
 
+.three-symbols {
+	text-align: center;
+	margin-right: 20%;
+}
+
 @media only screen 
 and (min-device-width : 600px) {//styles for devices with width from 600px
 	.main-temp {
@@ -55,5 +60,10 @@ and (min-device-width : 600px) {//styles for devices with width from 600px
 		font-size: 1.5em;
 		position: relative;
 		top: -5px;
+	}
+
+	.three-symbols {
+		text-align: center;
+		margin-right: 20%;
 	}
 }

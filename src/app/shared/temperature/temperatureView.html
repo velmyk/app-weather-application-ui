@@ -1,8 +1,7 @@
 <div >
-				<!--div class="col-xs-2"></div-->
-				<div class="temperature-value col-xs-10">{{tempCtrl.temperatureNow}}<span class="temperature-circle"></span>
+				<div ng-class="'temperature-value '+ tempCtrl.symbols">{{tempCtrl.temperatureNow}}<span class="temperature-circle"></span>
 				</div>
-				<div class="day-night col-xs-2">
+				<div class="day-night">
 					<span ng-if="tempCtrl.isNight" class="day-night-shift">Day</span>
 					<span ng-if="tempCtrl.isDay" class="day-night-shift">Night</span>
 					<span class="temperature-minor">{{tempCtrl.closestForecast}}</span>
