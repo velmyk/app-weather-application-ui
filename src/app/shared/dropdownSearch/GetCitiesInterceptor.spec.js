@@ -3,14 +3,14 @@
 describe('GetSities Interceptor', function(){
 
 	var	sut,
-			constants,
+			API_CONSTANTS,
 			PreloaderService;
 
 	beforeEach(module('app'));
 
-	beforeEach(inject(function(_GetCitiesInterceptor_, _constants_, _PreloaderService_){
+	beforeEach(inject(function(_GetCitiesInterceptor_, _API_CONSTANTS_, _PreloaderService_){
 		sut = _GetCitiesInterceptor_;
-		constants = _constants_;
+		API_CONSTANTS = _API_CONSTANTS_;
 		PreloaderService = _PreloaderService_;
 	}));
 
@@ -20,17 +20,17 @@ describe('GetSities Interceptor', function(){
 	});
 
 	it('should enable loading indicator if intercepts request with special URL', function(){
-		sut().request( { url: constants.CITIES_API_URL + 'abc'} );
+		sut().request( { url: API_CONSTANTS.CITIES_API_URL + 'abc'} );
 		expect(PreloaderService.enableIndicator).toHaveBeenCalled();
 	});
 
 	it('should disable loading indicator if intercepts response with special URL', function(){
-		sut().response( { config: { url: constants.CITIES_API_URL + 'abc'} } );
+		sut().response( { config: { url: API_CONSTANTS.CITIES_API_URL + 'abc'} } );
 		expect(PreloaderService.disableIndicator).toHaveBeenCalled();
 	});
 
 	it('should disable loading indicator if intercepts responseError with special URL', function(){
-		sut().responseError( { config: { url: constants.CITIES_API_URL + 'abc'} } );
+		sut().responseError( { config: { url: API_CONSTANTS.CITIES_API_URL + 'abc'} } );
 		expect(PreloaderService.disableIndicator).toHaveBeenCalled();
 	});
 

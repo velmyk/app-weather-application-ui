@@ -63,8 +63,10 @@ var port = {
 var envConfig = {
     realTimePattern : /ClockService\.getCurrentTime\(\)\.currentTime.?\/.?milliseconds/,
     devTime : 1441875600,
-    realApiPattern : /api.openweathermap.org\/data\/2.5\/forecast/,
-    devApi : "localhost:8888/api/weather"
+    realWeatherApiPattern : /api.openweathermap.org\/data\/2.5\/forecast/,
+    devWeatherApi : "localhost:8888/api/weather",
+    realCitiesApiPattern : /cb-weather-app.herokuapp.com\/api\/city\/search\//,
+    devCitiesApi : "localhost:8888/api/city/search/"
   };
 
 var cordovaConf = {
@@ -161,8 +163,12 @@ gulp.src(path.src.js)
           replacement: envConfig.devTime
         },
         {
-          match: envConfig.realApiPattern,
-          replacement: envConfig.devApi
+          match: envConfig.realWeatherApiPattern,
+          replacement: envConfig.devWeatherApi
+        },
+        {
+          match: envConfig.realCitiesApiPattern,
+          replacement: envConfig.devCitiesApi
         }
       ]
     }))
