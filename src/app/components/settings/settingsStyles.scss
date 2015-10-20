@@ -1,18 +1,18 @@
 .settings {
-    background-color: gray;
-    color: #FFF;
+    background-color: #222;
+    color: #fff;
     font-family: 'Titillium Web', sans-serif;
     font-size: 2em;
-    height: 100vh;
+    height: 100%;
     padding-top: 2%;
     text-align: center; 
     &-title {
-        padding-bottom: 5px;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #9A9A9A;
+        padding-bottom: 2%;
+        margin-bottom: 4%;
   }
 }
 
 .max-days-settings {
     margin-top: 2vh;
 }
+
