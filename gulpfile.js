@@ -49,7 +49,6 @@ var gulp = require('gulp'),
     clean = require('gulp-clean'),
     babel = require('gulp-babel'),
     Server = require('karma').Server,
-    ngConstant = require('gulp-ng-constant'),
     replace = require('gulp-replace-task');
     repl = require('gulp-replace');
 
@@ -61,11 +60,10 @@ var bases = {
 var port = {
   client: 8080
 }
-var wrapper = "(function() { \n'use strict'; \n<%= __ngModule %>})();"
-    realTime = "ClockService.getCurrentTime().currentTime/milliseconds",
-    realTimePattern = /ClockService\.getCurrentTime\(\)\.currentTime\/milliseconds/,
-    devTime = 1441875600;
-    devTimePattern = new RegExp(devTime);
+var realTimePattern = /ClockService\.getCurrentTime\(\)\.currentTime.?\/.?milliseconds/,
+    devTime = 1441875600,
+    realApiPattern = /api.openweathermap.org\/data\/2.5\/forecast/,
+    devApi = "localhost:8888/api/weather";
 
 var cordovaConf = {
   buildSrc: 'build',
@@ -91,6 +89,7 @@ var path = {
       build: { //Build files
           html: 'build/',
           js: 'build/js/',
+          jsMain: 'build/js/main.js',
           css: 'build/css/',
           svg: 'build/svg/'
       },
@@ -100,11 +99,7 @@ var path = {
           style: 'src/assets/scss/main.scss',
           svg: 'src/assets/svg/*.svg',
           views: 'src/app/**/*.html',
-          favicon: 'favicon.ico',
-          constants: 'src/app/components/constants/',
-          time:'src/app/shared/timeTracking/TimeTrackingService.js',
-          timeDest:'src/app/shared/timeTracking/',
-          api: './APIConfig.json'
+          favicon: 'favicon.ico'
       },
       watch: { // Which files we want to watch
           html: ['src/app/**/*.html','src/index.html'],
@@ -158,6 +153,18 @@ gulp.src(path.src.js)
     .pipe(ngAnnotate())
     .pipe(babel())
     .pipe(concat('all.js'))
+    .pipe(replace({
+      patterns: [
+        {
+          match: realTimePattern,
+          replacement: devTime
+        },
+        {
+          match: realApiPattern,
+          replacement: devApi
+        }
+      ]
+    }))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(path.build.js));
 });
@@ -225,6 +232,13 @@ gulp.task('watch', function () {
     gulp.watch(path.watch.svg,['build-app-dev']);
 });
 
+gulp.task('watch-release', function () {
+    gulp.watch(path.watch.html, ['build-app-release']);
+    gulp.watch(path.watch.style,['build-app-release']);
+    gulp.watch(path.watch.js,['build-app-release']);
+    gulp.watch(path.watch.svg,['build-app-release']);
+});
+
 gulp.task('svg', function() {
     var config = {
         dest : '.',
@@ -263,7 +277,7 @@ gulp.task('lib-cordova', ['build-app-release'], function () {
           .pipe(gulp.dest(cordovaConf.buildSrc));
 });
 
-gulp.task('build-cordova', ['prod-api', 'real-time', 'copy-svg', 'lib-cordova', 'clean-cordova'], function() {
+gulp.task('build-cordova', ['copy-svg', 'lib-cordova', 'clean-cordova'], function() {
     return gulp.src(cordovaConf.buildSrc)
       .pipe(create(cordovaConf.create))
       .pipe(plugin(cordovaConf.plugins))
@@ -301,55 +315,6 @@ gulp.task('node-server', function () {
   })
 })
 
-gulp.task('dev-api', function () {
-  var myConfig = require(path.src.api);
-  var envConfig = myConfig["dev"];
-  return ngConstant({
-      wrap: wrapper,
-      name: "app.config",
-      constants: envConfig,
-      stream: true
-    })
-    .pipe(gulp.dest(path.src.constants));
-});
 
-gulp.task('prod-api', function () {
-  var myConfig = require(path.src.api);
-  var envConfig = myConfig["production"];
-  return ngConstant({
-      wrap: wrapper,
-      name: "app.config",
-      constants: envConfig,
-      stream: true
-    })
-    .pipe(gulp.dest(path.src.constants));
-});
-
-gulp.task('dev-time', function () {
-  gulp.src(path.src.time)
-    .pipe(replace({
-      patterns: [
-        {
-          match: realTimePattern,
-          replacement: devTime
-        }
-      ]
-    }))
-    .pipe(gulp.dest(path.src.timeDest));
-});
-
-gulp.task('real-time', function () {
-  gulp.src(path.src.time)
-    .pipe(replace({
-      patterns: [
-        {
-          match: devTimePattern ,
-          replacement: realTime
-        }
-      ]
-    }))
-    .pipe(gulp.dest(path.src.timeDest));
-})
-
-gulp.task('default', ['dev-api','dev-time', 'copy','copy-svg', 'watch','unit-test', 'node-server', 'client']);
-gulp.task('release', ['prod-api','real-time','copy','copy-svg', 'watch', 'node-server', 'client-release']);
+gulp.task('default', ['copy','copy-svg', 'watch','unit-test', 'node-server', 'client']);
+gulp.task('release', ['copy','copy-svg','watch-release', 'node-server', 'client-release']);

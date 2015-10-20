@@ -11,7 +11,7 @@
 		
 
 		function initTime() {
-			time.now = ClockService.getCurrentTime().currentTime/milliseconds;
+			time.now = ClockService.getCurrentTime().currentTime / milliseconds;
 			time.displayTime = time.now ;
 			time.displayDay = 0;
 			time.maxDays = getMaxDays();

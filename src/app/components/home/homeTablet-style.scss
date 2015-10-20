@@ -6,7 +6,7 @@ $bg-color: #343434;//background color
 body, html {
     background-color: $bg-color;
     color: white;
-    font: $font-stack;
+    font-family: $font-stack;
     height: $full-heigth;
     text-align: center;
 }
