@@ -5,7 +5,7 @@
 		.module("app")
 			.factory( "CityService", CityService );
 
-	function CityService ( $http, constants ) {
+	function CityService ( $http, API_CONSTANTS ) {
 
 		return {
 			getCities : getCities
@@ -14,7 +14,7 @@
 		function getCities ( searchPhrase ) {
 
 			return $http({
-				url: constants.CITIES_API_URL + searchPhrase,
+				url: API_CONSTANTS.CITIES_API_URL + searchPhrase,
 				method: "GET",
 				ignoreLoadingBar: true
 			});
