@@ -60,10 +60,12 @@ var bases = {
 var port = {
   client: 8080
 }
-var realTimePattern = /ClockService\.getCurrentTime\(\)\.currentTime.?\/.?milliseconds/,
-    devTime = 1441875600,
-    realApiPattern = /api.openweathermap.org\/data\/2.5\/forecast/,
-    devApi = "localhost:8888/api/weather";
+var envConfig = {
+    realTimePattern : /ClockService\.getCurrentTime\(\)\.currentTime.?\/.?milliseconds/,
+    devTime : 1441875600,
+    realApiPattern : /api.openweathermap.org\/data\/2.5\/forecast/,
+    devApi : "localhost:8888/api/weather"
+  };
 
 var cordovaConf = {
   buildSrc: 'build',
@@ -89,7 +91,6 @@ var path = {
       build: { //Build files
           html: 'build/',
           js: 'build/js/',
-          jsMain: 'build/js/main.js',
           css: 'build/css/',
           svg: 'build/svg/'
       },
@@ -156,12 +157,12 @@ gulp.src(path.src.js)
     .pipe(replace({
       patterns: [
         {
-          match: realTimePattern,
-          replacement: devTime
+          match: envConfig.realTimePattern,
+          replacement: envConfig.devTime
         },
         {
-          match: realApiPattern,
-          replacement: devApi
+          match: envConfig.realApiPattern,
+          replacement: envConfig.devApi
         }
       ]
     }))
