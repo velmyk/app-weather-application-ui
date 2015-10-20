@@ -1,10 +1,7 @@
-$full-width: 100%;
-$full-heigth: 100%;
-$font-stack: 'Titillium Web', sans-serif;
-$bg-color: #343434;
-$col-green: #1D9E48;
-$col-violet: #75608B;
-$col-blue: #375D81;
+$full-width: 100%;//full horizontal coverage
+$full-heigth: 100%;//full vertical coverage
+$font-stack: 'Titillium Web', sans-serif;//main font of all page
+$bg-color: #343434;//background color
 
 body, html {
     background-color: $bg-color;
@@ -12,27 +9,70 @@ body, html {
     font: $font-stack;
     height: $full-heigth;
     text-align: center;
-    width: $full-width;
 }
 
-@media screen and (orientation: portrait) and (min-width: 639px) {
-    body{
-        -webkit-transform: rotate(-90deg);
-        -moz-transform: rotate(-90deg);
-        -ms-transform: rotate(-90deg);
-        -o-transform: rotate(-90deg);
-        transform: rotate(-90deg);
-        -webkit-transform-origin: left top;
-        -moz-transform-origin: left top;
-        -ms-transform-origin: left top;
-        -o-transform-origin: left top;
-        transform-origin: left top;
-        left: 0;
-        position: absolute;
-        top: 100%;
-        width: 100vh;
+@media screen//styles for devices 800x600px up to x768px
+and (orientation: landscape)
+and (min-device-width: 800px)
+and (min-device-height: 600px)
+and (max-device-height: 768px) {
+
+.current-time {
+    font-size: 7em;
+}
+
+.main {
+    height: 100%;
+    width: 80%;
+}
+
+.day-night {
+    bottom: 15%;
+}
+
+.temperature-circle {
+    height: 12px;
+    width: 12px;
+}
+
+.moon-img {
+    height: 75px;
+    width: 75%;
+}
+
+.weather {
+    margin-top: 2%;
+}
+
+}
+
+@media screen //styles for devices with min height of 768px up to 800px
+and (orientation: landscape)
+and (min-device-height: 768px)
+and (max-device-height: 800px) {
+
+    .day-night {
+        bottom: 30%;
     }
-} 
+
+    .weather {
+    margin-top: 2%;
+}
+}
+
+@media screen
+and (orientation: landscape)
+and (device-height: 768px) {
+    .day-night {
+        height: 45%;    }
+}
+
+@media screen
+and (orientation: landscape)
+and (device-height: 950px) {
+    .day-night {
+        height: 29%;    }
+}
 
 .container-fluid {
     overflow: hidden;
@@ -46,25 +86,29 @@ body, html {
     width: ($full-width*0.37);
 }
 
-.empty1 {
+.empty1 {//supporting block
     height: 17%;
     width: $full-width;
 }
 
-.empty2 {
+.empty2 {//supporting block
     width: $full-width;
 }
 
 .current-time {
-    font-size: 9em;
     height: 25%;
-    
+    span {
+        bottom: 75px;
+        font-size: 0.1em;
+        position: relative;
+    }
 }
 
 .current-date-value {
     font-size: 2em;
-    line-height: 1vh;
-    margin-top: 8%;
+    line-height: 1%;
+    position: relative;
+    top: 1em;
 }
 
 .location-value {
@@ -76,16 +120,18 @@ body, html {
         top: 12px;
     }
     display: inline-block;
-    margin-top: 10%;
+    position: relative;
+    top: 5em;
 } 
 
-.location-value:before {
-    @include bgImage(url("../svg/placeholder.svg"));;
+.location-value:before {//location icon implementation
+    @include bgImage(url("../svg/placeholder.svg"));
     content: '';
     display: block;
     float: left;
     height: 6%;
     width: 40px;
+    line-height: 8em;
 }
 
 .today-block {
@@ -99,24 +145,9 @@ body, html {
     height: 83%;
 }
 
-@media screen and (orientation: portrait) and (min-width: 768px) {
-    body {
-        height: 75%;
-    }
-
-    .current-time {
-        font-size: 9em;
-        height: 25%;
-        margin-top: 8%;
-        span {
-            bottom: 75px;
-            font-size: 0.1em;
-            position: relative;
-        }
-    }
-
-    .day-night {
-        position: relative;
-        top: -1vh;
-    }
+.today-wind {
+    margin-top: 10%;
+}
+.today-moon {
+    @extend .today-wind;
 }

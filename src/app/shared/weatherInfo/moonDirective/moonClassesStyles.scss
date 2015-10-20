@@ -1,15 +1,14 @@
 .moon-value {
-    font-size: 1.4em;
-    text-align: center;
-    position: relative;
-    bottom: 4vh;
+    font-size: 1.2em;
     font-weight: lighter;
+    position: relative;
+    text-align: center;
 	}
 
-.moon-img {
-	height: 8vh;
-	width: 8vh;
+.moon-img {//stack of moom phases img
+	height: 15%;
 	margin:auto;
+	width: 50%;
 
 		&.MoonPhaseOne {
 			@include bgImage(url("../svg/moon1.svg"));
@@ -61,18 +60,3 @@
 			background-size: 120%;
 		}		
 }
-
-.wind-moon {
-	display:table;
-	height: 30%;
-	overflow: hidden;
-	text-align: center;
-	width: $full-width;
-}
-
-.wind-moon-wrapper{
-	display: table-cell;
-	text-align: center;
-	vertical-align: middle;
-	width:$full-width;
-} 

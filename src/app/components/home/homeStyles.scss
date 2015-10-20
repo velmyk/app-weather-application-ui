@@ -1,3 +1,25 @@
+@mixin iphone_5 {//styles for iphone 5 resolution fixes
+	.location-gear{ left: 5%; top: 2%;}
+	.other-info {top: 10%;}
+	.arrow-left {right: 8%;}
+}
+@mixin iphone_6 {//styles for iphone 6 resolution fixes
+	.other-info {top: 10%;}
+	.weather {top: 20px;}
+	.arrow-left {right: 7%;}
+	div ul {padding-top: 35px;}
+	.location-gear{ left: 7%; top: 1.75%;}
+}
+@mixin iphone_7 {//styles for iphone 6+ resolution fixes
+	.other-info {top: 17%;}
+	.weather {top: 40px;}
+	div ul {padding-top: 50px;}
+	.location-gear{ left: 8%; top: 1%;}
+	.temperature-value {padding-left: 5%;}
+}
+@mixin nexus_4 {//styles for nexus 4 resolution fixes
+	.other-info {top: 10%;}
+}
 @mixin bgImage($url) {
 	background: $url no-repeat;
 	background-size: 75% auto;
@@ -8,7 +30,6 @@ body, html {
 	box-sizing: border-box;
 	color: white;
 	font-family: 'Titillium Web', sans-serif;
-	height: 100%;
 	text-align: center;
 	width: 100%;
 }
@@ -19,6 +40,7 @@ body, html {
 	padding: 0;
 }
 
+//stack of background colors for different forecasts
 .thunder {
 	background-color: #999999;
 }
@@ -62,27 +84,24 @@ body, html {
 
 .location-gear {
 	cursor: pointer;
-	left: 4vh;
+	left: 5%;
 	position: absolute;
-	top: 3.5vh;
+	top: 3%;
 	z-index: 100;
 }
 
 .location-container {
-	position: absolute;
-	width: 95%; 
+	height: 10%;
+	width: 100%; 
 }
 
 .weather-state-container {
-	height: 80%;
-	margin-top: 10vh;
+	height: 90%;
 }
 
 .arrow-left {
-	height: 9vh;
 	position: relative;
-	right: 2vh;
-	top: -7vh;
+	right: 6%;
 }
 
 .arrow-right {
@@ -90,8 +109,6 @@ body, html {
 }
 
 .other-info {
-	bottom: 4vh;
-	height: 20vh;
 	margin: -6px;
 	position: relative;
 }
@@ -100,112 +117,51 @@ body, html {
 	height: 45%;
 }
 
-.current-location-title {
-	position: relative;
-	top: 1vh;
-}
-
 .weather {
 	font-size: 2.3rem;
 	font-weight: lighter;
+	line-height: 3em;
+	margin-top: -10%;
 	padding: 0;
 	position: relative;
 	text-transform: capitalize;
-	top: -12vh;
 }
 
-@media screen and (max-device-height: 499px) {
-	.day-night {
-		position: absolute;
-		right: 10%;
-		top: 24%;
-	}
+.day-night {
+    bottom: 5%;
+    position: absolute;
+    right: 13%;
+}
 
-	.nav-dots {
-		bottom: 10vh;
-		position: relative;
-	}
+.temperature-central {
+	margin-bottom: 5%;
+	overflow: hidden;
+}
+
+.nav-dots {
+	height: 8%;
 }
 
 @media screen 
-and (min-device-height : 500px)
+and (min-device-height : 568px)
 and (max-device-height: 599px) {
-	.other-info {
-		bottom:-2vh;
-		height: 20vh;
-		margin: -6px;
-		position: relative;
-	}
-
-	.day-night {
-		position: absolute;
-		right: 10%;
-		top: 21%;
-	}
-
-	.nav-dots {
-		bottom: 10vh;
-		position: relative;
-	}
+	@include iphone_5;
 }
 
 @media screen 
 and (min-device-height : 600px)
 and (max-device-height : 699px)
 and (orientation: portrait) {
-	.other-info {
-		bottom:-5vh;
-		height: 20vh;
-		margin: -6px;
-		position: relative;
-	}
-
-	.weather {
-		top: -10vh;
-	}
-
-	.nav-dots {
-		bottom: 8vh;
-		position: relative;
-	}
-
-	.day-night {
-		position: absolute;
-		right: 10%;
-		top: 20%;
-	}
-}
-
-@media screen and (min-device-height : 700px) {
-	.other-info {
-		bottom:-12vh;
-		height: 20vh;
-		margin: -6px;
-		position: relative;
-	}
-
-	.weather {
-		top: -10vh;
-	}
-
-	.nav-dots {
-		bottom: 5vh;
-		position: relative;
-	}
-
-	.day-night {
-		position: absolute;
-		right: 10%;
-		top: 18%;
-	}
+	@include iphone_6;
 }
 
 @media screen 
-and (orientation: landscape)
-and (min-device-height : 640px) {
-	.day-night {
-		position: absolute;
-		right: 10%;
-		top: 30vh;
-	}
+and (min-device-height : 700px) {
+	@include iphone_7;
+}
+
+@media screen 
+and (min-device-height: 567px)
+and (max-device-height: 567px) {
+	@include nexus_4;
 }

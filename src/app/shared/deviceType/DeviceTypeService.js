@@ -9,7 +9,7 @@
 
 		function isTablet () {
 			var width = $window.innerWidth;
-			return width > 639;
+			return width > 600;
 		}
 
 		return {

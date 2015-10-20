@@ -1,4 +1,4 @@
-<div class=" container-fluid" ng-class="home.getBgClass(home.time.displayTime)" style="height:100vh">
+<div class=" container-fluid" ng-class="home.getBgClass(home.time.displayTime)">
 	<div class="location-container">
 		<div class='location-gear'>
 			<a ui-sref="settings">
@@ -8,7 +8,7 @@
 		<location class="current-location" data-time="{{home.time.displayTime}}"></location>
 	</div>
 	<div class="weather-state-container">
-		<temperature data-time="{{home.time.displayTime}}"></temperature>
+		<temperature data-time="{{home.time.displayTime}}" class="col-xs-12 temperature-central"></temperature>
 		<div class="row" ng-swipe-left="home.plusDay()" ng-swipe-right="home.minusDay()">
 			<navigation-arrow data-direction="left" class="col-xs-2 arrow-left" ng-click="home.minusDay()"></navigation-arrow>
 			<current-weather data-time="{{home.time.displayTime}}" class="col-xs-8 weather-wrapper"></current-weather>

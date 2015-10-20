@@ -1,18 +1,9 @@
-.temperature {
-	height: 40vh;
-}
-
 .temperature-value {
-	bottom: 5vh;
-	font-size: 10em;
+	font-size: 9.5em;
 	font-weight: lighter;
+	line-height: 100%;	
 	position: relative;
 	text-align: center;
-}
-
-.three-symbols {
-	text-align: center;
-	margin-right: 14%;
 }
 
 .day-night-shift {
@@ -31,29 +22,33 @@
 	height: 30%;
 }
 
-@media only screen and (min-device-width : 639px) {
+.temperature-circle {
+	top: 20%;
+    border-radius: 15px;
+    border: 3px solid white;
+    height: 12px;
+    position: absolute;
+    width: 12px;
+}
+
+.three-symbols {
+	text-align: center;
+	margin-right: 20%;
+}
+
+@media only screen 
+and (min-device-width : 600px) {//styles for devices with width from 600px
 	.main-temp {
 		height: 25%;
 		width:100%;
 	}
 
 	.temperature-value {
-		bottom: -5vh;
+		bottom: -25%;
 		font-size: 5em;
 		font-weight: lighter;
 		position: relative;
 		text-align: center;
-	}
-
-	.three-symbols {
-		text-align: center;
-		margin-right: 14%;
-	}
-
-	.day-night {
-		position: relative;
-		right: -5em;
-		top: -20%;
 	}
 
 	.day-night-shift {
@@ -64,6 +59,11 @@
 	.temperature-minor {
 		font-size: 1.5em;
 		position: relative;
-		top: -1vh;
+		top: -5px;
+	}
+
+	.three-symbols {
+		text-align: center;
+		margin-right: 20%;
 	}
 }

@@ -1,8 +1,7 @@
-.humidity-img {
-	height: 8vh;
-	margin:auto;
-	width: 8vh;
-	//humidity images
+.humidity-img {//humidity images
+	height: 15%;
+	margin: auto;
+	width: 50%;
 		&.lowHumidity {
 			@include bgImage(url("../svg/humidity-low.svg"));
 			background-size: 120%;
@@ -18,8 +17,7 @@
 }
 
 .humidity-value {
-    bottom: 4vh;
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: lighter;
     position: relative;
     text-align: center;

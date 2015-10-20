@@ -36,7 +36,7 @@
 		}
 
 		function getWindSpeed( date ) {
-			return findClosestVal(date, windForecast).speed;
+			return findClosestVal(date, windForecast).speed.toFixed(1);
 		}
 
 		function getWindDirection( date ) {
