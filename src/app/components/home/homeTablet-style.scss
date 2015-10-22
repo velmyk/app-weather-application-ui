@@ -11,16 +11,16 @@ body, html {
     text-align: center;
 }
 
+.wheel-tablet {
+    width: 45px;
+    float: left;
+}
+
 @media screen//styles for devices 800x600px up to x768px
 and (orientation: landscape)
 and (min-device-width: 800px)
 and (min-device-height: 600px)
 and (max-device-height: 768px) {
-
-.wheel-tablet {
-    height: 8%;
-    float: left;
-}
 
 .current-time {
     font-size: 7em;
