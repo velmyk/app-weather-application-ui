@@ -4,9 +4,12 @@
   "description": "best-super-mega-weather-app",
   "author": "codeBrazzers",
   "license": "MIT",
+  "main": "server.js",
   "devDependencies": {
-    "body-parser": "^1.0.1",
-    "express": "^4.0.0",
+
+  },
+  "dependencies": {
+    "bower": "^1.6.3",
     "gulp": "^3.9.0",
     "gulp-angular-templatecache": "^1.7.0",
     "gulp-autoprefixer": "^2.3.1",
@@ -48,12 +51,17 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "morgan": "^1.1.1",
     "phantomjs": "^1.9.18",
-    "protractor": "^2.5.0"
-  },
-  "dependencies": {
+    "protractor": "^2.5.0",
+    "body-parser": "^1.0.1",
+    "express": "^4.0.0",
     "mongoose": "^4.1.10"
   },
   "engines": {
-    "node": "0.12.7"
+    "node": "4.1.2"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install && gulp release",
+    "start": "node server.js",
+    "test": "karma start"
   }
 }

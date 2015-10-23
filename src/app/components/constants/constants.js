@@ -7,7 +7,7 @@
 		.constant("API_CONSTANTS", {
 			APIURL: "http://api.openweathermap.org/data/2.5/forecast",
 			APIKEY: "01fd2cb2e81a0044dad76f3cbaf09e5d",
-			CITIES_API_URL: "http://cb-weather-app.herokuapp.com/api/city/search/"
+			CITIES_API_URL: "https://cb-weather-app.herokuapp.com/api/city/search/"
 		})
 
 		.constant("constants", {

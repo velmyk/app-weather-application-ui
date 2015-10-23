@@ -324,4 +324,4 @@ gulp.task('node-server', function () {
 
 
 gulp.task('default', ['copy','copy-svg', 'watch','unit-test', 'node-server', 'client']);
-gulp.task('release', ['copy','copy-svg','watch-release', 'node-server', 'client-release']);
+gulp.task('release', ['copy','copy-svg', 'build-app-release']);
