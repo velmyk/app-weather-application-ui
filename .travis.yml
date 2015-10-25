@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+- '0.12'
+
+sudo: false
+
+cache:
+  directories:
+    - node_modules
+    - bower_components
+
+install:
+  - "npm install"
+
+script:
+  - npm test
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: vfKgoULlCu497XiFK0I4ncWBx1J9UP3I0tt4crx6H70l6ZLcFTXgl21j67gF4BuOUVGu7ZNmguIZmK5hAZ8BCRhxSF0SEkeh/id/VuLgyp2LyHxBY0c+b+cwDyWeTUHpi5Dzv+LPAJRo473wZ9XxP+pvjzy9s5ld7fIhHOt51jeBeQcV5Z3HkLjez17QMDukT1tDsLpp16f6Xk6j131VTFGJAWi58+qbG9k2lQhJR2Z3fOeH7J4vYs3o/g6s/RPtcP0qezYDssEHAFOYrF+N4uccVu8w/SSN9KSu5ts+86lVcKn9ldXPattIQt9Q/dlk0AjhlAmMK5VWyoWR5uJxdXHTY3YE7GU1cehDEktjzB7yomFNeivKz/vARr2+huhyh44wuDZ3AWphVWvuDcTPe2TCU+VezQ4JooRhq4HkGKxVx86pGhMXOesUgJvJB/9VbBDAIrL6xfZeTmQY20lsiDPtiEgxYBtAuKgq4UlX8xoWvUSXbINgKX28CbDA8p16fbsI8WsQzfXxyqzUwKWLgt9KeULZKszSdBpyPPi54XBmts5yTT1myQsc8JhJjEpZdk3/3XpwgjZ4w3EIbGP9F2eSG0DggD8SzNLMmUXkJv2EVCGrsaQ2vTRw7OpKhMRGgD1sNXMHk85lOTrR2FbhlBKlgb3Q32twEnv4XL7ItYA=
+  app: cb-weather-app-client
+  on:
+    repo: velmyk/weather-app
