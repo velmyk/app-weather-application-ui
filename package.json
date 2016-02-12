@@ -55,11 +55,12 @@
     "mongoose": "^4.1.10"
   },
   "engines": {
-    "node": "4.1.2"
+    "node": "4.1.2",
+    "npm": "2.14.x"
   },
   "scripts": {
-    "postinstall": "npm install -g bower && bower install && gulp release",
     "start": "node server.js",
-    "test": "karma start"
+    "test": "karma start",
+    "postinstall": "npm install -g bower && bower install && gulp release"
   }
 }
